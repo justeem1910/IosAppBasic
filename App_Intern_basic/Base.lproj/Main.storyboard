@@ -348,9 +348,11 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wbs-KE-Iex">
-                                <rect key="frame" x="107" y="136" width="200" height="110"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wbs-KE-Iex">
+                                <rect key="frame" x="39" y="166.5" width="336" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="UgT-QE-jdG"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="LBV-by-EaK"/>
@@ -359,7 +361,10 @@
                             <constraint firstItem="LBV-by-EaK" firstAttribute="trailing" secondItem="PJL-mY-4C0" secondAttribute="trailing" constant="24" id="2hP-NY-fnt"/>
                             <constraint firstItem="tV8-2y-EcS" firstAttribute="leading" secondItem="LBV-by-EaK" secondAttribute="leading" id="40Y-at-sNF"/>
                             <constraint firstItem="PJL-mY-4C0" firstAttribute="top" secondItem="tV8-2y-EcS" secondAttribute="bottom" constant="20" id="6Dx-hi-1Bj"/>
+                            <constraint firstItem="LBV-by-EaK" firstAttribute="trailing" secondItem="wbs-KE-Iex" secondAttribute="trailing" constant="39" id="9Yb-Re-GlK"/>
+                            <constraint firstItem="wbs-KE-Iex" firstAttribute="top" secondItem="PJL-mY-4C0" secondAttribute="bottom" constant="20" id="BnK-W2-iIN"/>
                             <constraint firstItem="LBV-by-EaK" firstAttribute="trailing" secondItem="tV8-2y-EcS" secondAttribute="trailing" id="Gne-kv-dsf"/>
+                            <constraint firstItem="wbs-KE-Iex" firstAttribute="leading" secondItem="LBV-by-EaK" secondAttribute="leading" constant="39" id="KmX-Wq-d0U"/>
                             <constraint firstItem="PJL-mY-4C0" firstAttribute="leading" secondItem="LBV-by-EaK" secondAttribute="leading" constant="24" id="LgC-pN-aEl"/>
                             <constraint firstItem="tV8-2y-EcS" firstAttribute="top" secondItem="LBV-by-EaK" secondAttribute="top" id="T6b-d4-JTp"/>
                         </constraints>

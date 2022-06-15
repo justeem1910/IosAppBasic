@@ -48,14 +48,11 @@ class PhoneViewController: UIViewController {
         
         
 
-        let hotlineAttribute = [ NSAttributedString.Key.foregroundColor: UIColor.black, NSAttributedString.Key.font: UIFont(name: "NunitoSans-Regular", size: 17) ]
+        let hotlineAttribute = [ NSAttributedString.Key.foregroundColor: Constants.Color.gray1, NSAttributedString.Key.font: UIFont(name: "NunitoSans-Regular", size: 17) ]
         
         let hotlineAttString = NSMutableAttributedString(string: hotline , attributes: hotlineAttribute as [NSAttributedString.Key : Any])
         
-        let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.lineHeightMultiple = 1.04
-        
-        let hotlinePhoneAttribute = [ NSAttributedString.Key.foregroundColor: Constants.Color.green, NSAttributedString.Key.font: UIFont(name: "NunitoSans-Bold", size: 17) , NSAttributedString.Key.paragraphStyle: paragraphStyle]
+        let hotlinePhoneAttribute = [ NSAttributedString.Key.foregroundColor: Constants.Color.green, NSAttributedString.Key.font: UIFont(name: "NunitoSans-Bold", size: 17) ]
         
         let hotlinePhoneAttString = NSAttributedString(string: phoneHotline, attributes: hotlinePhoneAttribute as [NSAttributedString.Key : Any])
         hotlineAttString.append(hotlinePhoneAttString)
@@ -67,7 +64,6 @@ class PhoneViewController: UIViewController {
         phoneNumber = tfPhoneNumber.text ?? ""
         if phoneNumber.first == "0"{
             if tfPhoneNumber.text?.count ?? 0 > 9 {
-                tfPhoneNumber.resignFirstResponder()
                 btnContinue.isEnabled = true
                 btnContinue.backgroundColor = Constants.Color.green
             } else {
@@ -76,7 +72,6 @@ class PhoneViewController: UIViewController {
             }
         } else {
             if tfPhoneNumber.text?.count ?? 0 > 8 {
-                tfPhoneNumber.resignFirstResponder()
                 btnContinue.backgroundColor = Constants.Color.green
                 btnContinue.isEnabled = true
             } else {
@@ -89,10 +84,23 @@ class PhoneViewController: UIViewController {
     
     @IBAction func btnContinue(_ sender: Any) {
         phoneNumber = tfPhoneNumber.text ?? ""
-        if phoneNumber == "123456789" || phoneNumber == "0123456789"{
-            let otpvc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "OtpViewController") as? OtpViewController
-            self.navigationController?.pushViewController(otpvc!, animated: true)
+        if phoneNumber.first == "0"{
+            phoneNumber.remove(at: phoneNumber.startIndex )
         }
+        var nextPhone = "+84 "
+        var arr = Array(phoneNumber)
+        var i = 0;
+        while i < arr.count {
+            nextPhone += String(arr[i])
+            if (i + 1) % 3 == 0 {
+                nextPhone += " "
+            }
+            i += 1
+        }
+        
+        let otpvc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "OtpViewController") as? OtpViewController
+        otpvc?.phoneNumber = nextPhone
+        self.navigationController?.pushViewController(otpvc!, animated: true)
     }
     
     
@@ -107,8 +115,6 @@ class PhoneViewController: UIViewController {
         if tfPhoneNumber.text?.count == 0 {
             viewPhoneNumber.layer.borderColor = Constants.Color.gray.cgColor
         }
-        
-       
         tfPhoneNumber.resignFirstResponder()
     }
 }

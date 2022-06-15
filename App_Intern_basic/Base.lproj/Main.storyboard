@@ -14,6 +14,9 @@
         <array key="NunitoSans-Regular.ttf">
             <string>NunitoSans-Regular</string>
         </array>
+        <array key="NunitoSans-SemiBold.ttf">
+            <string>NunitoSans-SemiBold</string>
+        </array>
     </customFonts>
     <scenes>
         <!--Navigation Controller-->
@@ -172,7 +175,9 @@
                                 </constraints>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" backgroundImage="imgEnVi"/>
+                                <state key="normal" backgroundImage="imgEnVi">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RYo-rl-SJj">
                                 <rect key="frame" x="24" y="263.5" width="366" height="56"/>
@@ -180,8 +185,8 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+84" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tKH-Cg-eF6">
                                         <rect key="frame" x="16" y="16.5" width="31" height="23.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" name="NunitoSans-Regular" family="Nunito Sans" pointSize="17"/>
-                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="NunitoSans-SemiBold" family="Nunito Sans" pointSize="17"/>
+                                        <color key="textColor" red="0.094117647058823528" green="0.098039215686274508" blue="0.12156862745098039" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Va-OO-nQx">
@@ -196,8 +201,8 @@
                                         <rect key="frame" x="80" y="0.0" width="270" height="56"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" red="0.17254901960784313" green="0.52549019607843139" blue="0.40392156862745099" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" name="NunitoSans-Regular" family="Nunito Sans" pointSize="17"/>
+                                        <color key="textColor" red="0.094117647058823528" green="0.098039215686274508" blue="0.12156862745098039" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="NunitoSans-SemiBold" family="Nunito Sans" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" keyboardType="phonePad" textContentType="tel"/>
                                     </textField>
                                 </subviews>
@@ -220,7 +225,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="Fr4-6v-fJk"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="NunitoSans-Regular" family="Nunito Sans" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="NunitoSans-Bold" family="Nunito Sans" pointSize="17"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Tiếp tục">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -247,7 +252,7 @@
                                                 <rect key="frame" x="34" y="0.5" width="165" height="23.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="NunitoSans-Bold" family="Nunito Sans" pointSize="17"/>
-                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="textColor" red="0.094117647058823528" green="0.098039215686274508" blue="0.12156862745098039" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
@@ -323,6 +328,9 @@
                                         </constraints>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Button" image="btnBackOtp"/>
+                                        <connections>
+                                            <action selector="btnBack:" destination="hg9-bo-jwf" eventType="touchUpInside" id="j9S-dn-6gv"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Xác minh số điện thoại" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RUI-lZ-ikV">
                                         <rect key="frame" x="112.5" y="9.5" width="189" height="25"/>
@@ -345,7 +353,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vui lòng nhập mã gồm 4 chữ số đã được gửi đến bạn vào số điện thoại +84 356 461 831" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PJL-mY-4C0">
                                 <rect key="frame" x="24" y="108" width="366" height="38.5"/>
                                 <fontDescription key="fontDescription" name="NunitoSans-Regular" family="Nunito Sans" pointSize="14"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="0.21176470588235294" green="0.23921568627450979" blue="0.30588235294117649" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wbs-KE-Iex">
@@ -369,6 +377,11 @@
                             <constraint firstItem="tV8-2y-EcS" firstAttribute="top" secondItem="LBV-by-EaK" secondAttribute="top" id="T6b-d4-JTp"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="btnBackOtp" destination="owk-qD-Azv" id="Iqo-ab-GlF"/>
+                        <outlet property="lblPhone" destination="PJL-mY-4C0" id="U61-AH-wc1"/>
+                        <outlet property="stvOtp" destination="wbs-KE-Iex" id="hS6-1g-ffr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gw1-UT-wGV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

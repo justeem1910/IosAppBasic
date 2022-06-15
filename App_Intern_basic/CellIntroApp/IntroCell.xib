@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="NunitoSans-Regular.ttf">
+            <string>NunitoSans-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="IntroCell" customModule="App_Intern_basic" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="377" height="541"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="377" height="541"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bgcell1" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ar2-c1-4yi">
+                        <rect key="frame" x="0.0" y="0.0" width="377" height="377"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="Ar2-c1-4yi" secondAttribute="height" id="MCe-0m-kdq"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bác sĩ sẵn lòng chăm sóc khi bạn cần" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="71T-uo-b8f">
+                        <rect key="frame" x="37" y="397" width="303" height="65.5"/>
+                        <fontDescription key="fontDescription" name="NunitoSans-Regular" family="Nunito Sans" pointSize="24"/>
+                        <color key="textColor" red="0.14117647058823529" green="0.16470588235294117" blue="0.38039215686274508" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chọn chuyên khoa, bác sĩ phù hợp và được thăm khám trong không gian thoải mái tại nhà" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zCp-v1-vPg">
+                        <rect key="frame" x="37" y="474.5" width="303" height="38.5"/>
+                        <fontDescription key="fontDescription" name="NunitoSans-Regular" family="Nunito Sans" pointSize="14"/>
+                        <color key="textColor" red="0.21176470588235294" green="0.23921568627450979" blue="0.30588235294117649" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <color key="backgroundColor" red="0.95686274770000002" green="0.96078431610000004" blue="0.98039215800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <constraints>
+                <constraint firstItem="Ar2-c1-4yi" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="8Sw-gR-cVC"/>
+                <constraint firstItem="71T-uo-b8f" firstAttribute="leading" secondItem="ZTg-uK-7eu" secondAttribute="leading" constant="37" id="KC8-Rt-bdq"/>
+                <constraint firstItem="Ar2-c1-4yi" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" id="P9t-Yx-DLn"/>
+                <constraint firstAttribute="trailing" secondItem="71T-uo-b8f" secondAttribute="trailing" constant="37" id="X2q-vt-amY"/>
+                <constraint firstAttribute="top" secondItem="Ar2-c1-4yi" secondAttribute="top" id="ahm-D5-9qi"/>
+                <constraint firstItem="71T-uo-b8f" firstAttribute="top" secondItem="Ar2-c1-4yi" secondAttribute="bottom" constant="20" id="hZ9-BL-bN1"/>
+                <constraint firstItem="zCp-v1-vPg" firstAttribute="width" secondItem="71T-uo-b8f" secondAttribute="width" id="peG-PR-Zam"/>
+                <constraint firstItem="zCp-v1-vPg" firstAttribute="top" secondItem="71T-uo-b8f" secondAttribute="bottom" constant="12" id="rqK-W7-Gb9"/>
+                <constraint firstItem="zCp-v1-vPg" firstAttribute="centerX" secondItem="71T-uo-b8f" secondAttribute="centerX" id="uL7-vV-wHB"/>
+            </constraints>
+            <size key="customSize" width="415" height="593"/>
+            <connections>
+                <outlet property="img_intro" destination="Ar2-c1-4yi" id="AXp-XQ-j7C"/>
+            </connections>
+            <point key="canvasLocation" x="170.28985507246378" y="179.12946428571428"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="bgcell1" width="375" height="375"/>
+    </resources>
+</document>

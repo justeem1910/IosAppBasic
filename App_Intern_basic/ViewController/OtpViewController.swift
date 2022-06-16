@@ -18,7 +18,7 @@ class OtpViewController: UIViewController {
     @IBOutlet weak var tfOtp4:UITextField!
     @IBOutlet weak var tfOtp5:UITextField!
     @IBOutlet weak var tfOtp6:UITextField!
-    //aaaaaa
+    
     //aaaaa
     var stringNumber = "Vui lòng nhập mã gồm 4 chữ số đã được gửi đến bạn vào số điện thoại "
     var phoneNumber = ""

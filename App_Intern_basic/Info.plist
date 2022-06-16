@@ -4,6 +4,8 @@
 <dict>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
+		<key>UIApplicationSupportsTabbedSceneCollection</key>
+		<string>Multiple commands produce &apos;/Users/hoanglong/Library/Developer/Xcode/DerivedData/App_Intern_basic-dawgabstiblswhauebinzdrpvmfr/Build/Products/Debug-iphonesimulator/App_Intern_basic.app/Info.plist&apos;</string>
 		<key>UIApplicationSupportsMultipleScenes</key>
 		<false/>
 		<key>UISceneConfigurations</key>

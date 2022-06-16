@@ -8,6 +8,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Inter-Medium.ttf">
+            <string>Inter-Medium</string>
+        </array>
         <array key="NunitoSans-Bold.ttf">
             <string>NunitoSans-Bold</string>
         </array>
@@ -332,8 +335,8 @@
                                             <action selector="btnBack:" destination="hg9-bo-jwf" eventType="touchUpInside" id="j9S-dn-6gv"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Xác minh số điện thoại" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RUI-lZ-ikV">
-                                        <rect key="frame" x="112.5" y="9.5" width="189" height="25"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Xác minh số điện thoại" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RUI-lZ-ikV">
+                                        <rect key="frame" x="62" y="2" width="290" height="40"/>
                                         <fontDescription key="fontDescription" name="NunitoSans-Bold" family="Nunito Sans" pointSize="18"/>
                                         <color key="textColor" red="0.14117647058823529" green="0.16470588235294117" blue="0.38039215686274508" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -343,9 +346,9 @@
                                 <constraints>
                                     <constraint firstItem="RUI-lZ-ikV" firstAttribute="centerX" secondItem="tV8-2y-EcS" secondAttribute="centerX" id="7o8-Mh-geX"/>
                                     <constraint firstItem="owk-qD-Azv" firstAttribute="centerY" secondItem="tV8-2y-EcS" secondAttribute="centerY" id="PNF-2d-7Cf"/>
-                                    <constraint firstItem="RUI-lZ-ikV" firstAttribute="height" secondItem="tV8-2y-EcS" secondAttribute="height" multiplier="0.568182" id="PP8-GS-l3G"/>
+                                    <constraint firstItem="RUI-lZ-ikV" firstAttribute="height" secondItem="tV8-2y-EcS" secondAttribute="height" multiplier="0.9" id="PP8-GS-l3G"/>
                                     <constraint firstAttribute="height" constant="44" id="Xmm-NP-gtw"/>
-                                    <constraint firstItem="RUI-lZ-ikV" firstAttribute="width" secondItem="tV8-2y-EcS" secondAttribute="width" multiplier="0.456522" id="ghO-sl-CDc"/>
+                                    <constraint firstItem="RUI-lZ-ikV" firstAttribute="width" secondItem="tV8-2y-EcS" secondAttribute="width" multiplier="0.7" id="ghO-sl-CDc"/>
                                     <constraint firstItem="owk-qD-Azv" firstAttribute="leading" secondItem="tV8-2y-EcS" secondAttribute="leading" constant="16" id="l5x-QB-pNl"/>
                                     <constraint firstItem="RUI-lZ-ikV" firstAttribute="centerY" secondItem="tV8-2y-EcS" secondAttribute="centerY" id="sO5-iO-W9a"/>
                                 </constraints>
@@ -356,10 +359,73 @@
                                 <color key="textColor" red="0.21176470588235294" green="0.23921568627450979" blue="0.30588235294117649" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wbs-KE-Iex">
-                                <rect key="frame" x="39" y="166.5" width="336" height="42"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="wbs-KE-Iex">
+                                <rect key="frame" x="59" y="166.5" width="296" height="42"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="awc-Nc-JXn">
+                                        <rect key="frame" x="0.0" y="0.0" width="36" height="42"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="42" id="cNi-op-BEN"/>
+                                            <constraint firstAttribute="width" constant="36" id="zwD-t1-ZLH"/>
+                                        </constraints>
+                                        <color key="textColor" red="0.015686274509803921" green="0.047058823529411764" blue="0.13333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" textContentType="tel"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="USf-5z-K6Y">
+                                        <rect key="frame" x="52" y="0.0" width="36" height="42"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="36" id="XQa-BH-Gaw"/>
+                                            <constraint firstAttribute="height" constant="42" id="zsC-Dc-R1G"/>
+                                        </constraints>
+                                        <color key="textColor" red="0.015686274510000001" green="0.047058823530000002" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" textContentType="tel"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aZu-N3-iz5">
+                                        <rect key="frame" x="104" y="0.0" width="36" height="42"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="36" id="F5f-sx-wJg"/>
+                                            <constraint firstAttribute="height" constant="42" id="RIb-ZU-Lt7"/>
+                                        </constraints>
+                                        <color key="textColor" red="0.015686274510000001" green="0.047058823530000002" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" textContentType="tel"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8il-jW-cFP">
+                                        <rect key="frame" x="156" y="0.0" width="36" height="42"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="36" id="KrH-qR-snL"/>
+                                            <constraint firstAttribute="height" constant="42" id="eTy-Qz-ucT"/>
+                                        </constraints>
+                                        <color key="textColor" red="0.015686274510000001" green="0.047058823530000002" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" textContentType="tel"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jVI-Of-0lH">
+                                        <rect key="frame" x="208" y="0.0" width="36" height="42"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="42" id="eE2-en-MQ6"/>
+                                            <constraint firstAttribute="width" constant="36" id="vLb-BQ-Oo8"/>
+                                        </constraints>
+                                        <color key="textColor" red="0.015686274510000001" green="0.047058823530000002" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" textContentType="tel"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oS4-Ji-55o">
+                                        <rect key="frame" x="260" y="0.0" width="36" height="42"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="36" id="5WU-a7-JV4"/>
+                                            <constraint firstAttribute="height" constant="42" id="Nyb-zC-fmb"/>
+                                        </constraints>
+                                        <color key="textColor" red="0.015686274510000001" green="0.047058823530000002" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" textContentType="tel"/>
+                                    </textField>
+                                </subviews>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="42" id="UgT-QE-jdG"/>
+                                    <constraint firstAttribute="width" constant="296" id="kM0-CM-qrp"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -369,18 +435,23 @@
                             <constraint firstItem="LBV-by-EaK" firstAttribute="trailing" secondItem="PJL-mY-4C0" secondAttribute="trailing" constant="24" id="2hP-NY-fnt"/>
                             <constraint firstItem="tV8-2y-EcS" firstAttribute="leading" secondItem="LBV-by-EaK" secondAttribute="leading" id="40Y-at-sNF"/>
                             <constraint firstItem="PJL-mY-4C0" firstAttribute="top" secondItem="tV8-2y-EcS" secondAttribute="bottom" constant="20" id="6Dx-hi-1Bj"/>
-                            <constraint firstItem="LBV-by-EaK" firstAttribute="trailing" secondItem="wbs-KE-Iex" secondAttribute="trailing" constant="39" id="9Yb-Re-GlK"/>
                             <constraint firstItem="wbs-KE-Iex" firstAttribute="top" secondItem="PJL-mY-4C0" secondAttribute="bottom" constant="20" id="BnK-W2-iIN"/>
                             <constraint firstItem="LBV-by-EaK" firstAttribute="trailing" secondItem="tV8-2y-EcS" secondAttribute="trailing" id="Gne-kv-dsf"/>
-                            <constraint firstItem="wbs-KE-Iex" firstAttribute="leading" secondItem="LBV-by-EaK" secondAttribute="leading" constant="39" id="KmX-Wq-d0U"/>
                             <constraint firstItem="PJL-mY-4C0" firstAttribute="leading" secondItem="LBV-by-EaK" secondAttribute="leading" constant="24" id="LgC-pN-aEl"/>
                             <constraint firstItem="tV8-2y-EcS" firstAttribute="top" secondItem="LBV-by-EaK" secondAttribute="top" id="T6b-d4-JTp"/>
+                            <constraint firstItem="wbs-KE-Iex" firstAttribute="centerX" secondItem="LBV-by-EaK" secondAttribute="centerX" id="coR-iV-lnZ"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="btnBackOtp" destination="owk-qD-Azv" id="Iqo-ab-GlF"/>
                         <outlet property="lblPhone" destination="PJL-mY-4C0" id="U61-AH-wc1"/>
                         <outlet property="stvOtp" destination="wbs-KE-Iex" id="hS6-1g-ffr"/>
+                        <outlet property="tfOtp1" destination="awc-Nc-JXn" id="mBc-a3-Cta"/>
+                        <outlet property="tfOtp2" destination="USf-5z-K6Y" id="uXt-7Y-VBt"/>
+                        <outlet property="tfOtp3" destination="aZu-N3-iz5" id="g7H-sJ-pSy"/>
+                        <outlet property="tfOtp4" destination="8il-jW-cFP" id="SxD-BM-Wvr"/>
+                        <outlet property="tfOtp5" destination="jVI-Of-0lH" id="ddU-qt-BjG"/>
+                        <outlet property="tfOtp6" destination="oS4-Ji-55o" id="tCB-FQ-xxR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gw1-UT-wGV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

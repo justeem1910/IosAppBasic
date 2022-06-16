@@ -40,6 +40,7 @@ class PhoneViewController: UIViewController {
         
         viewPhoneNumber.layer.borderColor = Constants.Color.gray.cgColor
         tfPhoneNumber.text = ""
+        tfPhoneNumber.delegate = self
         
         btnContinue.backgroundColor = Constants.Color.green2
         btnContinue.layer.cornerRadius = 24
@@ -104,6 +105,7 @@ class PhoneViewController: UIViewController {
     }
     
     
+    
     @objc func myTargetFunction(textField: UITextField) {
         viewPhoneNumber.layer.borderColor = Constants.Color.green.cgColor
     }
@@ -116,5 +118,15 @@ class PhoneViewController: UIViewController {
             viewPhoneNumber.layer.borderColor = Constants.Color.gray.cgColor
         }
         tfPhoneNumber.resignFirstResponder()
+    }
+}
+extension PhoneViewController: UITextFieldDelegate{
+    func textField(_ textField:UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField == tfPhoneNumber {
+            let allowedCharacters = CharacterSet(charactersIn:"0123456789")
+            let characterSet = CharacterSet(charactersIn: string)
+            return allowedCharacters.isSuperset(of: characterSet)
+        }
+        return true
     }
 }

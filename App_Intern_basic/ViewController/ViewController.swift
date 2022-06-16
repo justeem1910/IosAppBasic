@@ -22,6 +22,8 @@ class ViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         gradient.frame = viewBgIntro.bounds
+        
+        
     }
 
     

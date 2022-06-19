@@ -73,8 +73,11 @@
                                 <rect key="frame" x="0.0" y="782" width="414" height="114"/>
                                 <subviews>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="34Y-n7-a7V">
-                                        <rect key="frame" x="199" y="16" width="199" height="48"/>
+                                        <rect key="frame" x="200" y="16" width="198" height="48"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="48" id="ShD-li-54t"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="NunitoSans-Bold" family="Nunito Sans" pointSize="15"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Tạo tài khoản">
@@ -87,15 +90,15 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="34Y-n7-a7V" secondAttribute="trailing" constant="16" id="Kqg-6b-pkI"/>
+                                    <constraint firstItem="34Y-n7-a7V" firstAttribute="top" secondItem="az5-in-WwE" secondAttribute="top" constant="16" id="6fn-kJ-LTs"/>
+                                    <constraint firstAttribute="trailing" secondItem="34Y-n7-a7V" secondAttribute="trailing" constant="16" id="Dbu-hM-ch2"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YDy-Ub-mus">
-                                <rect key="frame" x="33" y="798" width="150" height="48"/>
+                                <rect key="frame" x="16" y="798" width="168" height="48"/>
                                 <color key="backgroundColor" red="0.17254901960784313" green="0.52549019607843139" blue="0.40392156862745099" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="YDy-Ub-mus" secondAttribute="height" multiplier="150:48" id="65T-V5-WjW"/>
-                                    <constraint firstAttribute="height" constant="48" id="m3h-BV-92B"/>
+                                    <constraint firstAttribute="height" constant="48" id="pko-VB-IpB"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="NunitoSans-Bold" family="Nunito Sans" pointSize="15"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -110,20 +113,19 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.95686274509803915" green="0.96078431372549022" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="YDy-Ub-mus" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="33" id="9xr-VH-AGf"/>
+                            <constraint firstItem="az5-in-WwE" firstAttribute="top" secondItem="YDy-Ub-mus" secondAttribute="top" constant="-16" id="4z7-65-d3J"/>
+                            <constraint firstItem="YDy-Ub-mus" firstAttribute="width" secondItem="34Y-n7-a7V" secondAttribute="width" multiplier="150:177" id="9gB-6u-y1m"/>
                             <constraint firstItem="r4K-8d-cob" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="AIQ-gZ-QTH"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="YDy-Ub-mus" secondAttribute="bottom" constant="16" id="JH0-Pz-fT2"/>
-                            <constraint firstItem="az5-in-WwE" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Jmk-g0-9kO"/>
-                            <constraint firstItem="34Y-n7-a7V" firstAttribute="leading" secondItem="YDy-Ub-mus" secondAttribute="trailing" constant="16" id="LgC-pP-7mc"/>
-                            <constraint firstItem="az5-in-WwE" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="NH1-H8-Jco"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="YDy-Ub-mus" secondAttribute="bottom" constant="16" id="EmL-mP-VdC"/>
+                            <constraint firstItem="az5-in-WwE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Ik3-s9-bcP"/>
+                            <constraint firstItem="az5-in-WwE" firstAttribute="bottom" secondItem="8bC-Xf-vdC" secondAttribute="bottom" id="MXY-vR-bME"/>
                             <constraint firstItem="r4K-8d-cob" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="OWX-b3-686"/>
-                            <constraint firstItem="YDy-Ub-mus" firstAttribute="top" secondItem="az5-in-WwE" secondAttribute="top" constant="16" id="SS3-MX-tA7"/>
                             <constraint firstItem="cc6-Fy-kkL" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="U20-Ss-hVj"/>
                             <constraint firstItem="cc6-Fy-kkL" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Uac-ZH-vji"/>
-                            <constraint firstItem="34Y-n7-a7V" firstAttribute="top" secondItem="YDy-Ub-mus" secondAttribute="top" id="WhH-dr-yVJ"/>
-                            <constraint firstItem="34Y-n7-a7V" firstAttribute="bottom" secondItem="YDy-Ub-mus" secondAttribute="bottom" id="ZM1-PC-lRk"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="az5-in-WwE" secondAttribute="trailing" id="VIf-bj-NPN"/>
                             <constraint firstItem="4p7-qv-fcM" firstAttribute="top" secondItem="r4K-8d-cob" secondAttribute="bottom" constant="18" id="b7A-ws-hX1"/>
-                            <constraint firstItem="az5-in-WwE" firstAttribute="bottom" secondItem="8bC-Xf-vdC" secondAttribute="bottom" id="bSj-xd-uxD"/>
+                            <constraint firstItem="34Y-n7-a7V" firstAttribute="leading" secondItem="YDy-Ub-mus" secondAttribute="trailing" constant="16" id="eNU-F7-dld"/>
+                            <constraint firstItem="YDy-Ub-mus" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="gbt-Bx-QJq"/>
                             <constraint firstAttribute="top" secondItem="cc6-Fy-kkL" secondAttribute="top" id="geZ-aY-GWM"/>
                             <constraint firstItem="r4K-8d-cob" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="grZ-To-Ew8"/>
                             <constraint firstItem="4p7-qv-fcM" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="tQU-LX-oP1"/>
@@ -362,8 +364,9 @@
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="wbs-KE-Iex">
                                 <rect key="frame" x="59" y="166.5" width="296" height="42"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="awc-Nc-JXn">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="awc-Nc-JXn">
                                         <rect key="frame" x="0.0" y="0.0" width="36" height="42"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="42" id="cNi-op-BEN"/>
                                             <constraint firstAttribute="width" constant="36" id="zwD-t1-ZLH"/>
@@ -372,8 +375,9 @@
                                         <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad" textContentType="tel"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="USf-5z-K6Y">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="USf-5z-K6Y">
                                         <rect key="frame" x="52" y="0.0" width="36" height="42"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="36" id="XQa-BH-Gaw"/>
                                             <constraint firstAttribute="height" constant="42" id="zsC-Dc-R1G"/>
@@ -382,8 +386,9 @@
                                         <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad" textContentType="tel"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aZu-N3-iz5">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aZu-N3-iz5">
                                         <rect key="frame" x="104" y="0.0" width="36" height="42"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="36" id="F5f-sx-wJg"/>
                                             <constraint firstAttribute="height" constant="42" id="RIb-ZU-Lt7"/>
@@ -392,8 +397,9 @@
                                         <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad" textContentType="tel"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8il-jW-cFP">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8il-jW-cFP">
                                         <rect key="frame" x="156" y="0.0" width="36" height="42"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="36" id="KrH-qR-snL"/>
                                             <constraint firstAttribute="height" constant="42" id="eTy-Qz-ucT"/>
@@ -402,8 +408,9 @@
                                         <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad" textContentType="tel"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jVI-Of-0lH">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jVI-Of-0lH">
                                         <rect key="frame" x="208" y="0.0" width="36" height="42"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="42" id="eE2-en-MQ6"/>
                                             <constraint firstAttribute="width" constant="36" id="vLb-BQ-Oo8"/>
@@ -412,8 +419,9 @@
                                         <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad" textContentType="tel"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oS4-Ji-55o">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oS4-Ji-55o">
                                         <rect key="frame" x="260" y="0.0" width="36" height="42"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="36" id="5WU-a7-JV4"/>
                                             <constraint firstAttribute="height" constant="42" id="Nyb-zC-fmb"/>

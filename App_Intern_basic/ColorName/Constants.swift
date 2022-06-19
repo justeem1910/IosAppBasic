@@ -21,4 +21,11 @@ struct Constants {
         static let Monochrome = UIColor.init(red: 54/255, green: 61/255, blue: 78/255, alpha: 1)
         
     }
+    
+    struct Font {
+        static let hotline = UIFont(name: "NunitoSans-Regular", size: 17)
+        static let hotlinePhone = UIFont(name: "NunitoSans-Bold", size: 17)
+        static let otpString = UIFont(name: "NunitoSans-Regular", size: 14)
+        static let otpPhone = UIFont(name: "NunitoSans-Bold", size: 14)
+    }
 }

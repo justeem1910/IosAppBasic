@@ -49,11 +49,11 @@ class PhoneViewController: UIViewController {
         
         
 
-        let hotlineAttribute = [ NSAttributedString.Key.foregroundColor: Constants.Color.gray1, NSAttributedString.Key.font: UIFont(name: "NunitoSans-Regular", size: 17) ]
+        let hotlineAttribute = [ NSAttributedString.Key.foregroundColor: Constants.Color.gray1, NSAttributedString.Key.font: Constants.Font.hotline ]
         
         let hotlineAttString = NSMutableAttributedString(string: hotline , attributes: hotlineAttribute as [NSAttributedString.Key : Any])
         
-        let hotlinePhoneAttribute = [ NSAttributedString.Key.foregroundColor: Constants.Color.green, NSAttributedString.Key.font: UIFont(name: "NunitoSans-Bold", size: 17) ]
+        let hotlinePhoneAttribute = [ NSAttributedString.Key.foregroundColor: Constants.Color.green, NSAttributedString.Key.font: Constants.Font.hotlinePhone ]
         
         let hotlinePhoneAttString = NSAttributedString(string: phoneHotline, attributes: hotlinePhoneAttribute as [NSAttributedString.Key : Any])
         hotlineAttString.append(hotlinePhoneAttString)

@@ -41,11 +41,11 @@ class OtpViewController: UIViewController {
         
     }
     func setView(){
-        let numberAttribute = [ NSAttributedString.Key.font: UIFont(name: "NunitoSans-Regular", size: 14) ]
+        let numberAttribute = [ NSAttributedString.Key.font:  Constants.Font.otpString]
         
         let numberAttString = NSMutableAttributedString(string: stringNumber , attributes: numberAttribute as [NSAttributedString.Key : Any])
         
-        let phoneAttribute = [ NSAttributedString.Key.font: UIFont(name: "NunitoSans-Bold", size: 14) ]
+        let phoneAttribute = [ NSAttributedString.Key.font:  Constants.Font.otpPhone]
         
         let phoneAttString = NSAttributedString(string: phoneNumber, attributes: phoneAttribute as [NSAttributedString.Key : Any])
         numberAttString.append(phoneAttString)

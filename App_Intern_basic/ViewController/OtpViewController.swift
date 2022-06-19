@@ -37,7 +37,7 @@ class OtpViewController: UIViewController {
         tfOtp5.delegate = self
         tfOtp6.delegate = self
         
-    
+
         
     }
     func setView(){
@@ -127,7 +127,11 @@ extension OtpViewController: UITextFieldDelegate{
         } else {
             return true
         }
-    
     }
 }
-
+extension UITextField {
+    override open func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
+        return action == #selector(UIResponderStandardEditActions.paste(_:)) ?
+            false : super.canPerformAction(action, withSender: sender)
+    }
+}

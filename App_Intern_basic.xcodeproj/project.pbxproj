@@ -18,6 +18,7 @@
 		DB0204C7284DEF4C00834240 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0204C6284DEF4C00834240 /* Constants.swift */; };
 		DB0204CA2851948E00834240 /* PhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0204C92851948E00834240 /* PhoneViewController.swift */; };
 		DB0204CC2858EBD300834240 /* OtpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0204CB2858EBD300834240 /* OtpViewController.swift */; };
+		DB1A3FB6285F927B0088E25C /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1A3FB5285F927B0088E25C /* CustomTextField.swift */; };
 		DB535B0E285AE5B000452CE2 /* NunitoSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB535AF1285AE5B000452CE2 /* NunitoSans-LightItalic.ttf */; };
 		DB535B0F285AE5B000452CE2 /* NunitoSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB535AF2285AE5B000452CE2 /* NunitoSans-BoldItalic.ttf */; };
 		DB535B10285AE5B000452CE2 /* NunitoSans-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB535AF3285AE5B000452CE2 /* NunitoSans-ExtraLight.ttf */; };
@@ -60,6 +61,7 @@
 		DB0204C6284DEF4C00834240 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		DB0204C92851948E00834240 /* PhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneViewController.swift; sourceTree = "<group>"; };
 		DB0204CB2858EBD300834240 /* OtpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtpViewController.swift; sourceTree = "<group>"; };
+		DB1A3FB5285F927B0088E25C /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		DB535AF1285AE5B000452CE2 /* NunitoSans-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-LightItalic.ttf"; sourceTree = "<group>"; };
 		DB535AF2285AE5B000452CE2 /* NunitoSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-BoldItalic.ttf"; sourceTree = "<group>"; };
 		DB535AF3285AE5B000452CE2 /* NunitoSans-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-ExtraLight.ttf"; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 		DB02048C284DA41400834240 /* App_Intern_basic */ = {
 			isa = PBXGroup;
 			children = (
+				DB1A3FB4285F92420088E25C /* Helper */,
 				DB02049B284DA41600834240 /* Info.plist */,
 				DB535AEE285AE44900452CE2 /* Resource */,
 				DB0204C82851945300834240 /* ViewController */,
@@ -154,6 +157,14 @@
 				DB020491284DA41400834240 /* ViewController.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		DB1A3FB4285F92420088E25C /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				DB1A3FB5285F927B0088E25C /* CustomTextField.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 		DB535AED285AE42F00452CE2 /* App */ = {
@@ -342,6 +353,7 @@
 				DB0204C7284DEF4C00834240 /* Constants.swift in Sources */,
 				DB020492284DA41400834240 /* ViewController.swift in Sources */,
 				DB0204CA2851948E00834240 /* PhoneViewController.swift in Sources */,
+				DB1A3FB6285F927B0088E25C /* CustomTextField.swift in Sources */,
 				DB02048E284DA41400834240 /* AppDelegate.swift in Sources */,
 				DB0204A4284DA5F200834240 /* IntroCell.swift in Sources */,
 				DB020490284DA41400834240 /* SceneDelegate.swift in Sources */,

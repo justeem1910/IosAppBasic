@@ -19,8 +19,8 @@ class OtpViewController: UIViewController {
     @IBOutlet weak var tfOtp5:UITextField!
     @IBOutlet weak var tfOtp6:UITextField!
 
-    
-    
+    var arrTextFieldOtp:[UITextField] = [UITextField]()
+    var local: Int = 0
     var stringNumber = "Vui lòng nhập mã gồm 4 chữ số đã được gửi đến bạn vào số điện thoại "
     var phoneNumber = ""
     override func viewDidLayoutSubviews() {
@@ -37,6 +37,7 @@ class OtpViewController: UIViewController {
         tfOtp5.delegate = self
         tfOtp6.delegate = self
         
+        arrTextFieldOtp = [tfOtp1,tfOtp2,tfOtp3,tfOtp4,tfOtp5,tfOtp6]
 
         
     }
@@ -60,6 +61,12 @@ class OtpViewController: UIViewController {
         setTextFieldOtp(textField: tfOtp5)
         setTextFieldOtp(textField: tfOtp6)
         
+//        tfOtp2.isUserInteractionEnabled = false
+//        tfOtp3.isUserInteractionEnabled = false
+//        tfOtp4.isUserInteractionEnabled = false
+//        tfOtp5.isUserInteractionEnabled = false
+//        tfOtp6.isUserInteractionEnabled = false
+        
         tfOtp1.addTarget(self, action: #selector(self.OtpTapAction), for: .editingChanged)
         tfOtp2.addTarget(self, action: #selector(self.OtpTapAction), for: .editingChanged)
         tfOtp3.addTarget(self, action: #selector(self.OtpTapAction), for: .editingChanged)
@@ -67,43 +74,8 @@ class OtpViewController: UIViewController {
         tfOtp5.addTarget(self, action: #selector(self.OtpTapAction), for: .editingChanged)
         tfOtp6.addTarget(self, action: #selector(self.OtpTapAction), for: .editingChanged)
         
-        
     }
-    @objc func OtpTapAction (textField:UITextField){
-        if textField.text?.count ?? 0 == 1 {
-            switch textField{
-            case tfOtp1:
-                checkOtpTfEmpty()
-            case tfOtp2:
-                checkOtpTfEmpty()
-            case tfOtp3:
-                checkOtpTfEmpty()
-            case tfOtp4:
-                checkOtpTfEmpty()
-            case tfOtp5:
-                checkOtpTfEmpty()
-            case tfOtp6:
-               checkOtpTfEmpty()
-            default:
-                break
-            }
-        }
-    }
-    func checkOtpTfEmpty(){
-        if tfOtp1.text?.count == 0 {
-            tfOtp1.becomeFirstResponder()
-        } else if tfOtp2.text?.count == 0 {
-            tfOtp2.becomeFirstResponder()
-        } else if tfOtp3.text?.count == 0 {
-            tfOtp3.becomeFirstResponder()
-        } else if tfOtp4.text?.count == 0 {
-            tfOtp4.becomeFirstResponder()
-        } else if tfOtp5.text?.count == 0 {
-            tfOtp5.becomeFirstResponder()
-        } else if tfOtp6.text?.count == 0 {
-            tfOtp6.becomeFirstResponder()
-        }
-    }
+    
     
     func setTextFieldOtp (textField :UITextField){
         textField.layer.cornerRadius = 8
@@ -111,7 +83,87 @@ class OtpViewController: UIViewController {
         textField.layer.shadowOpacity = 1
         textField.layer.shadowRadius = 8
         textField.layer.shadowOffset = CGSize(width: 0, height: 4)
+        textField.tintColor = Constants.Color.green
+        if textField != tfOtp1 {
+            textField.isUserInteractionEnabled = false
+        } else {
+            textField.becomeFirstResponder()
+        }
     }
+    
+    
+    @objc func OtpTapAction (textField:UITextField){
+        if textField.text?.count ?? 0 == 1 {
+            switch textField{
+            case tfOtp1:
+                local = 0
+                addTextField(location: local)
+            case tfOtp2:
+                local = 1
+                addTextField(location: local)
+
+            case tfOtp3:
+                local = 2
+                addTextField(location: local)
+            case tfOtp4:
+                local = 3
+                addTextField(location: local)
+            case tfOtp5:
+                local = 4
+                addTextField(location: local)
+                
+            case tfOtp6:
+                local = 5
+                addTextField(location: local)
+            default:
+                break
+            }
+        }
+        if textField.text?.count == 0 {
+            switch textField {case tfOtp1:
+                local = 0
+                deleteTextField(location: local)
+            case tfOtp2:
+                local = 1
+                deleteTextField(location: local)
+            case tfOtp3:
+                local = 2
+                deleteTextField(location: local)
+            case tfOtp4:
+                local = 3
+                deleteTextField(location: local)
+            case tfOtp5:
+                local = 4
+                deleteTextField(location: local)
+            case tfOtp6:
+                local = 5
+                deleteTextField(location: local)
+            default:
+                break
+            }
+        }
+        
+    }
+    
+    func addTextField (location: Int){
+        if location < 5 {
+            arrTextFieldOtp[location + 1].isUserInteractionEnabled = true
+            arrTextFieldOtp[location + 1].layer.borderWidth = 1
+            arrTextFieldOtp[location + 1].layer.borderColor = Constants.Color.green.cgColor
+            arrTextFieldOtp[location + 1].becomeFirstResponder()
+        }
+    }
+    
+    func deleteTextField(location: Int){
+        if location > 0 {
+            arrTextFieldOtp[location - 1].isUserInteractionEnabled = true
+            arrTextFieldOtp[location - 1].layer.borderWidth = 1
+            arrTextFieldOtp[location - 1].layer.borderColor = Constants.Color.green.cgColor
+            arrTextFieldOtp[location - 1].becomeFirstResponder()
+        }
+    }
+    
+    
     
     
 
@@ -124,9 +176,14 @@ extension OtpViewController: UITextFieldDelegate{
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if textField.text!.count == 1 && !string.isEmpty{
             return false
+            
         } else {
             return true
         }
+    }
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        textField.isUserInteractionEnabled = false
+        textField.layer.borderWidth = 0
     }
 }
 extension UITextField {
@@ -134,4 +191,5 @@ extension UITextField {
         return action == #selector(UIResponderStandardEditActions.paste(_:)) ?
             false : super.canPerformAction(action, withSender: sender)
     }
+    
 }

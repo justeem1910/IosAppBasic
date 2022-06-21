@@ -445,10 +445,26 @@
                                     <constraint firstAttribute="width" constant="296" id="kM0-CM-qrp"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cdm-bx-h6H">
+                                <rect key="frame" x="24" y="798" width="366" height="48"/>
+                                <color key="backgroundColor" red="0.17254901960784313" green="0.52549019607843139" blue="0.40392156862745099" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="vth-eZ-vfw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="NunitoSans-Bold" family="Nunito Sans" pointSize="17"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Tiếp tục">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnContinueAction:" destination="hg9-bo-jwf" eventType="touchUpInside" id="KGH-BV-4Qu"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="LBV-by-EaK"/>
                         <color key="backgroundColor" red="0.95686274509803915" green="0.96078431372549022" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="LBV-by-EaK" firstAttribute="trailing" secondItem="Cdm-bx-h6H" secondAttribute="trailing" constant="24" id="293-aN-cQl"/>
                             <constraint firstItem="LBV-by-EaK" firstAttribute="trailing" secondItem="PJL-mY-4C0" secondAttribute="trailing" constant="24" id="2hP-NY-fnt"/>
                             <constraint firstItem="tV8-2y-EcS" firstAttribute="leading" secondItem="LBV-by-EaK" secondAttribute="leading" id="40Y-at-sNF"/>
                             <constraint firstItem="PJL-mY-4C0" firstAttribute="top" secondItem="tV8-2y-EcS" secondAttribute="bottom" constant="20" id="6Dx-hi-1Bj"/>
@@ -456,12 +472,15 @@
                             <constraint firstItem="nzg-NG-Jl1" firstAttribute="centerX" secondItem="LBV-by-EaK" secondAttribute="centerX" id="GVo-nM-4AN"/>
                             <constraint firstItem="LBV-by-EaK" firstAttribute="trailing" secondItem="tV8-2y-EcS" secondAttribute="trailing" id="Gne-kv-dsf"/>
                             <constraint firstItem="PJL-mY-4C0" firstAttribute="leading" secondItem="LBV-by-EaK" secondAttribute="leading" constant="24" id="LgC-pN-aEl"/>
+                            <constraint firstItem="Cdm-bx-h6H" firstAttribute="leading" secondItem="LBV-by-EaK" secondAttribute="leading" constant="24" id="QFi-xc-BwS"/>
                             <constraint firstItem="tV8-2y-EcS" firstAttribute="top" secondItem="LBV-by-EaK" secondAttribute="top" id="T6b-d4-JTp"/>
                             <constraint firstItem="wbs-KE-Iex" firstAttribute="centerX" secondItem="LBV-by-EaK" secondAttribute="centerX" id="coR-iV-lnZ"/>
+                            <constraint firstItem="LBV-by-EaK" firstAttribute="bottom" secondItem="Cdm-bx-h6H" secondAttribute="bottom" constant="16" id="wAS-Q6-C6g"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="btnBackOtp" destination="owk-qD-Azv" id="Iqo-ab-GlF"/>
+                        <outlet property="btnContinue" destination="Cdm-bx-h6H" id="QzL-GM-uG5"/>
                         <outlet property="lblPhone" destination="PJL-mY-4C0" id="U61-AH-wc1"/>
                         <outlet property="stvOtp" destination="wbs-KE-Iex" id="hS6-1g-ffr"/>
                         <outlet property="tfOtp1" destination="awc-Nc-JXn" id="mBc-a3-Cta"/>

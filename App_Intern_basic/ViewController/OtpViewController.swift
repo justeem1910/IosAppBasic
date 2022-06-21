@@ -18,7 +18,9 @@ class OtpViewController: UIViewController {
     @IBOutlet weak var tfOtp4:UITextField!
     @IBOutlet weak var tfOtp5:UITextField!
     @IBOutlet weak var tfOtp6:UITextField!
-
+    @IBOutlet weak var btnContinue: UIButton!
+    
+    
     var arrTextFieldOtp:[UITextField] = [UITextField]()
     var local: Int = 0
     var stringNumber = "Vui lòng nhập mã gồm 4 chữ số đã được gửi đến bạn vào số điện thoại "
@@ -38,8 +40,26 @@ class OtpViewController: UIViewController {
         tfOtp6.delegate = self
         
         arrTextFieldOtp = [tfOtp1,tfOtp2,tfOtp3,tfOtp4,tfOtp5,tfOtp6]
-
+            
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        registerObserver()
+        
+    }
+    func registerObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        removeObserver()
+    }
+    
+    func removeObserver (){
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     func setView(){
         let numberAttribute = [ NSAttributedString.Key.font:  Constants.Font.otpString]
@@ -52,7 +72,7 @@ class OtpViewController: UIViewController {
         numberAttString.append(phoneAttString)
         lblPhone.attributedText = numberAttString
         
-        
+        btnContinue.layer.cornerRadius = 24
         
         setTextFieldOtp(textField: tfOtp1)
         setTextFieldOtp(textField: tfOtp2)
@@ -61,11 +81,6 @@ class OtpViewController: UIViewController {
         setTextFieldOtp(textField: tfOtp5)
         setTextFieldOtp(textField: tfOtp6)
         
-//        tfOtp2.isUserInteractionEnabled = false
-//        tfOtp3.isUserInteractionEnabled = false
-//        tfOtp4.isUserInteractionEnabled = false
-//        tfOtp5.isUserInteractionEnabled = false
-//        tfOtp6.isUserInteractionEnabled = false
         
         tfOtp1.addTarget(self, action: #selector(self.OtpTapAction), for: .editingChanged)
         tfOtp2.addTarget(self, action: #selector(self.OtpTapAction), for: .editingChanged)
@@ -75,6 +90,8 @@ class OtpViewController: UIViewController {
         tfOtp6.addTarget(self, action: #selector(self.OtpTapAction), for: .editingChanged)
         
     }
+    
+    
     
     
     func setTextFieldOtp (textField :UITextField){
@@ -91,9 +108,25 @@ class OtpViewController: UIViewController {
         }
     }
     
+    @objc func keyboardWillShow(notification: NSNotification) {
+    
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            btnContinue.frame.origin.y -= keyboardSize.height - self.view.safeAreaInsets.bottom
+            
+        }
+    }
+
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if btnContinue.frame.origin.y != 0 {
+            btnContinue.frame.origin.y = 0
+        }
+    }
+    
+    @IBAction func btnContinueAction(_ sender: Any) {
+    }
     
     @objc func OtpTapAction (textField:UITextField){
-        if textField.text?.count ?? 0 == 1 {
+        if textField.text?.count == 1 {
             switch textField{
             case tfOtp1:
                 local = 0

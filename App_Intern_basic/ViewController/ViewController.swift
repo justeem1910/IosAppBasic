@@ -60,7 +60,8 @@ class ViewController: UIViewController {
         let visibleRect = CGRect(origin: self.clvIntro.contentOffset, size: self.clvIntro.bounds.size)
         let visiblePoint = CGPoint(x: visibleRect.midX, y: visibleRect.midY)
         
-    
+        print("aaaaa  ")
+        
         if let visibleIndexPath = self.clvIntro.indexPathForItem(at: visiblePoint) {
             self.pctrIntro.currentPage = visibleIndexPath.row
             

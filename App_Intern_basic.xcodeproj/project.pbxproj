@@ -125,7 +125,7 @@
 				DB02049B284DA41600834240 /* Info.plist */,
 				DB535AEE285AE44900452CE2 /* Resource */,
 				DB0204C82851945300834240 /* ViewController */,
-				DB0204C5284DEF1900834240 /* ColorName */,
+				DB0204C5284DEF1900834240 /* Constants */,
 				DB0204A1284DA53200834240 /* CellIntroApp */,
 				DB535AED285AE42F00452CE2 /* App */,
 			);
@@ -141,12 +141,12 @@
 			path = CellIntroApp;
 			sourceTree = "<group>";
 		};
-		DB0204C5284DEF1900834240 /* ColorName */ = {
+		DB0204C5284DEF1900834240 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
 				DB0204C6284DEF4C00834240 /* Constants.swift */,
 			);
-			path = ColorName;
+			path = Constants;
 			sourceTree = "<group>";
 		};
 		DB0204C82851945300834240 /* ViewController */ = {

@@ -46,7 +46,6 @@ class OtpViewController: UIViewController {
         for i in 1...5 {
             arrTextFieldOtp[i].previousTextField = arrTextFieldOtp[i-1]
         }
-        
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -82,7 +81,7 @@ class OtpViewController: UIViewController {
         btnResendOtp.layer.borderWidth = 1
         btnResendOtp.layer.borderColor = Constants.Color.gray4.cgColor
         
-//        lblIncorrectOtp.frame.origin.y =
+        lblIncorrectOtp.frame.origin.y = 700
         
         setTextFieldOtp(textField: tfOtp1)
         setTextFieldOtp(textField: tfOtp2)
@@ -96,15 +95,17 @@ class OtpViewController: UIViewController {
         Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
         
     }
+    
     @objc func updateCounter() {
-        
         if countTime > 0 {
             countTime -= 1
             btnResendOtp.setTitle("Gửi lại mã sau \(countTime)s", for: .normal)
+            if countTime == 0 {
+                btnResendOtp.layer.borderColor = Constants.Color.green.cgColor
+                btnResendOtp.tintColor = Constants.Color.green
+            }
         }
     }
-    
-    
     
     func setTextFieldOtp (textField :CustomTextField){
         textField.layer.cornerRadius = 8
@@ -113,12 +114,6 @@ class OtpViewController: UIViewController {
         textField.layer.shadowRadius = 8
         textField.layer.shadowOffset = CGSize(width: 0, height: 4)
         textField.tintColor = Constants.Color.green
-        
-        textField.addTarget(self, action: #selector(pressUpdateTextField), for: .touchDown)
-        
-    }
-    @objc func pressUpdateTextField(textField: CustomTextField) {
-        setTFOtpAnimation(textField: textField)
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {
@@ -209,12 +204,14 @@ extension OtpViewController: UITextFieldDelegate{
     }
     
     func setTFOtpAnimation(textField: CustomTextField){
+        textField.isUserInteractionEnabled = true
         textField.becomeFirstResponder()
         textField.layer.borderWidth = 1
         textField.layer.borderColor = Constants.Color.green.cgColor
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
+        textField.isUserInteractionEnabled = false
         textField.layer.borderWidth = 0
     }
     func textFieldDidBeginEditing(_ textField: CustomTextField) {

@@ -26,7 +26,7 @@ class CustomTextField: UITextField {
 //
 //        }
         text = ""
-//        previousTextField?.isUserInteractionEnabled = true
+        previousTextField?.isUserInteractionEnabled = true
         previousTextField?.text = ""
         previousTextField?.layer.cornerRadius = 8
         previousTextField?.layer.borderColor = Constants.Color.green.cgColor

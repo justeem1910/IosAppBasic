@@ -41,6 +41,7 @@ class PhoneViewController: UIViewController {
         viewPhoneNumber.layer.borderColor = Constants.Color.gray.cgColor
         tfPhoneNumber.text = ""
         tfPhoneNumber.delegate = self
+        tfPhoneNumber.clearButtonMode = .whileEditing
         
         btnContinue.backgroundColor = Constants.Color.green2
         btnContinue.layer.cornerRadius = 24
@@ -61,7 +62,8 @@ class PhoneViewController: UIViewController {
         lblHotline.attributedText = hotlineAttString
 
     }
-    override func viewDidLayoutSubviews() {
+    
+    override func viewWillLayoutSubviews() {
         phoneNumber = tfPhoneNumber.text ?? ""
         if phoneNumber.first == "0"{
             if tfPhoneNumber.text?.count ?? 0 > 9 {
@@ -127,6 +129,12 @@ extension PhoneViewController: UITextFieldDelegate{
             let characterSet = CharacterSet(charactersIn: string)
             return allowedCharacters.isSuperset(of: characterSet)
         }
+        return true
+    }
+    
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
+        btnContinue.backgroundColor = Constants.Color.green2
+        btnContinue.isEnabled = false
         return true
     }
 }

@@ -445,8 +445,11 @@
                                     <constraint firstAttribute="width" constant="296" id="kM0-CM-qrp"/>
                                 </constraints>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nhập sai mã xác thực" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ina-19-bPx">
-                                <rect key="frame" x="24" y="233" width="366" height="16.5"/>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nhập sai mã xác thực" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ina-19-bPx">
+                                <rect key="frame" x="24" y="224.5" width="366" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="Rsl-bR-Ug5"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="NunitoSans-Regular" family="Nunito Sans" pointSize="12"/>
                                 <color key="textColor" red="0.9882352941176471" green="0.14117647058823529" blue="0.20784313725490194" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -467,7 +470,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l6R-ut-Nwb">
-                                <rect key="frame" x="98" y="281.5" width="218" height="36"/>
+                                <rect key="frame" x="98" y="240.5" width="218" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="ti1-rt-cWI"/>
                                 </constraints>
@@ -496,12 +499,12 @@
                             <constraint firstItem="ina-19-bPx" firstAttribute="leading" secondItem="LBV-by-EaK" secondAttribute="leading" constant="24" id="GCm-nQ-K37"/>
                             <constraint firstItem="nzg-NG-Jl1" firstAttribute="centerX" secondItem="LBV-by-EaK" secondAttribute="centerX" id="GVo-nM-4AN"/>
                             <constraint firstItem="LBV-by-EaK" firstAttribute="trailing" secondItem="tV8-2y-EcS" secondAttribute="trailing" id="Gne-kv-dsf"/>
+                            <constraint firstItem="l6R-ut-Nwb" firstAttribute="top" secondItem="wbs-KE-Iex" secondAttribute="bottom" constant="32" id="KiL-oE-WmL"/>
                             <constraint firstItem="PJL-mY-4C0" firstAttribute="leading" secondItem="LBV-by-EaK" secondAttribute="leading" constant="24" id="LgC-pN-aEl"/>
                             <constraint firstItem="Cdm-bx-h6H" firstAttribute="leading" secondItem="LBV-by-EaK" secondAttribute="leading" constant="24" id="QFi-xc-BwS"/>
                             <constraint firstItem="tV8-2y-EcS" firstAttribute="top" secondItem="LBV-by-EaK" secondAttribute="top" id="T6b-d4-JTp"/>
                             <constraint firstItem="wbs-KE-Iex" firstAttribute="centerX" secondItem="LBV-by-EaK" secondAttribute="centerX" id="coR-iV-lnZ"/>
-                            <constraint firstItem="ina-19-bPx" firstAttribute="top" secondItem="wbs-KE-Iex" secondAttribute="bottom" constant="24.5" id="h04-mI-JM8"/>
-                            <constraint firstItem="l6R-ut-Nwb" firstAttribute="top" secondItem="ina-19-bPx" secondAttribute="bottom" constant="32" id="rcI-sF-jV4"/>
+                            <constraint firstItem="ina-19-bPx" firstAttribute="top" secondItem="wbs-KE-Iex" secondAttribute="bottom" constant="16" id="h04-mI-JM8"/>
                             <constraint firstItem="LBV-by-EaK" firstAttribute="bottom" secondItem="Cdm-bx-h6H" secondAttribute="bottom" constant="16" id="wAS-Q6-C6g"/>
                         </constraints>
                     </view>
@@ -523,6 +526,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gw1-UT-wGV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1693" y="38"/>
+        </scene>
+        <!--Home View Controller-->
+        <scene sceneID="iXC-Vg-lLr">
+            <objects>
+                <viewController storyboardIdentifier="HomeViewController" id="Tkx-gV-Eex" customClass="HomeViewController" customModule="App_Intern_basic" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ckc-iC-9U2">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="MzK-5d-gSu"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OHZ-6y-4KG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2525" y="33"/>
         </scene>
     </scenes>
     <resources>

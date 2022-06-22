@@ -46,11 +46,27 @@ class OtpViewController: UIViewController {
         for i in 1...5 {
             arrTextFieldOtp[i].previousTextField = arrTextFieldOtp[i-1]
         }
+        
+    }
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        if tfOtp6.text?.count == 1 {
+            btnContinue.backgroundColor = Constants.Color.green
+            btnContinue.isUserInteractionEnabled = true
+        } else {
+            btnContinue.backgroundColor = Constants.Color.green2
+            btnContinue.isUserInteractionEnabled = false
+        }
+        
     }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        if lblIncorrectOtp.isHidden == false {
+            btnResendOtp.frame.origin.y += lblIncorrectOtp.frame.height + 6
+        }
         
     }
+
     override func viewWillAppear(_ animated: Bool) {
         registerObserver()
         
@@ -103,7 +119,7 @@ class OtpViewController: UIViewController {
             btnResendOtp.setTitle("Gửi lại mã sau \(countTime)s", for: .normal)
             if countTime == 0 {
                 btnResendOtp.layer.borderColor = Constants.Color.green.cgColor
-                btnResendOtp.tintColor = Constants.Color.green
+                btnResendOtp.setTitleColor(Constants.Color.green, for: .normal)
             }
         }
     }
@@ -118,7 +134,6 @@ class OtpViewController: UIViewController {
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {
-    
         let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue ?? .zero
         let duration = (notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double) ?? 0
         
@@ -140,7 +155,15 @@ class OtpViewController: UIViewController {
     }
     
     @IBAction func btnContinueAction(_ sender: Any) {
-        
+        var otpString = "\(tfOtp1.text!)\(tfOtp2.text!)\(tfOtp3.text!)\(tfOtp4.text!)\(tfOtp5.text!)\(tfOtp6.text!)"
+        print("aaaa   \(otpString)")
+        if otpString == "111111"{
+            let homeVC = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController
+            self.navigationController?.pushViewController(homeVC!, animated: true)
+        } else {
+            lblIncorrectOtp.isHidden = false
+            btnResendOtp.frame.origin.y += lblIncorrectOtp.frame.height + 6
+        }
     }
 
     @IBAction func btnBack(_ sender: Any) {
@@ -155,18 +178,23 @@ extension OtpViewController: UITextFieldDelegate{
         
         if (((textField.text?.count)! < 1) && (string.count > 0))  {
             if textField == tfOtp1 {
+                tfOtp2.becomeFirstResponder()
                 setTFOtpAnimation(textField: tfOtp2)
             }
             if textField == tfOtp2 {
+                tfOtp3.becomeFirstResponder()
                 setTFOtpAnimation(textField: tfOtp3)
             }
             if textField == tfOtp3 {
+                tfOtp4.becomeFirstResponder()
                 setTFOtpAnimation(textField: tfOtp4)
             }
             if textField == tfOtp4 {
+                tfOtp5.becomeFirstResponder()
                 setTFOtpAnimation(textField: tfOtp5)
             }
             if textField == tfOtp5 {
+                tfOtp3.becomeFirstResponder()
                 setTFOtpAnimation(textField: tfOtp6)
             }
             textField.text = string
@@ -213,12 +241,13 @@ extension OtpViewController: UITextFieldDelegate{
                 tfOtp6.text = string
                 setTFOtpAnimation(textField: tfOtp6)
             }
+            
             return false
         }else if (textField.text?.count)! >= 1 && textField == tfOtp6{
             textField.text = string
+            
             return false
         }
-        
         
         return true
     }
@@ -235,9 +264,7 @@ extension OtpViewController: UITextFieldDelegate{
         textField.layer.borderWidth = 0
 
     }
-    func textFieldDidBeginEditing(_ textField: CustomTextField) {
-        setTFOtpAnimation(textField: textField)
-    }
+    
 }
 extension UITextField {
     override open func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {

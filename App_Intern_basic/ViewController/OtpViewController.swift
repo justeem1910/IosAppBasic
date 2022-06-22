@@ -47,7 +47,10 @@ class OtpViewController: UIViewController {
             arrTextFieldOtp[i].previousTextField = arrTextFieldOtp[i-1]
         }
     }
-
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+    }
     override func viewWillAppear(_ animated: Bool) {
         registerObserver()
         
@@ -80,8 +83,6 @@ class OtpViewController: UIViewController {
         btnResendOtp.layer.cornerRadius = 18
         btnResendOtp.layer.borderWidth = 1
         btnResendOtp.layer.borderColor = Constants.Color.gray4.cgColor
-        
-        lblIncorrectOtp.frame.origin.y = 700
         
         setTextFieldOtp(textField: tfOtp1)
         setTextFieldOtp(textField: tfOtp2)
@@ -139,11 +140,8 @@ class OtpViewController: UIViewController {
     }
     
     @IBAction func btnContinueAction(_ sender: Any) {
+        
     }
-
-    
-    
-    
 
     @IBAction func btnBack(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
@@ -155,7 +153,7 @@ extension OtpViewController: UITextFieldDelegate{
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
-        if (((textField.text?.count)! < 1) && (string.count > 0)) || (((textField.text?.count)! > 0) && (string.count > 0)) {
+        if (((textField.text?.count)! < 1) && (string.count > 0))  {
             if textField == tfOtp1 {
                 setTFOtpAnimation(textField: tfOtp2)
             }
@@ -194,7 +192,29 @@ extension OtpViewController: UITextFieldDelegate{
             textField.text = ""
             
             return false
-        } else if (textField.text?.count)! >= 1 && textField == tfOtp6{
+        }else if ((textField.text?.count)! > 0) && (string.count > 0){
+            if textField == tfOtp1 {
+                tfOtp2.text = string
+                setTFOtpAnimation(textField: tfOtp2)
+            }
+            if textField == tfOtp2 {
+                tfOtp3.text = string
+                setTFOtpAnimation(textField: tfOtp3)
+            }
+            if textField == tfOtp3 {
+                tfOtp4.text = string
+                setTFOtpAnimation(textField: tfOtp4)
+            }
+            if textField == tfOtp4 {
+                tfOtp5.text = string
+                setTFOtpAnimation(textField: tfOtp5)
+            }
+            if textField == tfOtp5 {
+                tfOtp6.text = string
+                setTFOtpAnimation(textField: tfOtp6)
+            }
+            return false
+        }else if (textField.text?.count)! >= 1 && textField == tfOtp6{
             textField.text = string
             return false
         }
@@ -213,6 +233,7 @@ extension OtpViewController: UITextFieldDelegate{
     func textFieldDidEndEditing(_ textField: UITextField) {
         textField.isUserInteractionEnabled = false
         textField.layer.borderWidth = 0
+
     }
     func textFieldDidBeginEditing(_ textField: CustomTextField) {
         setTFOtpAnimation(textField: textField)

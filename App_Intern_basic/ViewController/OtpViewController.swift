@@ -27,7 +27,7 @@ class OtpViewController: UIViewController {
     var local: Int = 0
     var stringNumber = "Vui lòng nhập mã gồm 4 chữ số đã được gửi đến bạn vào số điện thoại "
     var phoneNumber = ""
-    var countTime = 59
+    var countTime = 60
     var test:[Int] = [0,0,0,0,0,0,0,0]
     var test2 = 0
     
@@ -91,6 +91,7 @@ class OtpViewController: UIViewController {
         setTextFieldOtp(textField: tfOtp5)
         setTextFieldOtp(textField: tfOtp6)
         
+        setTFOtpAnimation(textField: tfOtp1)
         
         Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
         
@@ -98,39 +99,47 @@ class OtpViewController: UIViewController {
     @objc func updateCounter() {
         
         if countTime > 0 {
-            btnResendOtp.setTitle("Gửi lại mã sau \(countTime)s", for: .normal)
             countTime -= 1
+            btnResendOtp.setTitle("Gửi lại mã sau \(countTime)s", for: .normal)
         }
     }
     
     
     
-    func setTextFieldOtp (textField :UITextField){
+    func setTextFieldOtp (textField :CustomTextField){
         textField.layer.cornerRadius = 8
         textField.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.08).cgColor
         textField.layer.shadowOpacity = 1
         textField.layer.shadowRadius = 8
         textField.layer.shadowOffset = CGSize(width: 0, height: 4)
         textField.tintColor = Constants.Color.green
-        if textField != tfOtp1 {
-            textField.isUserInteractionEnabled = false
-        } else {
-            textField.becomeFirstResponder()
-        }
+        
+        textField.addTarget(self, action: #selector(pressUpdateTextField), for: .touchDown)
+        
+    }
+    @objc func pressUpdateTextField(textField: CustomTextField) {
+        setTFOtpAnimation(textField: textField)
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {
     
-        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-            btnContinue.frame.origin.y -= keyboardSize.height - self.view.safeAreaInsets.bottom
+        let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue ?? .zero
+        let duration = (notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double) ?? 0
+        
+        UIView.animate(withDuration: duration) {[weak self] in
+            guard let self = self else { return}
             
-           
+            self.btnContinue.transform = CGAffineTransform(translationX: 0, y: -keyboardSize.height + self.view.safeAreaInsets.bottom)
         }
     }
 
     @objc func keyboardWillHide(notification: NSNotification) {
-        if btnContinue.frame.origin.y != 0 {
-            btnContinue.frame.origin.y = 0
+        let duration = (notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double) ?? 0
+        
+        UIView.animate(withDuration: duration) {[weak self] in
+            guard let self = self else { return}
+            
+            self.btnContinue.transform = .identity
         }
     }
     
@@ -147,6 +156,8 @@ class OtpViewController: UIViewController {
 
 }
 extension OtpViewController: UITextFieldDelegate{
+    
+    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
         if (((textField.text?.count)! < 1) && (string.count > 0)) || (((textField.text?.count)! > 0) && (string.count > 0)) {
@@ -198,16 +209,16 @@ extension OtpViewController: UITextFieldDelegate{
     }
     
     func setTFOtpAnimation(textField: CustomTextField){
-        textField.isUserInteractionEnabled = true
         textField.becomeFirstResponder()
         textField.layer.borderWidth = 1
-        textField.layer.cornerRadius = 8
         textField.layer.borderColor = Constants.Color.green.cgColor
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        textField.isUserInteractionEnabled = false
         textField.layer.borderWidth = 0
+    }
+    func textFieldDidBeginEditing(_ textField: CustomTextField) {
+        setTFOtpAnimation(textField: textField)
     }
 }
 extension UITextField {

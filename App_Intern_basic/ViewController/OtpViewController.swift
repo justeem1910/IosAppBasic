@@ -24,12 +24,9 @@ class OtpViewController: UIViewController {
     
     
     var arrTextFieldOtp:[CustomTextField] = [CustomTextField]()
-    var local: Int = 0
     var stringNumber = "Vui lòng nhập mã gồm 4 chữ số đã được gửi đến bạn vào số điện thoại "
     var phoneNumber = ""
     var countTime = 60
-    var test:[Int] = [0,0,0,0,0,0,0,0]
-    var test2 = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +39,7 @@ class OtpViewController: UIViewController {
         tfOtp5.delegate = self
         tfOtp6.delegate = self
         
+
         arrTextFieldOtp = [tfOtp1,tfOtp2,tfOtp3,tfOtp4,tfOtp5,tfOtp6]
         for i in 1...5 {
             arrTextFieldOtp[i].previousTextField = arrTextFieldOtp[i-1]
@@ -56,6 +54,11 @@ class OtpViewController: UIViewController {
         } else {
             btnContinue.backgroundColor = Constants.Color.green2
             btnContinue.isUserInteractionEnabled = false
+            
+            if lblIncorrectOtp.isHidden == false{
+                lblIncorrectOtp.isHidden = true
+                btnResendOtp.frame.origin.y += stvOtp.frame.height + 32
+            }
         }
         
     }
@@ -113,13 +116,25 @@ class OtpViewController: UIViewController {
         
     }
     
+    //MARK: IBAction
+    
+    @IBAction func pressBtnResendOtp(_ sender: Any) {
+        countTime = 60
+        btnResendOtp.setTitleColor(Constants.Color.gray4, for: .normal)
+        btnResendOtp.layer.borderColor = Constants.Color.gray4.cgColor
+        
+        
+    }
     @objc func updateCounter() {
         if countTime > 0 {
             countTime -= 1
             btnResendOtp.setTitle("Gửi lại mã sau \(countTime)s", for: .normal)
+            btnResendOtp.isUserInteractionEnabled = false
             if countTime == 0 {
                 btnResendOtp.layer.borderColor = Constants.Color.green.cgColor
                 btnResendOtp.setTitleColor(Constants.Color.green, for: .normal)
+                btnResendOtp.setTitle("Gửi lại mã", for: .normal)
+                btnResendOtp.isUserInteractionEnabled = true
             }
         }
     }
@@ -161,8 +176,10 @@ class OtpViewController: UIViewController {
             let homeVC = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController
             self.navigationController?.pushViewController(homeVC!, animated: true)
         } else {
+            if lblIncorrectOtp.isHidden == true {
+                btnResendOtp.frame.origin.y += lblIncorrectOtp.frame.height + 6
+            }
             lblIncorrectOtp.isHidden = false
-            btnResendOtp.frame.origin.y += lblIncorrectOtp.frame.height + 6
         }
     }
 
@@ -171,12 +188,16 @@ class OtpViewController: UIViewController {
     }
 
 }
+
+//MARK: - UITextFieldDelegate
+
 extension OtpViewController: UITextFieldDelegate{
     
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        
-        if (((textField.text?.count)! < 1) && (string.count > 0))  {
+//        if let
+//            guard let
+        if (((textField.text?.count ?? 0) < 1) && (string.count > 0))  {
             if textField == tfOtp1 {
                 tfOtp2.becomeFirstResponder()
                 setTFOtpAnimation(textField: tfOtp2)
@@ -200,27 +221,27 @@ extension OtpViewController: UITextFieldDelegate{
             textField.text = string
             return false
 
-        } else if  ((textField.text?.count)! >= 1) && (string.count == 0){
-            if textField == tfOtp6 {
-                setTFOtpAnimation(textField: tfOtp5)
-            }
-            if textField == tfOtp5 {
-                setTFOtpAnimation(textField: tfOtp4)
-            }
-            if textField == tfOtp4 {
-                setTFOtpAnimation(textField: tfOtp3)
-            }
-            if textField == tfOtp3 {
-                setTFOtpAnimation(textField: tfOtp2)
-            }
-            if textField == tfOtp2 {
-                setTFOtpAnimation(textField: tfOtp1)
-            }
+        } else if  ((textField.text?.count ?? 0) > 0) && (string.count == 0){
+//            if textField == tfOtp6 {
+//                setTFOtpAnimation(textField: tfOtp5)
+//            }
+//            if textField == tfOtp5 {
+//                setTFOtpAnimation(textField: tfOtp4)
+//            }
+//            if textField == tfOtp4 {
+//                setTFOtpAnimation(textField: tfOtp3)
+//            }
+//            if textField == tfOtp3 {
+//                setTFOtpAnimation(textField: tfOtp2)
+//            }
+//            if textField == tfOtp2 {
+//                setTFOtpAnimation(textField: tfOtp1)
+//            }
             
             textField.text = ""
             
             return false
-        }else if ((textField.text?.count)! > 0) && (string.count > 0){
+        }else if ((textField.text?.count ?? 0) > 0) && (string.count > 0){
             if textField == tfOtp1 {
                 tfOtp2.text = string
                 setTFOtpAnimation(textField: tfOtp2)
@@ -243,7 +264,7 @@ extension OtpViewController: UITextFieldDelegate{
             }
             
             return false
-        }else if (textField.text?.count)! >= 1 && textField == tfOtp6{
+        }else if (textField.text?.count ?? 0) > 0 && textField == tfOtp6{
             textField.text = string
             
             return false
@@ -263,13 +284,6 @@ extension OtpViewController: UITextFieldDelegate{
         textField.isUserInteractionEnabled = false
         textField.layer.borderWidth = 0
 
-    }
-    
-}
-extension UITextField {
-    override open func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
-        return action == #selector(UIResponderStandardEditActions.paste(_:)) ?
-            false : super.canPerformAction(action, withSender: sender)
     }
     
 }

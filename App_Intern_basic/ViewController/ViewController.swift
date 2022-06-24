@@ -17,8 +17,8 @@ class ViewController: UIViewController {
     
     var listImageIntro:[String] = [String]()
     let gradient = CAGradientLayer()
-    var startColor:CGColor = CGColor(gray: 1, alpha: 1)
-    var endColor:CGColor = CGColor(gray: 1, alpha: 1)
+    var startColor:CGColor = Constants.Color.gradientIntroStart.cgColor
+    var endColor:CGColor = Constants.Color.gradientIntroEnd.cgColor
     
     override func viewDidLayoutSubviews() {
         gradient.frame = viewBgIntro.bounds
@@ -33,9 +33,6 @@ class ViewController: UIViewController {
         
         clvIntro.delegate = self
         clvIntro.dataSource = self
-        
-        startColor = Constants.Color.gradientIntroStart.cgColor
-        endColor = Constants.Color.gradientIntroEnd.cgColor
         
         gradient.colors = [startColor as Any, endColor as Any]
         gradient.locations = [NSNumber(floatLiteral: 0.0), NSNumber(floatLiteral: 1.0)]
@@ -57,9 +54,7 @@ class ViewController: UIViewController {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let visibleRect = CGRect(origin: self.clvIntro.contentOffset, size: self.clvIntro.bounds.size)
         let visiblePoint = CGPoint(x: visibleRect.midX, y: visibleRect.midY)
-        
-        print("aaaaa  ")
-        
+
         if let visibleIndexPath = self.clvIntro.indexPathForItem(at: visiblePoint) {
             self.pctrIntro.currentPage = visibleIndexPath.row
             

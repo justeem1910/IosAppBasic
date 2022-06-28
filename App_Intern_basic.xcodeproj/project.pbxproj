@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F2A6613274228C2D1E6DC56 /* Pods_App_Intern_basic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E376F86C8872926D31FCDB94 /* Pods_App_Intern_basic.framework */; };
 		DB02048E284DA41400834240 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB02048D284DA41400834240 /* AppDelegate.swift */; };
 		DB020490284DA41400834240 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB02048F284DA41400834240 /* SceneDelegate.swift */; };
-		DB020492284DA41400834240 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB020491284DA41400834240 /* ViewController.swift */; };
+		DB020492284DA41400834240 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB020491284DA41400834240 /* IntroViewController.swift */; };
 		DB020495284DA41400834240 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB020493284DA41400834240 /* Main.storyboard */; };
 		DB020497284DA41600834240 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB020496284DA41600834240 /* Assets.xcassets */; };
 		DB02049A284DA41600834240 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB020498284DA41600834240 /* LaunchScreen.storyboard */; };
@@ -20,6 +21,16 @@
 		DB0204CC2858EBD300834240 /* OtpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0204CB2858EBD300834240 /* OtpViewController.swift */; };
 		DB1A3FB6285F927B0088E25C /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1A3FB5285F927B0088E25C /* CustomTextField.swift */; };
 		DB1A3FB8286307DA0088E25C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1A3FB7286307DA0088E25C /* HomeViewController.swift */; };
+		DB1A3FC52865B9470088E25C /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1A3FC32865B9470088E25C /* NewsTableViewCell.swift */; };
+		DB1A3FC62865B9470088E25C /* NewsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB1A3FC42865B9470088E25C /* NewsTableViewCell.xib */; };
+		DB1A3FC92865B9580088E25C /* DoctorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1A3FC72865B9580088E25C /* DoctorTableViewCell.swift */; };
+		DB1A3FCA2865B9580088E25C /* DoctorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB1A3FC82865B9580088E25C /* DoctorTableViewCell.xib */; };
+		DB1A3FCD2865B96B0088E25C /* PromotionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1A3FCB2865B96B0088E25C /* PromotionTableViewCell.swift */; };
+		DB1A3FCE2865B96B0088E25C /* PromotionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB1A3FCC2865B96B0088E25C /* PromotionTableViewCell.xib */; };
+		DB3FCAAF2866AB190095511B /* DoctorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3FCAAD2866AB190095511B /* DoctorCollectionViewCell.swift */; };
+		DB3FCAB02866AB190095511B /* DoctorCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB3FCAAE2866AB190095511B /* DoctorCollectionViewCell.xib */; };
+		DB3FCAB32866AB2D0095511B /* NewsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3FCAB12866AB2D0095511B /* NewsCollectionViewCell.swift */; };
+		DB3FCAB42866AB2D0095511B /* NewsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB3FCAB22866AB2D0095511B /* NewsCollectionViewCell.xib */; };
 		DB535B0E285AE5B000452CE2 /* NunitoSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB535AF1285AE5B000452CE2 /* NunitoSans-LightItalic.ttf */; };
 		DB535B0F285AE5B000452CE2 /* NunitoSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB535AF2285AE5B000452CE2 /* NunitoSans-BoldItalic.ttf */; };
 		DB535B10285AE5B000452CE2 /* NunitoSans-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB535AF3285AE5B000452CE2 /* NunitoSans-ExtraLight.ttf */; };
@@ -46,13 +57,22 @@
 		DB535B26285AE5B000452CE2 /* Inter-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB535B0B285AE5B000452CE2 /* Inter-SemiBold.ttf */; };
 		DB535B27285AE5B000452CE2 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = DB535B0C285AE5B000452CE2 /* OFL.txt */; };
 		DB535B28285AE5B000452CE2 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = DB535B0D285AE5B000452CE2 /* README.txt */; };
+		DB787FC02866CDE000CA2879 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB787FBF2866CDE000CA2879 /* View.swift */; };
+		DB787FC528698FB900CA2879 /* ApiUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB787FC428698FB900CA2879 /* ApiUtilities.swift */; };
+		DB787FC828698FE800CA2879 /* NewsHomeTabModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB787FC728698FE800CA2879 /* NewsHomeTabModel.swift */; };
+		DB787FCA286990CE00CA2879 /* ArticleHomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB787FC9286990CE00CA2879 /* ArticleHomeModel.swift */; };
+		DB787FCC2869924300CA2879 /* DoctorHomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB787FCB2869924300CA2879 /* DoctorHomeModel.swift */; };
+		DB787FCF2869927C00CA2879 /* PromotionHomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB787FCE2869927C00CA2879 /* PromotionHomeModel.swift */; };
+		DB787FD1286995F200CA2879 /* Ultilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB787FD0286995F200CA2879 /* Ultilities.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		091EB180DAD8D275D60B1673 /* Pods-App_Intern_basic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App_Intern_basic.release.xcconfig"; path = "Target Support Files/Pods-App_Intern_basic/Pods-App_Intern_basic.release.xcconfig"; sourceTree = "<group>"; };
+		2DDE6EE545B1DBC390289973 /* Pods-App_Intern_basic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App_Intern_basic.debug.xcconfig"; path = "Target Support Files/Pods-App_Intern_basic/Pods-App_Intern_basic.debug.xcconfig"; sourceTree = "<group>"; };
 		DB02048A284DA41400834240 /* App_Intern_basic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = App_Intern_basic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB02048D284DA41400834240 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB02048F284DA41400834240 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		DB020491284DA41400834240 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DB020491284DA41400834240 /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 		DB020494284DA41400834240 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DB020496284DA41600834240 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DB020499284DA41600834240 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -64,6 +84,16 @@
 		DB0204CB2858EBD300834240 /* OtpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtpViewController.swift; sourceTree = "<group>"; };
 		DB1A3FB5285F927B0088E25C /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		DB1A3FB7286307DA0088E25C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		DB1A3FC32865B9470088E25C /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
+		DB1A3FC42865B9470088E25C /* NewsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsTableViewCell.xib; sourceTree = "<group>"; };
+		DB1A3FC72865B9580088E25C /* DoctorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorTableViewCell.swift; sourceTree = "<group>"; };
+		DB1A3FC82865B9580088E25C /* DoctorTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DoctorTableViewCell.xib; sourceTree = "<group>"; };
+		DB1A3FCB2865B96B0088E25C /* PromotionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionTableViewCell.swift; sourceTree = "<group>"; };
+		DB1A3FCC2865B96B0088E25C /* PromotionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PromotionTableViewCell.xib; sourceTree = "<group>"; };
+		DB3FCAAD2866AB190095511B /* DoctorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorCollectionViewCell.swift; sourceTree = "<group>"; };
+		DB3FCAAE2866AB190095511B /* DoctorCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DoctorCollectionViewCell.xib; sourceTree = "<group>"; };
+		DB3FCAB12866AB2D0095511B /* NewsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCollectionViewCell.swift; sourceTree = "<group>"; };
+		DB3FCAB22866AB2D0095511B /* NewsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsCollectionViewCell.xib; sourceTree = "<group>"; };
 		DB535AF1285AE5B000452CE2 /* NunitoSans-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-LightItalic.ttf"; sourceTree = "<group>"; };
 		DB535AF2285AE5B000452CE2 /* NunitoSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-BoldItalic.ttf"; sourceTree = "<group>"; };
 		DB535AF3285AE5B000452CE2 /* NunitoSans-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-ExtraLight.ttf"; sourceTree = "<group>"; };
@@ -90,6 +120,14 @@
 		DB535B0B285AE5B000452CE2 /* Inter-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-SemiBold.ttf"; sourceTree = "<group>"; };
 		DB535B0C285AE5B000452CE2 /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
 		DB535B0D285AE5B000452CE2 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		DB787FBF2866CDE000CA2879 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		DB787FC428698FB900CA2879 /* ApiUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiUtilities.swift; sourceTree = "<group>"; };
+		DB787FC728698FE800CA2879 /* NewsHomeTabModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsHomeTabModel.swift; sourceTree = "<group>"; };
+		DB787FC9286990CE00CA2879 /* ArticleHomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleHomeModel.swift; sourceTree = "<group>"; };
+		DB787FCB2869924300CA2879 /* DoctorHomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorHomeModel.swift; sourceTree = "<group>"; };
+		DB787FCE2869927C00CA2879 /* PromotionHomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionHomeModel.swift; sourceTree = "<group>"; };
+		DB787FD0286995F200CA2879 /* Ultilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ultilities.swift; sourceTree = "<group>"; };
+		E376F86C8872926D31FCDB94 /* Pods_App_Intern_basic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_App_Intern_basic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,18 +135,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F2A6613274228C2D1E6DC56 /* Pods_App_Intern_basic.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6937D053D72F21CF7BB82070 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2DDE6EE545B1DBC390289973 /* Pods-App_Intern_basic.debug.xcconfig */,
+				091EB180DAD8D275D60B1673 /* Pods-App_Intern_basic.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		DB020481284DA41400834240 = {
 			isa = PBXGroup;
 			children = (
 				DB02048C284DA41400834240 /* App_Intern_basic */,
 				DB02048B284DA41400834240 /* Products */,
 				DBD77651285AEAB600DB0C0D /* Frameworks */,
+				6937D053D72F21CF7BB82070 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -123,23 +172,26 @@
 		DB02048C284DA41400834240 /* App_Intern_basic */ = {
 			isa = PBXGroup;
 			children = (
+				DB787FC628698FD500CA2879 /* Model */,
 				DB1A3FB4285F92420088E25C /* Helper */,
 				DB535AEE285AE44900452CE2 /* Resource */,
 				DB0204C82851945300834240 /* ViewController */,
-				DB0204C5284DEF1900834240 /* Constants */,
-				DB0204A1284DA53200834240 /* CellIntroApp */,
 				DB535AED285AE42F00452CE2 /* App */,
 			);
 			path = App_Intern_basic;
 			sourceTree = "<group>";
 		};
-		DB0204A1284DA53200834240 /* CellIntroApp */ = {
+		DB0204A1284DA53200834240 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				DB0204A2284DA5F200834240 /* IntroCell.swift */,
-				DB0204A3284DA5F200834240 /* IntroCell.xib */,
+				DB3FCAAA2866AADA0095511B /* DoctorCollectionviewCell */,
+				DB3FCAA92866AAC90095511B /* NewsCollectionviewCell */,
+				DB1A3FBF2865B42E0088E25C /* PromotionHomeTabCell */,
+				DB1A3FBE2865B3A60088E25C /* DoctorHomeTabCell */,
+				DB1A3FBD2865B39C0088E25C /* NewsHomeTabCell */,
+				DB1A3FB92865B2D90088E25C /* IntroAppCell */,
 			);
-			path = CellIntroApp;
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		DB0204C5284DEF1900834240 /* Constants */ = {
@@ -153,10 +205,9 @@
 		DB0204C82851945300834240 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				DB0204C92851948E00834240 /* PhoneViewController.swift */,
-				DB0204CB2858EBD300834240 /* OtpViewController.swift */,
-				DB020491284DA41400834240 /* ViewController.swift */,
-				DB1A3FB7286307DA0088E25C /* HomeViewController.swift */,
+				DB1A3FBC2865B3850088E25C /* LoginAndSignUp */,
+				DB1A3FBB2865B3750088E25C /* Home */,
+				DB0204A1284DA53200834240 /* Cells */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -164,9 +215,92 @@
 		DB1A3FB4285F92420088E25C /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				DB1A3FB5285F927B0088E25C /* CustomTextField.swift */,
+				DB787FC328698F7100CA2879 /* Utilities */,
+				DB787FBE2866CDC300CA2879 /* Extension */,
+				DB0204C5284DEF1900834240 /* Constants */,
+				DB1A3FC02865B8D40088E25C /* TextField */,
 			);
 			path = Helper;
+			sourceTree = "<group>";
+		};
+		DB1A3FB92865B2D90088E25C /* IntroAppCell */ = {
+			isa = PBXGroup;
+			children = (
+				DB0204A2284DA5F200834240 /* IntroCell.swift */,
+				DB0204A3284DA5F200834240 /* IntroCell.xib */,
+			);
+			path = IntroAppCell;
+			sourceTree = "<group>";
+		};
+		DB1A3FBB2865B3750088E25C /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				DB1A3FB7286307DA0088E25C /* HomeViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		DB1A3FBC2865B3850088E25C /* LoginAndSignUp */ = {
+			isa = PBXGroup;
+			children = (
+				DB0204C92851948E00834240 /* PhoneViewController.swift */,
+				DB0204CB2858EBD300834240 /* OtpViewController.swift */,
+				DB020491284DA41400834240 /* IntroViewController.swift */,
+			);
+			path = LoginAndSignUp;
+			sourceTree = "<group>";
+		};
+		DB1A3FBD2865B39C0088E25C /* NewsHomeTabCell */ = {
+			isa = PBXGroup;
+			children = (
+				DB1A3FC32865B9470088E25C /* NewsTableViewCell.swift */,
+				DB1A3FC42865B9470088E25C /* NewsTableViewCell.xib */,
+			);
+			path = NewsHomeTabCell;
+			sourceTree = "<group>";
+		};
+		DB1A3FBE2865B3A60088E25C /* DoctorHomeTabCell */ = {
+			isa = PBXGroup;
+			children = (
+				DB1A3FC72865B9580088E25C /* DoctorTableViewCell.swift */,
+				DB1A3FC82865B9580088E25C /* DoctorTableViewCell.xib */,
+			);
+			path = DoctorHomeTabCell;
+			sourceTree = "<group>";
+		};
+		DB1A3FBF2865B42E0088E25C /* PromotionHomeTabCell */ = {
+			isa = PBXGroup;
+			children = (
+				DB1A3FCB2865B96B0088E25C /* PromotionTableViewCell.swift */,
+				DB1A3FCC2865B96B0088E25C /* PromotionTableViewCell.xib */,
+			);
+			path = PromotionHomeTabCell;
+			sourceTree = "<group>";
+		};
+		DB1A3FC02865B8D40088E25C /* TextField */ = {
+			isa = PBXGroup;
+			children = (
+				DB1A3FB5285F927B0088E25C /* CustomTextField.swift */,
+			);
+			path = TextField;
+			sourceTree = "<group>";
+		};
+		DB3FCAA92866AAC90095511B /* NewsCollectionviewCell */ = {
+			isa = PBXGroup;
+			children = (
+				DB3FCAB12866AB2D0095511B /* NewsCollectionViewCell.swift */,
+				DB3FCAB22866AB2D0095511B /* NewsCollectionViewCell.xib */,
+			);
+			path = NewsCollectionviewCell;
+			sourceTree = "<group>";
+		};
+		DB3FCAAA2866AADA0095511B /* DoctorCollectionviewCell */ = {
+			isa = PBXGroup;
+			children = (
+				DB3FCAAD2866AB190095511B /* DoctorCollectionViewCell.swift */,
+				DB3FCAAE2866AB190095511B /* DoctorCollectionViewCell.xib */,
+			);
+			path = DoctorCollectionviewCell;
 			sourceTree = "<group>";
 		};
 		DB535AED285AE42F00452CE2 /* App */ = {
@@ -247,9 +381,46 @@
 			path = static;
 			sourceTree = "<group>";
 		};
+		DB787FBE2866CDC300CA2879 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				DB787FBF2866CDE000CA2879 /* View.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		DB787FC328698F7100CA2879 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				DB787FC428698FB900CA2879 /* ApiUtilities.swift */,
+				DB787FD0286995F200CA2879 /* Ultilities.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		DB787FC628698FD500CA2879 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DB787FCD2869925100CA2879 /* HomeVc */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DB787FCD2869925100CA2879 /* HomeVc */ = {
+			isa = PBXGroup;
+			children = (
+				DB787FC728698FE800CA2879 /* NewsHomeTabModel.swift */,
+				DB787FC9286990CE00CA2879 /* ArticleHomeModel.swift */,
+				DB787FCB2869924300CA2879 /* DoctorHomeModel.swift */,
+				DB787FCE2869927C00CA2879 /* PromotionHomeModel.swift */,
+			);
+			path = HomeVc;
+			sourceTree = "<group>";
+		};
 		DBD77651285AEAB600DB0C0D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E376F86C8872926D31FCDB94 /* Pods_App_Intern_basic.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -261,9 +432,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DB02049E284DA41600834240 /* Build configuration list for PBXNativeTarget "App_Intern_basic" */;
 			buildPhases = (
+				4A67545D432B8E6B90E84B7F /* [CP] Check Pods Manifest.lock */,
 				DB020486284DA41400834240 /* Sources */,
 				DB020487284DA41400834240 /* Frameworks */,
 				DB020488284DA41400834240 /* Resources */,
+				3C7DD7E13637FA2B7E98CC5B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -320,6 +493,7 @@
 				DB535B16285AE5B000452CE2 /* NunitoSans-Italic.ttf in Resources */,
 				DB535B18285AE5B000452CE2 /* NunitoSans-Bold.ttf in Resources */,
 				DB02049A284DA41600834240 /* LaunchScreen.storyboard in Resources */,
+				DB1A3FC62865B9470088E25C /* NewsTableViewCell.xib in Resources */,
 				DB535B0F285AE5B000452CE2 /* NunitoSans-BoldItalic.ttf in Resources */,
 				DB535B1F285AE5B000452CE2 /* Inter-Light.ttf in Resources */,
 				DB020497284DA41600834240 /* Assets.xcassets in Resources */,
@@ -333,19 +507,65 @@
 				DB535B20285AE5B000452CE2 /* Inter-Thin.ttf in Resources */,
 				DB535B28285AE5B000452CE2 /* README.txt in Resources */,
 				DB020495284DA41400834240 /* Main.storyboard in Resources */,
+				DB1A3FCE2865B96B0088E25C /* PromotionTableViewCell.xib in Resources */,
+				DB1A3FCA2865B9580088E25C /* DoctorTableViewCell.xib in Resources */,
 				DB535B0E285AE5B000452CE2 /* NunitoSans-LightItalic.ttf in Resources */,
 				DB535B21285AE5B000452CE2 /* Inter-Bold.ttf in Resources */,
 				DB535B10285AE5B000452CE2 /* NunitoSans-ExtraLight.ttf in Resources */,
 				DB535B1D285AE5B000452CE2 /* Inter-VariableFont_slnt,wght.ttf in Resources */,
+				DB3FCAB42866AB2D0095511B /* NewsCollectionViewCell.xib in Resources */,
 				DB535B22285AE5B000452CE2 /* Inter-Regular.ttf in Resources */,
 				DB535B1A285AE5B000452CE2 /* NunitoSans-Black.ttf in Resources */,
 				DB535B12285AE5B000452CE2 /* NunitoSans-BlackItalic.ttf in Resources */,
 				DB535B11285AE5B000452CE2 /* NunitoSans-Light.ttf in Resources */,
 				DB535B25285AE5B000452CE2 /* Inter-Black.ttf in Resources */,
+				DB3FCAB02866AB190095511B /* DoctorCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3C7DD7E13637FA2B7E98CC5B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-App_Intern_basic/Pods-App_Intern_basic-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-App_Intern_basic/Pods-App_Intern_basic-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-App_Intern_basic/Pods-App_Intern_basic-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4A67545D432B8E6B90E84B7F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-App_Intern_basic-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		DB020486284DA41400834240 /* Sources */ = {
@@ -353,14 +573,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB0204CC2858EBD300834240 /* OtpViewController.swift in Sources */,
+				DB3FCAB32866AB2D0095511B /* NewsCollectionViewCell.swift in Sources */,
+				DB787FCC2869924300CA2879 /* DoctorHomeModel.swift in Sources */,
+				DB787FC02866CDE000CA2879 /* View.swift in Sources */,
+				DB787FC528698FB900CA2879 /* ApiUtilities.swift in Sources */,
+				DB787FC828698FE800CA2879 /* NewsHomeTabModel.swift in Sources */,
 				DB0204C7284DEF4C00834240 /* Constants.swift in Sources */,
-				DB020492284DA41400834240 /* ViewController.swift in Sources */,
+				DB3FCAAF2866AB190095511B /* DoctorCollectionViewCell.swift in Sources */,
+				DB787FCF2869927C00CA2879 /* PromotionHomeModel.swift in Sources */,
+				DB787FD1286995F200CA2879 /* Ultilities.swift in Sources */,
+				DB1A3FC52865B9470088E25C /* NewsTableViewCell.swift in Sources */,
+				DB020492284DA41400834240 /* IntroViewController.swift in Sources */,
 				DB0204CA2851948E00834240 /* PhoneViewController.swift in Sources */,
+				DB1A3FCD2865B96B0088E25C /* PromotionTableViewCell.swift in Sources */,
 				DB1A3FB6285F927B0088E25C /* CustomTextField.swift in Sources */,
+				DB1A3FC92865B9580088E25C /* DoctorTableViewCell.swift in Sources */,
 				DB1A3FB8286307DA0088E25C /* HomeViewController.swift in Sources */,
 				DB02048E284DA41400834240 /* AppDelegate.swift in Sources */,
 				DB0204A4284DA5F200834240 /* IntroCell.swift in Sources */,
 				DB020490284DA41400834240 /* SceneDelegate.swift in Sources */,
+				DB787FCA286990CE00CA2879 /* ArticleHomeModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -502,6 +734,7 @@
 		};
 		DB02049F284DA41600834240 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2DDE6EE545B1DBC390289973 /* Pods-App_Intern_basic.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -530,6 +763,7 @@
 		};
 		DB0204A0284DA41600834240 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 091EB180DAD8D275D60B1673 /* Pods-App_Intern_basic.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

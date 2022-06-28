@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="NunitoSans-Bold.ttf">
+            <string>NunitoSans-Bold</string>
+        </array>
+        <array key="NunitoSans-Regular.ttf">
+            <string>NunitoSans-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="NewsCollectionViewCell" customModule="App_Intern_basic" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="293" height="266"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="293" height="266"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7DL-sd-fFi">
+                        <rect key="frame" x="16" y="0.0" width="277" height="266"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </imageView>
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="psf-ub-nCm">
+                        <rect key="frame" x="16" y="0.0" width="277" height="266"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Sut-C2-Ne0">
+                                <rect key="frame" x="0.0" y="0.0" width="277" height="134"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="134" id="oBo-AI-awE"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jio Health khởi động chương trình Doctor Tour 2021" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oOu-HX-vyA">
+                                <rect key="frame" x="12" y="146" width="265" height="41"/>
+                                <fontDescription key="fontDescription" name="NunitoSans-Bold" family="Nunito Sans" pointSize="15"/>
+                                <color key="textColor" red="0.094117647058823528" green="0.098039215686274508" blue="0.12156862745098039" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ưu đãi hot" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZnG-ip-1i5">
+                                <rect key="frame" x="12" y="236" width="62.5" height="18"/>
+                                <fontDescription key="fontDescription" name="NunitoSans-Bold" family="Nunito Sans" pointSize="13"/>
+                                <color key="textColor" red="0.17254901960784313" green="0.52549019607843139" blue="0.40392156862745099" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eclipseTextCellHome" translatesAutoresizingMaskIntoConstraints="NO" id="EXJ-nw-co0">
+                                <rect key="frame" x="80.5" y="243" width="4" height="4"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="4" id="J4x-8y-vrS"/>
+                                    <constraint firstAttribute="height" constant="4" id="QKB-hY-eWl"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="28/6/2021" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c6e-VW-aYO">
+                                <rect key="frame" x="90.5" y="236" width="80" height="18"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="LAn-4H-suS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="NunitoSans-Regular" family="Nunito Sans" pointSize="13"/>
+                                <color key="textColor" red="0.58823529411764708" green="0.60784313725490191" blue="0.6705882352941176" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="c6e-VW-aYO" firstAttribute="leading" secondItem="EXJ-nw-co0" secondAttribute="trailing" constant="6" id="6HN-oY-isX"/>
+                            <constraint firstItem="ZnG-ip-1i5" firstAttribute="top" relation="greaterThanOrEqual" secondItem="oOu-HX-vyA" secondAttribute="bottom" constant="4" id="NyO-8W-JgH"/>
+                            <constraint firstItem="oOu-HX-vyA" firstAttribute="leading" secondItem="psf-ub-nCm" secondAttribute="leading" constant="12" id="Pi1-QP-Erj"/>
+                            <constraint firstItem="Sut-C2-Ne0" firstAttribute="leading" secondItem="psf-ub-nCm" secondAttribute="leading" id="S4y-h5-D37"/>
+                            <constraint firstItem="Sut-C2-Ne0" firstAttribute="top" secondItem="psf-ub-nCm" secondAttribute="top" id="XZc-ho-Y4Y"/>
+                            <constraint firstAttribute="trailing" secondItem="Sut-C2-Ne0" secondAttribute="trailing" id="ccK-rn-oGK"/>
+                            <constraint firstItem="EXJ-nw-co0" firstAttribute="centerY" secondItem="ZnG-ip-1i5" secondAttribute="centerY" id="e2d-nz-M9F"/>
+                            <constraint firstItem="oOu-HX-vyA" firstAttribute="top" secondItem="Sut-C2-Ne0" secondAttribute="bottom" constant="12" id="e7z-xG-glI"/>
+                            <constraint firstItem="ZnG-ip-1i5" firstAttribute="leading" secondItem="oOu-HX-vyA" secondAttribute="leading" id="gtT-SF-EqC"/>
+                            <constraint firstAttribute="bottom" secondItem="ZnG-ip-1i5" secondAttribute="bottom" constant="12" id="hpv-iY-iL2"/>
+                            <constraint firstAttribute="trailing" secondItem="oOu-HX-vyA" secondAttribute="trailing" id="kOH-Oi-75R"/>
+                            <constraint firstItem="c6e-VW-aYO" firstAttribute="centerY" secondItem="EXJ-nw-co0" secondAttribute="centerY" id="opV-pB-cbW"/>
+                            <constraint firstItem="EXJ-nw-co0" firstAttribute="leading" secondItem="ZnG-ip-1i5" secondAttribute="trailing" constant="6" id="sWx-MR-lhb"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="7DL-sd-fFi" firstAttribute="leading" secondItem="psf-ub-nCm" secondAttribute="leading" id="2zC-7v-LCE"/>
+                <constraint firstItem="psf-ub-nCm" firstAttribute="leading" secondItem="ZTg-uK-7eu" secondAttribute="leading" constant="16" id="APj-Iy-8Mc"/>
+                <constraint firstItem="7DL-sd-fFi" firstAttribute="bottom" secondItem="psf-ub-nCm" secondAttribute="bottom" id="FNR-76-uka"/>
+                <constraint firstItem="psf-ub-nCm" firstAttribute="bottom" secondItem="gTV-IL-0wX" secondAttribute="bottom" id="JRh-QF-4DX"/>
+                <constraint firstItem="7DL-sd-fFi" firstAttribute="trailing" secondItem="psf-ub-nCm" secondAttribute="trailing" id="Pci-Jy-i97"/>
+                <constraint firstItem="psf-ub-nCm" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="UnJ-aS-188"/>
+                <constraint firstItem="psf-ub-nCm" firstAttribute="trailing" secondItem="ZTg-uK-7eu" secondAttribute="trailing" id="VW9-ZC-EYg"/>
+                <constraint firstItem="7DL-sd-fFi" firstAttribute="top" secondItem="psf-ub-nCm" secondAttribute="top" id="WdS-vX-jgI"/>
+            </constraints>
+            <size key="customSize" width="293" height="266"/>
+            <connections>
+                <outlet property="img" destination="Sut-C2-Ne0" id="ReI-CT-FCk"/>
+                <outlet property="imgBackground" destination="7DL-sd-fFi" id="EKR-LQ-352"/>
+                <outlet property="lblDate" destination="c6e-VW-aYO" id="UWF-tM-aNE"/>
+                <outlet property="lblSpecial" destination="ZnG-ip-1i5" id="WHp-5D-r4R"/>
+                <outlet property="lblTitle" destination="oOu-HX-vyA" id="Td8-xS-WZh"/>
+                <outlet property="viewBackGround" destination="psf-ub-nCm" id="Tmp-at-IKH"/>
+            </connections>
+            <point key="canvasLocation" x="312.31884057971018" y="147.99107142857142"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="eclipseTextCellHome" width="4" height="4"/>
+    </resources>
+</document>

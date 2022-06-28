@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class IntroViewController: UIViewController {
     
     @IBOutlet weak var clvIntro:UICollectionView!
     @IBOutlet weak var pctrIntro:UIPageControl!
@@ -73,7 +73,7 @@ class ViewController: UIViewController {
     }
     
 }
-extension ViewController: UICollectionViewDelegate{
+extension IntroViewController: UICollectionViewDelegate{
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: IntroCell = collectionView.dequeueReusableCell(withReuseIdentifier: "IntroCell", for: indexPath) as! IntroCell
@@ -83,14 +83,14 @@ extension ViewController: UICollectionViewDelegate{
         return cell
     }
 }
-extension ViewController: UICollectionViewDataSource {
+extension IntroViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return listImageIntro.count
     }
     
     
 }
-extension ViewController: UICollectionViewDelegateFlowLayout {
+extension IntroViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         let width = collectionView.frame.width

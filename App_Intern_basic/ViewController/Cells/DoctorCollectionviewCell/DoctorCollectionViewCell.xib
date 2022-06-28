@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="NunitoSans-Bold.ttf">
+            <string>NunitoSans-Bold</string>
+        </array>
+        <array key="NunitoSans-Regular.ttf">
+            <string>NunitoSans-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="DoctorCollectionViewCell" customModule="App_Intern_basic" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="198" height="317"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="198" height="317"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imageDoctor" translatesAutoresizingMaskIntoConstraints="NO" id="FxQ-4Q-aBf">
+                        <rect key="frame" x="12" y="12" width="174" height="174"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="FxQ-4Q-aBf" secondAttribute="height" multiplier="1:1" id="jfv-0G-bFA"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dr. Stephen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GPN-6a-psq">
+                        <rect key="frame" x="12" y="198" width="174" height="18"/>
+                        <fontDescription key="fontDescription" name="NunitoSans-Bold" family="Nunito Sans" pointSize="13"/>
+                        <color key="textColor" red="0.094117647058823528" green="0.098039215686274508" blue="0.12156862745098039" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pediatrics" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pb8-ru-xGh">
+                        <rect key="frame" x="12" y="220" width="52.5" height="16.5"/>
+                        <fontDescription key="fontDescription" name="NunitoSans-Regular" family="Nunito Sans" pointSize="12"/>
+                        <color key="textColor" red="0.58823529411764708" green="0.60784313725490191" blue="0.6705882352941176" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Star" translatesAutoresizingMaskIntoConstraints="NO" id="Etz-t3-RSr">
+                        <rect key="frame" x="12" y="244.5" width="12" height="12"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="12" id="93r-96-4Ir"/>
+                            <constraint firstAttribute="width" constant="12" id="mRX-Bz-dyP"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pcj-ql-4e9">
+                        <rect key="frame" x="30" y="243" width="27.5" height="15.5"/>
+                        <fontDescription key="fontDescription" name="NunitoSans-Regular" family="Nunito Sans" pointSize="11"/>
+                        <color key="textColor" red="0.58823529411764708" green="0.60784313725490191" blue="0.6705882352941176" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="Etz-t3-RSr" firstAttribute="leading" secondItem="Pb8-ru-xGh" secondAttribute="leading" id="01F-IW-miL"/>
+                <constraint firstItem="Pcj-ql-4e9" firstAttribute="centerY" secondItem="Etz-t3-RSr" secondAttribute="centerY" id="0t7-B2-G4u"/>
+                <constraint firstItem="GPN-6a-psq" firstAttribute="leading" secondItem="Pb8-ru-xGh" secondAttribute="leading" id="Fsc-HM-msC"/>
+                <constraint firstItem="GPN-6a-psq" firstAttribute="top" secondItem="FxQ-4Q-aBf" secondAttribute="bottom" constant="12" id="HNt-m5-Nji"/>
+                <constraint firstItem="FxQ-4Q-aBf" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="12" id="Z4P-Mg-Kbv"/>
+                <constraint firstAttribute="trailing" secondItem="FxQ-4Q-aBf" secondAttribute="trailing" constant="12" id="aod-ax-gJz"/>
+                <constraint firstItem="FxQ-4Q-aBf" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="12" id="dC7-N3-oAL"/>
+                <constraint firstItem="GPN-6a-psq" firstAttribute="leading" secondItem="FxQ-4Q-aBf" secondAttribute="leading" id="dXZ-bw-Fvd"/>
+                <constraint firstItem="Pcj-ql-4e9" firstAttribute="leading" secondItem="Etz-t3-RSr" secondAttribute="trailing" constant="6" id="eP5-6J-ekk"/>
+                <constraint firstItem="Pb8-ru-xGh" firstAttribute="top" secondItem="GPN-6a-psq" secondAttribute="bottom" constant="4" id="kcy-op-8wD"/>
+                <constraint firstItem="GPN-6a-psq" firstAttribute="trailing" secondItem="FxQ-4Q-aBf" secondAttribute="trailing" id="pzA-ec-394"/>
+                <constraint firstItem="Etz-t3-RSr" firstAttribute="top" secondItem="Pb8-ru-xGh" secondAttribute="bottom" constant="8" id="vQq-dA-td3"/>
+            </constraints>
+            <size key="customSize" width="198" height="317"/>
+            <connections>
+                <outlet property="img" destination="FxQ-4Q-aBf" id="NnB-IH-Xu8"/>
+                <outlet property="lblName" destination="GPN-6a-psq" id="hLH-q8-0r9"/>
+                <outlet property="lblSpecial" destination="Pb8-ru-xGh" id="SA8-F9-P1y"/>
+                <outlet property="lblVote" destination="Pcj-ql-4e9" id="H7Q-F7-QJl"/>
+            </connections>
+            <point key="canvasLocation" x="243.47826086956525" y="165.06696428571428"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="Star" width="12" height="12"/>
+        <image name="imageDoctor" width="97" height="97"/>
+    </resources>
+</document>

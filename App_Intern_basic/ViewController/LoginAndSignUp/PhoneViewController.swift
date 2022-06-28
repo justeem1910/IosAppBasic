@@ -38,7 +38,7 @@ class PhoneViewController: UIViewController {
         viewPhoneNumber.layer.shadowOffset = CGSize(width: 0, height: 4)
         viewPhoneNumber.layer.borderWidth = 1
         
-        viewPhoneNumber.layer.borderColor = Constants.Color.gray.cgColor
+        viewPhoneNumber.layer.borderColor = Constants.Color.gray5.cgColor
         tfPhoneNumber.text = ""
         tfPhoneNumber.delegate = self
         tfPhoneNumber.clearButtonMode = .whileEditing
@@ -117,7 +117,7 @@ class PhoneViewController: UIViewController {
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if tfPhoneNumber.text?.count == 0 {
-            viewPhoneNumber.layer.borderColor = Constants.Color.gray.cgColor
+            viewPhoneNumber.layer.borderColor = Constants.Color.gray5.cgColor
         }
         tfPhoneNumber.resignFirstResponder()
     }

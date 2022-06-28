@@ -7,7 +7,7 @@
 
 import Foundation
 
-class NewsHomeTabModel: NSObject, JsonInitObject {
+class HomeTabModel: NSObject, JsonInitObject {
     
     var articleList     : [ArticleHomeModel]?
     var doctorList     : [DoctorHomeModel]?

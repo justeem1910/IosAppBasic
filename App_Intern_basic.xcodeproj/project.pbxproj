@@ -59,11 +59,12 @@
 		DB535B28285AE5B000452CE2 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = DB535B0D285AE5B000452CE2 /* README.txt */; };
 		DB787FC02866CDE000CA2879 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB787FBF2866CDE000CA2879 /* View.swift */; };
 		DB787FC528698FB900CA2879 /* ApiUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB787FC428698FB900CA2879 /* ApiUtilities.swift */; };
-		DB787FC828698FE800CA2879 /* NewsHomeTabModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB787FC728698FE800CA2879 /* NewsHomeTabModel.swift */; };
+		DB787FC828698FE800CA2879 /* HomeTabModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB787FC728698FE800CA2879 /* HomeTabModel.swift */; };
 		DB787FCA286990CE00CA2879 /* ArticleHomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB787FC9286990CE00CA2879 /* ArticleHomeModel.swift */; };
 		DB787FCC2869924300CA2879 /* DoctorHomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB787FCB2869924300CA2879 /* DoctorHomeModel.swift */; };
 		DB787FCF2869927C00CA2879 /* PromotionHomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB787FCE2869927C00CA2879 /* PromotionHomeModel.swift */; };
 		DB787FD1286995F200CA2879 /* Ultilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB787FD0286995F200CA2879 /* Ultilities.swift */; };
+		DB787FD3286AE91900CA2879 /* NSMutableAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB787FD2286AE91900CA2879 /* NSMutableAttributedString.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -122,11 +123,12 @@
 		DB535B0D285AE5B000452CE2 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		DB787FBF2866CDE000CA2879 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		DB787FC428698FB900CA2879 /* ApiUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiUtilities.swift; sourceTree = "<group>"; };
-		DB787FC728698FE800CA2879 /* NewsHomeTabModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsHomeTabModel.swift; sourceTree = "<group>"; };
+		DB787FC728698FE800CA2879 /* HomeTabModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabModel.swift; sourceTree = "<group>"; };
 		DB787FC9286990CE00CA2879 /* ArticleHomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleHomeModel.swift; sourceTree = "<group>"; };
 		DB787FCB2869924300CA2879 /* DoctorHomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorHomeModel.swift; sourceTree = "<group>"; };
 		DB787FCE2869927C00CA2879 /* PromotionHomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionHomeModel.swift; sourceTree = "<group>"; };
 		DB787FD0286995F200CA2879 /* Ultilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ultilities.swift; sourceTree = "<group>"; };
+		DB787FD2286AE91900CA2879 /* NSMutableAttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSMutableAttributedString.swift; sourceTree = "<group>"; };
 		E376F86C8872926D31FCDB94 /* Pods_App_Intern_basic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_App_Intern_basic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -385,6 +387,7 @@
 			isa = PBXGroup;
 			children = (
 				DB787FBF2866CDE000CA2879 /* View.swift */,
+				DB787FD2286AE91900CA2879 /* NSMutableAttributedString.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -409,7 +412,7 @@
 		DB787FCD2869925100CA2879 /* HomeVc */ = {
 			isa = PBXGroup;
 			children = (
-				DB787FC728698FE800CA2879 /* NewsHomeTabModel.swift */,
+				DB787FC728698FE800CA2879 /* HomeTabModel.swift */,
 				DB787FC9286990CE00CA2879 /* ArticleHomeModel.swift */,
 				DB787FCB2869924300CA2879 /* DoctorHomeModel.swift */,
 				DB787FCE2869927C00CA2879 /* PromotionHomeModel.swift */,
@@ -572,12 +575,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB787FD3286AE91900CA2879 /* NSMutableAttributedString.swift in Sources */,
 				DB0204CC2858EBD300834240 /* OtpViewController.swift in Sources */,
 				DB3FCAB32866AB2D0095511B /* NewsCollectionViewCell.swift in Sources */,
 				DB787FCC2869924300CA2879 /* DoctorHomeModel.swift in Sources */,
 				DB787FC02866CDE000CA2879 /* View.swift in Sources */,
 				DB787FC528698FB900CA2879 /* ApiUtilities.swift in Sources */,
-				DB787FC828698FE800CA2879 /* NewsHomeTabModel.swift in Sources */,
+				DB787FC828698FE800CA2879 /* HomeTabModel.swift in Sources */,
 				DB0204C7284DEF4C00834240 /* Constants.swift in Sources */,
 				DB3FCAAF2866AB190095511B /* DoctorCollectionViewCell.swift in Sources */,
 				DB787FCF2869927C00CA2879 /* PromotionHomeModel.swift in Sources */,

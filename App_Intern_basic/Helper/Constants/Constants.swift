@@ -29,15 +29,20 @@ struct Constants {
         static let hotlinePhone = UIFont(name: "NunitoSans-Bold", size: 17)
         static let otpString = UIFont(name: "NunitoSans-Regular", size: 14)
         static let otpPhone = UIFont(name: "NunitoSans-Bold", size: 14)
+        
+        static let nunitoSansRegular11 = UIFont(name: "NunitoSans-Regular", size: 11)
     }
     
 
     struct HomeVC {
         static let tableNewsCellHeight: CGFloat = 320
-        static let tableSuggestionCellHeight: CGFloat = 290
+        static let tableDoctorCellHeight: CGFloat = 290
         
         static let newsCellWidth: CGFloat = 274
-        static let suggestDoctorCellWidth: CGFloat = 137
+        static let clvDoctorCellWidth: CGFloat = 137
         static let bottomPadding: CGFloat = 28
+    }
+    struct Icon {
+        static let doctorIcon = UIImage(named: "imageDoctor")
     }
 }

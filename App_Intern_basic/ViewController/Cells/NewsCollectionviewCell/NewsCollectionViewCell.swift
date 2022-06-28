@@ -18,15 +18,10 @@ class NewsCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         viewBackGround.layer.cornerRadius = 8
-//        viewBackGround.layer.shadowRadius = 20
-//        viewBackGround.layer.shadowOffset = CGSize(width: 0, height: 4)
-//        viewBackGround.layer.shadowOpacity = 20
-//        viewBackGround.layer.shadowColor = Constants.Color.shadowColor.cgColor
-//        
         imgBackground.layer.cornerRadius = 8
         imgBackground.layer.shadowRadius = 20
         imgBackground.layer.shadowOffset = CGSize(width: 0, height: 4)
-        imgBackground.layer.shadowOpacity = 20
+        imgBackground.layer.shadowOpacity = 1
         imgBackground.layer.shadowColor = Constants.Color.shadowColor.cgColor
     }
 

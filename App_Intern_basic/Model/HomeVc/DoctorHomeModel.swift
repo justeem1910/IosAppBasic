@@ -85,8 +85,8 @@ class DoctorHomeModel {
     }
 }
 
-extension DoctorHomeModel {
-    func getFullName() -> String {
-        return full_name ?? (last_name ?? "") + " " + (name ?? "")
-    }
-}
+//extension DoctorHomeModel {
+//    func getFullName() -> String {
+//        return full_name ?? (last_name ?? "") + " " + (name ?? "")
+//    }
+//}

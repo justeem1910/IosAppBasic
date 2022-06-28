@@ -18,7 +18,7 @@ final class APIUtilities {
     static let responseCodeKey = "code"
     static let responseMessageKey = "message"
     
-    static func requestHomePatientFeed(completionHandler: ((NewsHomeTabModel?, APIError?) -> Void)?) {
+    static func requestHomePatientFeed(completionHandler: ((HomeTabModel?, APIError?) -> Void)?) {
         
         let tailStrURL = "/hdhuy179/f967ffb777610529b678f0d5c823352a/raw"
         
@@ -65,10 +65,10 @@ final class APIUtilities {
         guard let url = URL(string: domain + tailStrURL) else { return }
         AF.request(url, method: method, parameters: parameters, encoding: encoding, headers: headers)
             .responseJSON { response in
-                
+
                 var serverCode: Int? = nil
                 var serverMessage: String? = nil
-                
+
                 switch response.result {
                 case .success(let value):
                     serverCode = (value as? [String: Any])?[responseCodeKey] as? Int
@@ -79,13 +79,13 @@ final class APIUtilities {
                 
                 completionHandler?(response, serverCode, serverMessage)
             }
+       
     }
+    
 }
 
 extension APIUtilities {
     enum APIError: Error {
-//        case loginFail
-//        case signUpFail
         case resposeFormatError
         case serverError(Int?, String?)
         case unowned(Error)

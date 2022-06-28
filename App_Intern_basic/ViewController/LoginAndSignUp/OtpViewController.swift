@@ -171,7 +171,6 @@ class OtpViewController: UIViewController {
     
     @IBAction func btnContinueAction(_ sender: Any) {
         var otpString = "\(tfOtp1.text!)\(tfOtp2.text!)\(tfOtp3.text!)\(tfOtp4.text!)\(tfOtp5.text!)\(tfOtp6.text!)"
-        print("aaaa   \(otpString)")
         if otpString == "111111"{
             let homeVC = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController
             self.navigationController?.pushViewController(homeVC!, animated: true)
@@ -222,22 +221,6 @@ extension OtpViewController: UITextFieldDelegate{
             return false
 
         } else if  ((textField.text?.count ?? 0) > 0) && (string.count == 0){
-//            if textField == tfOtp6 {
-//                setTFOtpAnimation(textField: tfOtp5)
-//            }
-//            if textField == tfOtp5 {
-//                setTFOtpAnimation(textField: tfOtp4)
-//            }
-//            if textField == tfOtp4 {
-//                setTFOtpAnimation(textField: tfOtp3)
-//            }
-//            if textField == tfOtp3 {
-//                setTFOtpAnimation(textField: tfOtp2)
-//            }
-//            if textField == tfOtp2 {
-//                setTFOtpAnimation(textField: tfOtp1)
-//            }
-            
             textField.text = ""
             
             return false

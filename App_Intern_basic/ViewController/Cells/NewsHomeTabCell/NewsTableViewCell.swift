@@ -10,6 +10,7 @@ import UIKit
 class NewsTableViewCell: UITableViewCell {
     
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var lblTitle: UILabel!
     
     @IBOutlet weak var btnSeeAll: UIButton!
     
@@ -24,6 +25,9 @@ class NewsTableViewCell: UITableViewCell {
         
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 16)
+        
+
         
         
         collectionView.register(UINib(nibName: "NewsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "NewsCollectionViewCell")
@@ -31,7 +35,17 @@ class NewsTableViewCell: UITableViewCell {
     func configViews(articleList: [ArticleHomeModel]?, pushVCHandler: ((UIViewController) -> ())?) {
         self.pushVCHandler = pushVCHandler
         
+        lblTitle.text = "Tin Tức"
         self.articleList = articleList
+        self.promotionList = nil
+        collectionView.reloadData()
+    }
+    
+    func configViews(promotionList: [PromotionHomeModel]?, pushVCHandler: ((UIViewController) -> ())?) {
+        self.pushVCHandler = pushVCHandler
+        lblTitle.text = "Khuyến mại"
+        self.articleList = nil
+        self.promotionList = promotionList
         collectionView.reloadData()
     }
 
@@ -49,19 +63,25 @@ extension NewsTableViewCell: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: Constants.HomeVC.newsCellWidth, height: collectionView.bounds.height - Constants.HomeVC.bottomPadding)
     }
-
 }
+
 extension NewsTableViewCell: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return articleList?.count ?? 0
+        if let articleList = articleList{
+            return articleList.count
+        }
+        return promotionList?.count ?? 0
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NewsCollectionViewCell", for: indexPath) as! NewsCollectionViewCell
-        
-        let news = articleList?[indexPath.item]
-        
-        cell.configViews(news: news)
-        
+        if let articleList = articleList {
+            let news = articleList[indexPath.item]
+            cell.configViews(news: news)
+            return cell
+        }
+        let promotion = promotionList?[indexPath.item]
+        cell.configViews(promotion: promotion)
+    
         return cell
     }
     

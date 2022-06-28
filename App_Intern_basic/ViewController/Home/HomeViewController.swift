@@ -13,7 +13,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var viewBackGroundTableView: UIView!
     @IBOutlet weak var tableViewHome: UITableView!
     
-    var newsModel: NewsHomeTabModel?
+    var newsModel: HomeTabModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,14 +25,14 @@ class HomeViewController: UIViewController {
         tableViewHome.delegate = self
         tableViewHome.dataSource = self
         
-        fetchPatientNewFeed()
+        loadNewFeed()
     }
     override func viewDidLayoutSubviews() {
         viewBackGroundTableView.clipsToBounds = true
-        viewBackGroundTableView.roundCorners(corners: [.topLeft, .topRight], radius: 8)
+        viewBackGroundTableView.roundCorners(corners: [.topLeft, .topRight], radius: 16)
         
     }
-    func fetchPatientNewFeed() {
+    func loadNewFeed() {
 //        self.showLoaderView()
         APIUtilities.requestHomePatientFeed { [weak self] patientNewFeed, error in
             guard let self = self else { return}
@@ -57,7 +57,7 @@ class HomeViewController: UIViewController {
 extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.item == 2 {
-            return Constants.HomeVC.tableSuggestionCellHeight
+            return Constants.HomeVC.tableDoctorCellHeight
         } else {
             return Constants.HomeVC.tableNewsCellHeight
         }
@@ -80,11 +80,19 @@ extension HomeViewController:UITableViewDataSource {
             return cell
         }
         if indexPath.item == 1 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "PromotionTableViewCell", for: indexPath) as! PromotionTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "NewsTableViewCell", for: indexPath) as! NewsTableViewCell
+            cell.configViews(promotionList: newsModel?.promotionList, pushVCHandler: {[weak self] vc in
+                guard let self = self else {return}
+                self.show(vc, sender: nil)
+                
+            })
             return cell
         }
         if indexPath.item == 2 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "DoctorTableViewCell", for: indexPath) as! DoctorTableViewCell
+            cell.configViews(doctorList: newsModel?.doctorList, pushVCHandler: {
+                
+            })
             return cell
         }
         fatalError()

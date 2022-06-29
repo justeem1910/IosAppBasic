@@ -7,13 +7,19 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: BaseViewController {
 
     
     @IBOutlet weak var viewBackGroundTableView: UIView!
     @IBOutlet weak var tableViewHome: UITableView!
     
     var newsModel: HomeTabModel?
+    
+    lazy var refreshControl: UIRefreshControl = {
+        let rfc = UIRefreshControl()
+        
+        return rfc
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,8 +28,13 @@ class HomeViewController: UIViewController {
         tableViewHome.register(UINib(nibName: "PromotionTableViewCell", bundle: nil), forCellReuseIdentifier: "PromotionTableViewCell")
         tableViewHome.register(UINib(nibName: "DoctorTableViewCell" , bundle: nil), forCellReuseIdentifier: "DoctorTableViewCell")
         
+        tableViewHome.refreshControl = refreshControl
+        self.refreshControl.addTarget(self, action: #selector(loadNewFeed), for: .valueChanged)
         tableViewHome.delegate = self
         tableViewHome.dataSource = self
+        
+        
+        
         
         loadNewFeed()
     }
@@ -32,12 +43,12 @@ class HomeViewController: UIViewController {
         viewBackGroundTableView.roundCorners(corners: [.topLeft, .topRight], radius: 16)
         
     }
-    func loadNewFeed() {
-//        self.showLoaderView()
+    @objc func loadNewFeed() {
+        self.showLoaderView()
         APIUtilities.requestHomePatientFeed { [weak self] patientNewFeed, error in
             guard let self = self else { return}
-//            self.dismissLoaderView()
-//            self.refreshControl.endRefreshing()
+            self.dismissLoaderView()
+            self.refreshControl.endRefreshing()
 
             guard let patientNewFeed = patientNewFeed, error == nil else {
                 return

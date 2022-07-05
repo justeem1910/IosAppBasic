@@ -14,7 +14,7 @@ class HomeViewController: BaseViewController {
     @IBOutlet weak var tableViewHome: UITableView!
     
     var newsModel: HomeTabModel?
-    
+    var stringURL = ""
     lazy var refreshControl: UIRefreshControl = {
         let rfc = UIRefreshControl()
         
@@ -64,7 +64,24 @@ class HomeViewController: BaseViewController {
             }
         }
     }
+    // MARK: ACTION BUTTON SEE ALL
+    @objc func btnSeeAllInCellAction(sender: UIButton){
+        if sender.tag == 0 {
+            let newsVC = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "NewsViewController") as? NewsViewController
+            self.navigationController?.pushViewController(newsVC!, animated: true)
+        }
+        if sender.tag == 1 {
+            let promotionVC = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "PromotionViewController") as? PromotionViewController
+            self.navigationController?.pushViewController(promotionVC!, animated: true)
+        }
+        if sender.tag == 2 {
+            let doctorVC = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "DoctorViewController") as? DoctorViewController
+            self.navigationController?.pushViewController(doctorVC!, animated: true)
+        }
+    }
 }
+
+//MARK: UITableViewDelegate
 extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.item == 2 {
@@ -75,6 +92,10 @@ extension HomeViewController: UITableViewDelegate {
         
     }
 }
+
+
+
+//MARK: UITableviewDataSource
 extension HomeViewController:UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 3
@@ -83,30 +104,47 @@ extension HomeViewController:UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.item == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "NewsTableViewCell", for: indexPath) as! NewsTableViewCell
-            cell.configViews(articleList: newsModel?.articleList, pushVCHandler: { [weak self] vc in
-                guard let self = self else { return }
+            cell.btnSeeAll.tag = indexPath.item
+            cell.btnSeeAll.addTarget(self, action: #selector(btnSeeAllInCellAction(sender:)), for: .touchUpInside)
+            
+            cell.configViewsArticle(articleList: newsModel?.articleList) { indexItem in
                 
-                self.show(vc, sender: nil)
-            })
+                let detailsVC = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "DetailsViewController") as? DetailsViewController
+                
+                detailsVC?.stringURL = self.newsModel?.articleList![indexItem].link ?? ""
+                self.navigationController?.pushViewController(detailsVC!, animated: true)
+                
+            }
             return cell
         }
+        
         if indexPath.item == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "NewsTableViewCell", for: indexPath) as! NewsTableViewCell
-            cell.configViews(promotionList: newsModel?.promotionList, pushVCHandler: {[weak self] vc in
-                guard let self = self else {return}
-                self.show(vc, sender: nil)
+            cell.btnSeeAll.tag = indexPath.item
+            cell.btnSeeAll.addTarget(self, action: #selector(btnSeeAllInCellAction(sender:)), for: .touchUpInside)
+            cell.configViewsPromotion(promotionList: newsModel?.promotionList){ indexItem in
                 
-            })
+                let detailsVC = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "DetailsViewController") as? DetailsViewController
+                
+                detailsVC?.stringURL = self.newsModel?.promotionList![indexItem].link ?? ""
+                self.navigationController?.pushViewController(detailsVC!, animated: true)
+                
+            }
             return cell
         }
         if indexPath.item == 2 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "DoctorTableViewCell", for: indexPath) as! DoctorTableViewCell
-            cell.configViews(doctorList: newsModel?.doctorList, pushVCHandler: {
-                
-            })
+            
+            cell.btnSeeAll.tag = indexPath.item
+            cell.btnSeeAll.addTarget(self, action: #selector(btnSeeAllInCellAction(sender:)), for: .touchUpInside)
+            
+            cell.configViews(doctorList: newsModel?.doctorList)
             return cell
         }
         fatalError()
     }
+    
+    
+    
 }
 

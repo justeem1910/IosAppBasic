@@ -27,22 +27,22 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7e5-d2-YB1">
-                        <rect key="frame" x="16" y="0.0" width="182" height="256"/>
+                        <rect key="frame" x="12" y="0.0" width="186" height="256"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imageDoctor" translatesAutoresizingMaskIntoConstraints="NO" id="FxQ-4Q-aBf">
-                                <rect key="frame" x="12" y="12" width="158" height="158"/>
+                                <rect key="frame" x="12" y="12" width="162" height="162"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="FxQ-4Q-aBf" secondAttribute="height" multiplier="1:1" id="jfv-0G-bFA"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dr. Stephen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GPN-6a-psq">
-                                <rect key="frame" x="12" y="182" width="158" height="18"/>
+                                <rect key="frame" x="12" y="186" width="162" height="18"/>
                                 <fontDescription key="fontDescription" name="NunitoSans-Bold" family="Nunito Sans" pointSize="13"/>
                                 <color key="textColor" red="0.094117647058823528" green="0.098039215686274508" blue="0.12156862745098039" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pediatrics" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pb8-ru-xGh">
-                                <rect key="frame" x="12" y="204" width="158" height="16.5"/>
+                                <rect key="frame" x="12" y="208" width="162" height="16.5"/>
                                 <fontDescription key="fontDescription" name="NunitoSans-Regular" family="Nunito Sans" pointSize="12"/>
                                 <color key="textColor" red="0.58823529411764708" green="0.60784313725490191" blue="0.6705882352941176" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -55,7 +55,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pcj-ql-4e9">
-                                <rect key="frame" x="30" y="228.5" width="147" height="15.5"/>
+                                <rect key="frame" x="30" y="228.5" width="151" height="15.5"/>
                                 <fontDescription key="fontDescription" name="NunitoSans-Regular" family="Nunito Sans" pointSize="11"/>
                                 <color key="textColor" red="0.27843137254901962" green="0.29019607843137252" blue="0.3411764705882353" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -83,7 +83,7 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="7e5-d2-YB1" secondAttribute="trailing" id="35W-Zj-Y20"/>
-                <constraint firstItem="7e5-d2-YB1" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="16" id="FFo-jW-Nzb"/>
+                <constraint firstItem="7e5-d2-YB1" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="12" id="FFo-jW-Nzb"/>
                 <constraint firstItem="ZTg-uK-7eu" firstAttribute="bottom" secondItem="Etz-t3-RSr" secondAttribute="bottom" constant="14" id="M6J-mG-rJu"/>
                 <constraint firstAttribute="bottom" secondItem="7e5-d2-YB1" secondAttribute="bottom" id="cgJ-5h-vrV"/>
                 <constraint firstItem="7e5-d2-YB1" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="qWF-nE-qA4"/>

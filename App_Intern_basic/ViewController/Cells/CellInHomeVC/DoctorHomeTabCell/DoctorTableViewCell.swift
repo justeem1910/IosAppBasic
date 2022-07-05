@@ -12,7 +12,6 @@ class DoctorTableViewCell: UITableViewCell {
     @IBOutlet weak var btnSeeAll:UIButton!
      
     var doctorList     : [DoctorHomeModel]?
-    var pushVCHandler: (() -> ())? = nil
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,35 +24,26 @@ class DoctorTableViewCell: UITableViewCell {
         collectionView.register(UINib(nibName: "DoctorCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "DoctorCollectionViewCell")
     }
     
-    func configViews(doctorList: [DoctorHomeModel]?, pushVCHandler: (() -> ())?) {
-        self.pushVCHandler = pushVCHandler
-        
+    func configViews(doctorList: [DoctorHomeModel]?) {
         self.doctorList = doctorList
         collectionView.reloadData()
     }
     
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-    }
-    
-    @IBAction func pressSeeAll(_ sender: Any) {
-        
-    }
-    
 }
 
-// MARK : DoctorCollectionviewDelegateFlowLayout
+// MARK: DoctorCollectionviewDelegateFlowLayout
 
 extension DoctorTableViewCell: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: Constants.HomeVC.clvDoctorCellWidth, height: collectionView.bounds.height - Constants.HomeVC.bottomPadding )
     }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
     
 }
 
-// MARK : DoctorCollectionviewDataSource
+// MARK: DoctorCollectionviewDataSource
 extension DoctorTableViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return doctorList?.count ?? 0

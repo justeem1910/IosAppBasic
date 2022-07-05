@@ -18,12 +18,42 @@ final class APIUtilities {
     static let responseCodeKey = "code"
     static let responseMessageKey = "message"
     
+    
+    //MARK: GET API HOMEVC
     static func requestHomePatientFeed(completionHandler: ((HomeTabModel?, APIError?) -> Void)?) {
         
         let tailStrURL = "/hdhuy179/f967ffb777610529b678f0d5c823352a/raw"
         
         jsonResponseObject(tailStrURL: tailStrURL, method: .get, headers: [:], completionHandler: completionHandler)
     }
+    
+    //MARK: GET API HOMEVC
+    static func requestDoctorVC(completionHandler: ((DoctorVCModel?, APIError?) -> Void)?) {
+        
+        let tailStrURL = "/hdhuy179/9ac0a89969b46fb67bc7d1a8b94d180e/raw"
+        
+        jsonResponseObject(tailStrURL: tailStrURL, method: .get, headers: [:], completionHandler: completionHandler)
+    }
+    
+    
+    //MARK: GET API NEWSVC
+    static func requestNewsVC(completionHandler: ((NewsVCModel?, APIError?) -> Void)?) {
+        
+        let tailStrURL = "/hdhuy179/84d1dfe96f2c0ab1ddea701df352a7a6/raw"
+        
+        jsonResponseObject(tailStrURL: tailStrURL, method: .get, headers: [:], completionHandler: completionHandler)
+    }
+    
+    //MARK: GET API PROMOTIONVC
+    static func requestPromotionVC(completionHandler: ((PromotionVcModel?, APIError?) -> Void)?) {
+        
+        let tailStrURL = "/hdhuy179/ef03ed850ad56f0136fe3c5916b3280b/raw/Training_Intern_BasicApp_Promotion"
+        
+        jsonResponseObject(tailStrURL: tailStrURL, method: .get, headers: [:], completionHandler: completionHandler)
+    }
+    
+    
+    
     
     //MARK: BASE
     

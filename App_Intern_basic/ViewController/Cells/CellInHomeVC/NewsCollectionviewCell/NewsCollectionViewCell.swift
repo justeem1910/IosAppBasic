@@ -40,7 +40,6 @@ class NewsCollectionViewCell: UICollectionViewCell {
         let title = promotion?.name
         let special = promotion?.category_name
         let date = promotion?.created_at
-
         configViews(imageURLStr: imageURL, title: title, special: special, date: date)
     }
 

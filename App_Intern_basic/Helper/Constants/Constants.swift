@@ -31,9 +31,18 @@ struct Constants {
         static let otpPhone = UIFont(name: "NunitoSans-Bold", size: 14)
         
         static let nunitoSansRegular11 = UIFont(name: "NunitoSans-Regular", size: 11)
+        static let nunitoSansRegular12 = UIFont(name: "NunitoSans-Regular", size: 12)
     }
-    
-
+    struct NewsVC{
+        
+        static let clvNewsCellHeight:CGFloat = 90
+        static let clvNewsCellHeight1:CGFloat = 96
+        static let clvNewstionSpace:CGFloat = 12
+    }
+    struct PromotionVC{
+        static let clvPromotionCellHeight:CGFloat = 90
+        static let clvPromotionSpace:CGFloat = 12
+    }
     struct HomeVC {
         static let tableNewsCellHeight: CGFloat = 320
         static let tableDoctorCellHeight: CGFloat = 290

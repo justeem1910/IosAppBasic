@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="NunitoSans-Bold.ttf">
+            <string>NunitoSans-Bold</string>
+        </array>
+        <array key="NunitoSans-Regular.ttf">
+            <string>NunitoSans-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="210" id="KGk-i7-Jjw" customClass="DoctorVCTableViewCell" customModule="App_Intern_basic" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="378" height="209"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="378" height="209"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GMT-8s-X6e">
+                        <rect key="frame" x="16" y="11" width="343" height="198"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OPX-dc-Gid">
+                                <rect key="frame" x="12" y="12" width="83" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="83" id="9cd-MF-rsK"/>
+                                    <constraint firstAttribute="height" constant="80" id="HI9-3l-qUs"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BS. Đoàn Văn Quang Quang Quang Quang" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Urc-fT-ymQ">
+                                <rect key="frame" x="107" y="12" width="221" height="41"/>
+                                <fontDescription key="fontDescription" name="NunitoSans-Bold" family="Nunito Sans" pointSize="15"/>
+                                <color key="textColor" red="0.066666666666666666" green="0.16078431372549018" blue="0.31372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chuyên ngành: Phẫu thuật chỉnh hình đẹp trai" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mq6-9P-S7e">
+                                <rect key="frame" x="107" y="59" width="220" height="35.5"/>
+                                <fontDescription key="fontDescription" name="NunitoSans-Regular" family="Nunito Sans" pointSize="13"/>
+                                <color key="textColor" red="0.58823529411764708" green="0.60784313725490191" blue="0.6705882352941176" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Star" translatesAutoresizingMaskIntoConstraints="NO" id="WGf-he-9ts">
+                                <rect key="frame" x="107" y="105.5" width="13" height="13"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="13" id="7JT-Te-SHQ"/>
+                                    <constraint firstAttribute="width" constant="13" id="fZR-uV-GrP"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4.8" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l9Y-Wx-dlw">
+                                <rect key="frame" x="125" y="102.5" width="20" height="19.5"/>
+                                <fontDescription key="fontDescription" name="NunitoSans-Regular" family="Nunito Sans" pointSize="14"/>
+                                <color key="textColor" red="0.094117647058823528" green="0.098039215686274508" blue="0.12156862745098039" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Urc-fT-ymQ" firstAttribute="leading" secondItem="OPX-dc-Gid" secondAttribute="trailing" constant="12" id="2df-as-KOo"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="l9Y-Wx-dlw" secondAttribute="bottom" constant="12" id="8Y4-Aw-HZX"/>
+                            <constraint firstItem="mq6-9P-S7e" firstAttribute="leading" secondItem="Urc-fT-ymQ" secondAttribute="leading" id="PDN-Rr-2vb"/>
+                            <constraint firstItem="OPX-dc-Gid" firstAttribute="leading" secondItem="GMT-8s-X6e" secondAttribute="leading" constant="12" id="PYx-lT-sA2"/>
+                            <constraint firstItem="WGf-he-9ts" firstAttribute="top" secondItem="mq6-9P-S7e" secondAttribute="bottom" constant="11" id="WEv-uy-Edq"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="OPX-dc-Gid" secondAttribute="bottom" constant="12" id="YwM-qe-eES"/>
+                            <constraint firstItem="mq6-9P-S7e" firstAttribute="top" secondItem="Urc-fT-ymQ" secondAttribute="bottom" constant="6" id="b7s-Z0-u4K"/>
+                            <constraint firstItem="WGf-he-9ts" firstAttribute="leading" secondItem="mq6-9P-S7e" secondAttribute="leading" id="fIA-Ja-Pe9"/>
+                            <constraint firstAttribute="trailing" secondItem="Urc-fT-ymQ" secondAttribute="trailing" constant="15" id="jXT-eh-gof"/>
+                            <constraint firstAttribute="trailing" secondItem="mq6-9P-S7e" secondAttribute="trailing" constant="16" id="lM9-jx-JOR"/>
+                            <constraint firstItem="l9Y-Wx-dlw" firstAttribute="leading" secondItem="WGf-he-9ts" secondAttribute="trailing" constant="5" id="tD6-6K-hO8"/>
+                            <constraint firstItem="Urc-fT-ymQ" firstAttribute="top" secondItem="OPX-dc-Gid" secondAttribute="top" id="vl7-6S-smz"/>
+                            <constraint firstItem="l9Y-Wx-dlw" firstAttribute="centerY" secondItem="WGf-he-9ts" secondAttribute="centerY" id="xfk-sY-eT5"/>
+                            <constraint firstItem="OPX-dc-Gid" firstAttribute="top" secondItem="GMT-8s-X6e" secondAttribute="top" constant="12" id="ywX-bP-4AQ"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="GMT-8s-X6e" secondAttribute="trailing" constant="19" id="8hY-vU-iPW"/>
+                    <constraint firstItem="GMT-8s-X6e" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="JAu-4I-ATu"/>
+                    <constraint firstAttribute="bottom" secondItem="GMT-8s-X6e" secondAttribute="bottom" id="SaS-mj-iGm"/>
+                    <constraint firstItem="GMT-8s-X6e" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="v5V-n6-aAA"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="img" destination="OPX-dc-Gid" id="Enj-yh-D39"/>
+                <outlet property="lblName" destination="Urc-fT-ymQ" id="Fhn-wd-LTe"/>
+                <outlet property="lblSpecial" destination="mq6-9P-S7e" id="38k-Dl-XIJ"/>
+                <outlet property="lblStar" destination="l9Y-Wx-dlw" id="RVh-wd-aY6"/>
+                <outlet property="viewBG" destination="GMT-8s-X6e" id="Ocu-Bx-y1Y"/>
+            </connections>
+            <point key="canvasLocation" x="179.71014492753625" y="131.58482142857142"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="Star" width="12" height="12"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

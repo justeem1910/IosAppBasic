@@ -16,7 +16,6 @@ class PromotionViewController: BaseViewController {
     @IBOutlet weak var tbvPromotion: UITableView!
     
     var promotionList     : [PromotionHomeModel]?
-    var stringURL = ""
     
     lazy var refreshControl: UIRefreshControl = {
         let rfc = UIRefreshControl()

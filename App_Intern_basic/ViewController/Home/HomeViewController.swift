@@ -14,7 +14,7 @@ class HomeViewController: BaseViewController {
     @IBOutlet weak var tableViewHome: UITableView!
     
     var newsModel: HomeTabModel?
-    var stringURL = ""
+    
     lazy var refreshControl: UIRefreshControl = {
         let rfc = UIRefreshControl()
         

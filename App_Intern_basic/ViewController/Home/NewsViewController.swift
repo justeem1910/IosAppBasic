@@ -12,7 +12,7 @@ class NewsViewController: BaseViewController {
     @IBOutlet weak var btnBack:UIButton!
     @IBOutlet weak var tbvNews: UITableView!
     var newsList: [ArticleHomeModel]?
-    var stringURL = ""
+
     
     lazy var refreshControl: UIRefreshControl = {
         let rfc = UIRefreshControl()

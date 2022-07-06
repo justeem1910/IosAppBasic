@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import IQKeyboardManagerSwift
 
 class PhoneViewController: UIViewController {
     
@@ -17,8 +18,6 @@ class PhoneViewController: UIViewController {
     @IBOutlet weak var lblHotline: UILabel!
 
     var phoneNumber = ""
-    var phoneContinue1 = "123456789"
-    var phoneContinue2 = "0123456789"
     var hotline = "Hotline "
     var phoneHotline = "1900 6036 893"
 
@@ -27,7 +26,7 @@ class PhoneViewController: UIViewController {
         
         setView()
         
-        tfPhoneNumber.addTarget(self, action: #selector(myTargetFunction), for: .touchDown)
+        tfPhoneNumber.addTarget(self, action: #selector(tapOnTFPhone), for: .editingChanged)
     
     }
     func setView(){
@@ -63,28 +62,6 @@ class PhoneViewController: UIViewController {
 
     }
     
-    override func viewWillLayoutSubviews() {
-        phoneNumber = tfPhoneNumber.text ?? ""
-        if phoneNumber.first == "0"{
-            if tfPhoneNumber.text?.count ?? 0 > 9 {
-                btnContinue.isEnabled = true
-                btnContinue.backgroundColor = Constants.Color.green
-            } else {
-                btnContinue.backgroundColor = Constants.Color.green2
-                btnContinue.isEnabled = false
-            }
-        } else {
-            if tfPhoneNumber.text?.count ?? 0 > 8 {
-                btnContinue.backgroundColor = Constants.Color.green
-                btnContinue.isEnabled = true
-            } else {
-                btnContinue.backgroundColor = Constants.Color.green2
-                btnContinue.isEnabled = false
-            }
-        }
-        
-    }
-    
     @IBAction func btnContinue(_ sender: Any) {
         phoneNumber = tfPhoneNumber.text ?? ""
         if phoneNumber.first == "0"{
@@ -108,8 +85,27 @@ class PhoneViewController: UIViewController {
     
     
     
-    @objc func myTargetFunction(textField: UITextField) {
+    @objc func tapOnTFPhone(textField: UITextField) {
         viewPhoneNumber.layer.borderColor = Constants.Color.green.cgColor
+        phoneNumber = tfPhoneNumber.text ?? ""
+        if phoneNumber.first == "0"{
+            if tfPhoneNumber.text?.count ?? 0 > 9 {
+                btnContinue.isEnabled = true
+                btnContinue.backgroundColor = Constants.Color.green
+            } else {
+                btnContinue.backgroundColor = Constants.Color.green2
+                btnContinue.isEnabled = false
+            }
+        } else {
+            if tfPhoneNumber.text?.count ?? 0 > 8 {
+                btnContinue.backgroundColor = Constants.Color.green
+                btnContinue.isEnabled = true
+            } else {
+                btnContinue.backgroundColor = Constants.Color.green2
+                btnContinue.isEnabled = false
+            }
+        }
+        
     }
     
     @IBAction func btnBack(_ sender: Any) {
@@ -131,10 +127,14 @@ extension PhoneViewController: UITextFieldDelegate{
         }
         return true
     }
-    
-    func textFieldShouldClear(_ textField: UITextField) -> Bool {
-        btnContinue.backgroundColor = Constants.Color.green2
-        btnContinue.isEnabled = false
-        return true
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        viewPhoneNumber.layer.borderColor = Constants.Color.green.cgColor
     }
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if tfPhoneNumber.text?.count == 0 {
+            tfPhoneNumber.layer.borderColor = Constants.Color.gray5.cgColor
+        }
+    }
+    
+    
 }

@@ -52,6 +52,15 @@ final class APIUtilities {
         jsonResponseObject(tailStrURL: tailStrURL, method: .get, headers: [:], completionHandler: completionHandler)
     }
     
+    //MARK: GET API USERINFOVC
+    static func requestUserInfoVC(completionHandler: ((UserInfoVCModel?, APIError?) -> Void)?) {
+        
+        let tailStrURL = "/hdhuy179/7883b8f11ea4b25cf6d3822c67049606/raw/Training_Intern_BasicApp_UserInfo"
+        
+        jsonResponseObject(tailStrURL: tailStrURL, method: .get, headers: [:], completionHandler: completionHandler)
+    }
+    
+    
     
     
     

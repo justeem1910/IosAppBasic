@@ -13,6 +13,7 @@ class HomeViewController: BaseViewController {
     @IBOutlet weak var viewBackGroundTableView: UIView!
     @IBOutlet weak var tableViewHome: UITableView!
     
+    @IBOutlet weak var imgAvatarUser: UIImageView!
     var newsModel: HomeTabModel?
     
     lazy var refreshControl: UIRefreshControl = {
@@ -28,10 +29,18 @@ class HomeViewController: BaseViewController {
         tableViewHome.register(UINib(nibName: "PromotionTableViewCell", bundle: nil), forCellReuseIdentifier: "PromotionTableViewCell")
         tableViewHome.register(UINib(nibName: "DoctorTableViewCell" , bundle: nil), forCellReuseIdentifier: "DoctorTableViewCell")
         
-        tableViewHome.refreshControl = refreshControl
-        self.refreshControl.addTarget(self, action: #selector(loadNewFeed), for: .valueChanged)
         tableViewHome.delegate = self
         tableViewHome.dataSource = self
+        tableViewHome.refreshControl = refreshControl
+        self.refreshControl.addTarget(self, action: #selector(loadNewFeed), for: .valueChanged)
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(changeInfoUser(tapGestureRecognizer:)))
+        
+        
+        imgAvatarUser.isUserInteractionEnabled = true
+        imgAvatarUser.addGestureRecognizer(tapGestureRecognizer)
+        
+        
         
         
         
@@ -43,6 +52,11 @@ class HomeViewController: BaseViewController {
         viewBackGroundTableView.roundCorners(corners: [.topLeft, .topRight], radius: 16)
         
     }
+    @objc func changeInfoUser(tapGestureRecognizer: UITapGestureRecognizer) {
+
+        // Your action
+    }
+    
     @objc func loadNewFeed() {
         self.showLoaderView()
         APIUtilities.requestHomePatientFeed { [weak self] patientNewFeed, error in

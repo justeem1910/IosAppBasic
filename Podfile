@@ -8,5 +8,6 @@ target 'App_Intern_basic' do
   # Pods for App_Intern_basic
   pod 'Alamofire', '5.4.3'
   pod 'SDWebImage', '5.12.0'
-
+  pod 'IQKeyboardManagerSwift', '6.3.0'
+  
 end

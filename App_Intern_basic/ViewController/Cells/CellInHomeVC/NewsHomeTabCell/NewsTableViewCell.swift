@@ -18,6 +18,7 @@ class NewsTableViewCell: UITableViewCell {
     var articleList     : [ArticleHomeModel]?
     var promotionList     : [PromotionHomeModel]?
     var getUrlWhenTapCell:((Int) -> ())? = nil
+    var pushVCHandler: ((UIViewController) -> ())? = nil
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -32,16 +33,18 @@ class NewsTableViewCell: UITableViewCell {
         
         collectionView.register(UINib(nibName: "NewsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "NewsCollectionViewCell")
     }
-    func configViewsArticle(articleList: [ArticleHomeModel]?, getUrlWhenTapCell:((Int) -> ())?) {
+    func configViewsArticle(articleList: [ArticleHomeModel]? ,pushVCHandler: ((UIViewController) -> ())?, getUrlWhenTapCell:((Int) -> ())?) {
         self.getUrlWhenTapCell = getUrlWhenTapCell
+        self.pushVCHandler = pushVCHandler
         lblTitle.text = "Tin Tức"
         self.articleList = articleList
         self.promotionList = nil
         collectionView.reloadData()
     }
     
-    func configViewsPromotion(promotionList: [PromotionHomeModel]?, getUrlWhenTapCell:((Int) -> ())?) {
+    func configViewsPromotion(promotionList: [PromotionHomeModel]?,pushVCHandler: ((UIViewController) -> ())?, getUrlWhenTapCell:((Int) -> ())?) {
         self.getUrlWhenTapCell = getUrlWhenTapCell
+        self.pushVCHandler = pushVCHandler
         lblTitle.text = "Khuyến mại"
         self.articleList = nil
         self.promotionList = promotionList

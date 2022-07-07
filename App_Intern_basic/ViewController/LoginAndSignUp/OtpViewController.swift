@@ -24,7 +24,7 @@ class OtpViewController: UIViewController {
     
     
     var arrTextFieldOtp:[CustomTextField] = [CustomTextField]()
-    var stringNumber = "Vui lòng nhập mã gồm 4 chữ số đã được gửi đến bạn vào số điện thoại "
+    var stringNumber = "Vui lòng nhập mã gồm 6 chữ số đã được gửi đến bạn vào số điện thoại "
     var phoneNumber = ""
     var countTime = 60
     
@@ -44,36 +44,25 @@ class OtpViewController: UIViewController {
         for i in 1...5 {
             arrTextFieldOtp[i].previousTextField = arrTextFieldOtp[i-1]
         }
+        for textField in  arrTextFieldOtp {
+            textField.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: .allTouchEvents)
+        }
         
     }
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        if tfOtp6.text?.count == 1 {
-            btnContinue.backgroundColor = Constants.Color.green
-            btnContinue.isUserInteractionEnabled = true
-        } else {
-            btnContinue.backgroundColor = Constants.Color.green2
-            btnContinue.isUserInteractionEnabled = false
-            
-            if lblIncorrectOtp.isHidden == false{
-                lblIncorrectOtp.isHidden = true
-                btnResendOtp.frame.origin.y += stvOtp.frame.height + 32
+    @objc func textFieldDidChange(_ textField: UITextField) {
+        for i in 0...5 {
+            if arrTextFieldOtp[i].text?.count == 0 {
+                arrTextFieldOtp[i].becomeFirstResponder()
+                break
             }
         }
-        
-    }
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        if lblIncorrectOtp.isHidden == false {
-            btnResendOtp.frame.origin.y += lblIncorrectOtp.frame.height + 6
-        }
-        
+
     }
 
     override func viewWillAppear(_ animated: Bool) {
         registerObserver()
-        
     }
+    
     func registerObserver() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -122,8 +111,6 @@ class OtpViewController: UIViewController {
         countTime = 60
         btnResendOtp.setTitleColor(Constants.Color.gray4, for: .normal)
         btnResendOtp.layer.borderColor = Constants.Color.gray4.cgColor
-        
-        
     }
     @objc func updateCounter() {
         if countTime > 0 {
@@ -170,14 +157,13 @@ class OtpViewController: UIViewController {
     }
     
     @IBAction func btnContinueAction(_ sender: Any) {
-        var otpString = "\(tfOtp1.text!)\(tfOtp2.text!)\(tfOtp3.text!)\(tfOtp4.text!)\(tfOtp5.text!)\(tfOtp6.text!)"
+        let otpString = "\(tfOtp1.text!)\(tfOtp2.text!)\(tfOtp3.text!)\(tfOtp4.text!)\(tfOtp5.text!)\(tfOtp6.text!)"
         if otpString == "111111"{
             let homeVC = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController
             self.navigationController?.pushViewController(homeVC!, animated: true)
         } else {
             if lblIncorrectOtp.isHidden == true {
-                btnResendOtp.frame.origin.y += lblIncorrectOtp.frame.height + 6
-            }
+                btnResendOtp.transform = CGAffineTransform(translationX: 0, y: +lblIncorrectOtp.frame.height + 6)            }
             lblIncorrectOtp.isHidden = false
         }
     }
@@ -191,38 +177,41 @@ class OtpViewController: UIViewController {
 //MARK: - UITextFieldDelegate
 
 extension OtpViewController: UITextFieldDelegate{
-    
-    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-//        if let
-//            guard let
+        
         if (((textField.text?.count ?? 0) < 1) && (string.count > 0))  {
             if textField == tfOtp1 {
-                tfOtp2.becomeFirstResponder()
                 setTFOtpAnimation(textField: tfOtp2)
             }
             if textField == tfOtp2 {
-                tfOtp3.becomeFirstResponder()
                 setTFOtpAnimation(textField: tfOtp3)
             }
             if textField == tfOtp3 {
-                tfOtp4.becomeFirstResponder()
                 setTFOtpAnimation(textField: tfOtp4)
             }
             if textField == tfOtp4 {
-                tfOtp5.becomeFirstResponder()
                 setTFOtpAnimation(textField: tfOtp5)
             }
             if textField == tfOtp5 {
-                tfOtp3.becomeFirstResponder()
+
                 setTFOtpAnimation(textField: tfOtp6)
             }
             textField.text = string
+            if textField == tfOtp6 {
+                btnContinue.backgroundColor = Constants.Color.green
+                btnContinue.isUserInteractionEnabled = true
+            }
             return false
 
-        } else if  ((textField.text?.count ?? 0) > 0) && (string.count == 0){
+        } else
+        if  ((textField.text?.count ?? 0) > 0) && (string.count == 0){
             textField.text = ""
-            
+            btnContinue.backgroundColor = Constants.Color.green2
+            btnContinue.isUserInteractionEnabled = false
+            if lblIncorrectOtp.isHidden == false{
+                lblIncorrectOtp.isHidden = true
+                btnResendOtp.transform = CGAffineTransform(translationX: 0, y: -stvOtp.frame.height + 32)
+            }
             return false
         }else if ((textField.text?.count ?? 0) > 0) && (string.count > 0){
             if textField == tfOtp1 {
@@ -255,18 +244,18 @@ extension OtpViewController: UITextFieldDelegate{
         
         return true
     }
-    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.layer.borderWidth = 1
+        textField.layer.borderColor = Constants.Color.green.cgColor
+    }
     func setTFOtpAnimation(textField: CustomTextField){
-        textField.isUserInteractionEnabled = true
         textField.becomeFirstResponder()
         textField.layer.borderWidth = 1
         textField.layer.borderColor = Constants.Color.green.cgColor
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        textField.isUserInteractionEnabled = false
         textField.layer.borderWidth = 0
-
     }
     
 }

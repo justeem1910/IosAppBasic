@@ -10,7 +10,8 @@ import UIKit
 class DoctorTableViewCell: UITableViewCell {
     @IBOutlet weak var collectionView:UICollectionView!
     @IBOutlet weak var btnSeeAll:UIButton!
-     
+    
+    var pushVCHandler: (() -> ())? = nil
     var doctorList     : [DoctorHomeModel]?
     
     override func awakeFromNib() {
@@ -24,8 +25,10 @@ class DoctorTableViewCell: UITableViewCell {
         collectionView.register(UINib(nibName: "DoctorCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "DoctorCollectionViewCell")
     }
     
-    func configViews(doctorList: [DoctorHomeModel]?) {
+    func configViews(doctorList: [DoctorHomeModel]?, pushVCHandler: (() -> ())?) {
+        
         self.doctorList = doctorList
+        self.pushVCHandler = pushVCHandler
         collectionView.reloadData()
     }
     

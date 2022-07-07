@@ -44,8 +44,7 @@ class PhoneViewController: UIViewController {
         
         btnContinue.backgroundColor = Constants.Color.green2
         btnContinue.layer.cornerRadius = 24
-        
-        btnHotline.layer.cornerRadius = 24
+        btnContinue.isUserInteractionEnabled = false
         
         
 
@@ -90,19 +89,19 @@ class PhoneViewController: UIViewController {
         phoneNumber = tfPhoneNumber.text ?? ""
         if phoneNumber.first == "0"{
             if tfPhoneNumber.text?.count ?? 0 > 9 {
-                btnContinue.isEnabled = true
+                btnContinue.isUserInteractionEnabled = true
                 btnContinue.backgroundColor = Constants.Color.green
             } else {
                 btnContinue.backgroundColor = Constants.Color.green2
-                btnContinue.isEnabled = false
+                btnContinue.isUserInteractionEnabled = false
             }
         } else {
             if tfPhoneNumber.text?.count ?? 0 > 8 {
                 btnContinue.backgroundColor = Constants.Color.green
-                btnContinue.isEnabled = true
+                btnContinue.isUserInteractionEnabled = true
             } else {
                 btnContinue.backgroundColor = Constants.Color.green2
-                btnContinue.isEnabled = false
+                btnContinue.isUserInteractionEnabled = false
             }
         }
         
@@ -111,12 +110,12 @@ class PhoneViewController: UIViewController {
     @IBAction func btnBack(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if tfPhoneNumber.text?.count == 0 {
-            viewPhoneNumber.layer.borderColor = Constants.Color.gray5.cgColor
-        }
-        tfPhoneNumber.resignFirstResponder()
-    }
+//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        if tfPhoneNumber.text?.count == 0 {
+//            viewPhoneNumber.layer.borderColor = Constants.Color.gray5.cgColor
+//        }
+//        tfPhoneNumber.resignFirstResponder()
+//    }
 }
 extension PhoneViewController: UITextFieldDelegate{
     func textField(_ textField:UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {

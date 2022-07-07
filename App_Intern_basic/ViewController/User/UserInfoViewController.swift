@@ -9,8 +9,9 @@ import UIKit
 
 class UserInfoViewController: BaseViewController {
     
-    var userList     : [UserModel]?
-    
+    @IBOutlet weak var tfFirstName: UITextField!
+    @IBOutlet weak var tfDate: UITextField!
+    @IBOutlet weak var imgTest: UIImageView!
     lazy var refreshControl: UIRefreshControl = {
         let rfc = UIRefreshControl()
         
@@ -19,32 +20,33 @@ class UserInfoViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        loadNewFeed()
+        tfFirstName.delegate = self
+        tfDate.delegate = self
+        imgTest.tintColor = Constants.Color.gray1
     }
     @objc func loadNewFeed() {
         self.showLoaderView()
         
-        APIUtilities.requestUserInfoVC { [weak self] promotionFeed, error in
-            let dispatchGroup = DispatchGroup()
-            dispatchGroup.enter()
+        APIUtilities.requestUserInfoVC { [weak self] userinfo, error in
             guard let self = self else { return}
             self.dismissLoaderView()
             
             
-            guard let promotionFeed = promotionFeed, error == nil else {
+            guard let userinfo = userinfo, error == nil else {
                 return
             }
-            self.userList = promotionFeed.userList
-            dispatchGroup.leave()
+            
             self.refreshControl.endRefreshing()
             
-//            DispatchQueue.main.sync { [weak self] in
-//                guard let self = self else { return}
-//
-//
-//            }
+            DispatchQueue.main.async{ [weak self] in
+                guard let self = self else { return}
+            }
         }
     }
 
+}
+
+extension UserInfoViewController:UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+    }
 }

@@ -53,7 +53,7 @@ final class APIUtilities {
     }
     
     //MARK: GET API USERINFOVC
-    static func requestUserInfoVC(completionHandler: ((UserInfoVCModel?, APIError?) -> Void)?) {
+    static func requestUserInfoVC(completionHandler: ((UserModel?, APIError?) -> Void)?) {
         
         let tailStrURL = "/hdhuy179/7883b8f11ea4b25cf6d3822c67049606/raw/Training_Intern_BasicApp_UserInfo"
         
@@ -115,7 +115,6 @@ final class APIUtilities {
                 case .failure(_):
                     break
                 }
-                
                 completionHandler?(response, serverCode, serverMessage)
             }
        

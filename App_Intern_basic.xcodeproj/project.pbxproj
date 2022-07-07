@@ -76,7 +76,6 @@
 		DB8725BF2872F98F009C79AA /* DoctorVCModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8725BE2872F98F009C79AA /* DoctorVCModel.swift */; };
 		DB8725C12873D84F009C79AA /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8725C02873D84F009C79AA /* DetailsViewController.swift */; };
 		DB8DC05A28743C0C007696B6 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8DC05928743C0C007696B6 /* UserInfoViewController.swift */; };
-		DB8DC05D28752C8E007696B6 /* UserInfoVCModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8DC05C28752C8E007696B6 /* UserInfoVCModel.swift */; };
 		DB8DC05F28752CB2007696B6 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8DC05E28752CB2007696B6 /* UserModel.swift */; };
 		DBB81AC2286C079B00D76125 /* PromotionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB81AC1286C079B00D76125 /* PromotionViewController.swift */; };
 		DBB81AC5286C497C00D76125 /* PromotionVCTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB81AC3286C497C00D76125 /* PromotionVCTableViewCell.swift */; };
@@ -156,7 +155,6 @@
 		DB8725BE2872F98F009C79AA /* DoctorVCModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorVCModel.swift; sourceTree = "<group>"; };
 		DB8725C02873D84F009C79AA /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		DB8DC05928743C0C007696B6 /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
-		DB8DC05C28752C8E007696B6 /* UserInfoVCModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoVCModel.swift; sourceTree = "<group>"; };
 		DB8DC05E28752CB2007696B6 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		DBB81AC1286C079B00D76125 /* PromotionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionViewController.swift; sourceTree = "<group>"; };
 		DBB81AC3286C497C00D76125 /* PromotionVCTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionVCTableViewCell.swift; sourceTree = "<group>"; };
@@ -534,7 +532,6 @@
 		DB8DC05B28752C70007696B6 /* UserInfoVCModel */ = {
 			isa = PBXGroup;
 			children = (
-				DB8DC05C28752C8E007696B6 /* UserInfoVCModel.swift */,
 				DB8DC05E28752CB2007696B6 /* UserModel.swift */,
 			);
 			path = UserInfoVCModel;
@@ -730,7 +727,6 @@
 				DB8725AA286C5286009C79AA /* PromotionVcModel.swift in Sources */,
 				DB8725BB2872F137009C79AA /* DoctorVCTableViewCell.swift in Sources */,
 				DB020490284DA41400834240 /* SceneDelegate.swift in Sources */,
-				DB8DC05D28752C8E007696B6 /* UserInfoVCModel.swift in Sources */,
 				DB8DC05F28752CB2007696B6 /* UserModel.swift in Sources */,
 				DB787FCA286990CE00CA2879 /* ArticleHomeModel.swift in Sources */,
 			);

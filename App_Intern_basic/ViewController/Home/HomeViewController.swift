@@ -120,14 +120,18 @@ extension HomeViewController:UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: "NewsTableViewCell", for: indexPath) as! NewsTableViewCell
             cell.btnSeeAll.tag = indexPath.item
             cell.btnSeeAll.addTarget(self, action: #selector(btnSeeAllInCellAction(sender:)), for: .touchUpInside)
-            
-            cell.configViewsArticle(articleList: newsModel?.articleList) { indexItem in
+            cell.configViewsArticle(articleList: newsModel?.articleList, pushVCHandler: {[weak self] vc in
+                    guard let self = self else { return }
+
+                    self.show(vc, sender: nil)
+
+            }) { indexItem in
                 
                 let detailsVC = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "DetailsViewController") as? DetailsViewController
-                
+
                 detailsVC?.stringURL = self.newsModel?.articleList![indexItem].link ?? ""
                 self.navigationController?.pushViewController(detailsVC!, animated: true)
-                
+
             }
             return cell
         }
@@ -136,7 +140,12 @@ extension HomeViewController:UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: "NewsTableViewCell", for: indexPath) as! NewsTableViewCell
             cell.btnSeeAll.tag = indexPath.item
             cell.btnSeeAll.addTarget(self, action: #selector(btnSeeAllInCellAction(sender:)), for: .touchUpInside)
-            cell.configViewsPromotion(promotionList: newsModel?.promotionList){ indexItem in
+            cell.configViewsPromotion(promotionList: newsModel?.promotionList, pushVCHandler: { [weak self] vc in
+                    guard let self = self else { return }
+                    
+                    self.show(vc, sender: nil)
+                }
+            ) { indexItem in
                 
                 let detailsVC = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "DetailsViewController") as? DetailsViewController
                 
@@ -152,7 +161,9 @@ extension HomeViewController:UITableViewDataSource {
             cell.btnSeeAll.tag = indexPath.item
             cell.btnSeeAll.addTarget(self, action: #selector(btnSeeAllInCellAction(sender:)), for: .touchUpInside)
             
-            cell.configViews(doctorList: newsModel?.doctorList)
+            cell.configViews(doctorList: newsModel?.doctorList) {
+                
+            }
             return cell
         }
         fatalError()

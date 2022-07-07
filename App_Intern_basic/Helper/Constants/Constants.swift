@@ -16,6 +16,7 @@ struct Constants {
         static let green = UIColor.init(red: 44/255, green: 134/255, blue: 103/255, alpha: 1.0)
         static let green2 = UIColor.init(red: 44/255, green: 134/255, blue: 103/255, alpha: 0.3)
         static let gray5 = UIColor.init(red: 238/255, green: 239/255, blue: 244/255, alpha: 1.0)
+        static let gray2 = UIColor.init(red: 71/255, green: 74/255, blue: 87/255, alpha: 1)
         static let gray1 = UIColor.init(red: 24/255, green: 25/255, blue: 31/255, alpha: 1)
         static let gray3 = UIColor.init(red: 150/255, green: 155/255, blue: 171/255, alpha: 1)
         static let gray4 = UIColor.init(red: 217/255, green: 219/255, blue: 225/255, alpha: 1)
@@ -25,6 +26,7 @@ struct Constants {
     }
     
     struct Font {
+        
         static let hotline = UIFont(name: "NunitoSans-Regular", size: 17)
         static let hotlinePhone = UIFont(name: "NunitoSans-Bold", size: 17)
         static let otpString = UIFont(name: "NunitoSans-Regular", size: 14)

@@ -6,8 +6,8 @@
 //
 
 import Foundation
-class UserModel {
-    var id: Int?
+class UserModel: NSObject, JsonInitObject {
+        var id: Int?
         var name, lastName, username, contactEmail: String?
         var phone, cardID, address, provinceCode: String?
         var districtCode, wardCode: String?
@@ -75,7 +75,7 @@ class UserModel {
             self.totalAppointment = totalAppointment
         }
     
-    convenience init (json: [String: Any]){
+    required convenience init (json: [String: Any]){
         self.init()
         if let wrapValue = json["id"] as? Int {
             self.id = wrapValue

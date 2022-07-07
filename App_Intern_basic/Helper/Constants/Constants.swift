@@ -57,3 +57,12 @@ struct Constants {
         static let doctorIcon = UIImage(named: "imageDoctor")
     }
 }
+protocol HomeTableViewCellProtocol {
+    func didTapSeeAll(choose: ChooseScreen)
+}
+
+enum ChooseScreen{
+    case newsScreen
+    case promotionScreen
+    case doctorScreen
+}

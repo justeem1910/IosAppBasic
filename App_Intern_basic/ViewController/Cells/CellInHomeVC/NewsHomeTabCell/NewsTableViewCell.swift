@@ -19,6 +19,7 @@ class NewsTableViewCell: UITableViewCell {
     var promotionList     : [PromotionHomeModel]?
     var getUrlWhenTapCell:((Int) -> ())? = nil
     var pushVCHandler: ((UIViewController) -> ())? = nil
+    var delegate: HomeTableViewCellProtocol?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,10 +29,7 @@ class NewsTableViewCell: UITableViewCell {
         collectionView.dataSource = self
         collectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 16)
         
-
-        
-        
-        collectionView.register(UINib(nibName: "NewsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "NewsCollectionViewCell")
+        collectionView.registerCells(NewsCollectionViewCell.self)
     }
     func configViewsArticle(articleList: [ArticleHomeModel]? ,pushVCHandler: ((UIViewController) -> ())?, getUrlWhenTapCell:((Int) -> ())?) {
         self.getUrlWhenTapCell = getUrlWhenTapCell
@@ -58,6 +56,11 @@ class NewsTableViewCell: UITableViewCell {
     }
     
     @IBAction func pressSeeAll(_ sender: Any) {
+        if let articleList = articleList {
+            delegate?.didTapSeeAll(choose: ChooseScreen.newsScreen)
+        } else {
+            delegate?.didTapSeeAll(choose: ChooseScreen.promotionScreen)
+        }
     }
     
 }
@@ -75,7 +78,7 @@ extension NewsTableViewCell: UICollectionViewDataSource{
         return promotionList?.count ?? 0
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NewsCollectionViewCell", for: indexPath) as! NewsCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(NewsCollectionViewCell.self, indexPath: indexPath)
         if let articleList = articleList {
             let news = articleList[indexPath.item]
             cell.configViews(news: news)
@@ -87,8 +90,6 @@ extension NewsTableViewCell: UICollectionViewDataSource{
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
         self.getUrlWhenTapCell!(indexPath.item)
-        
     }
 }

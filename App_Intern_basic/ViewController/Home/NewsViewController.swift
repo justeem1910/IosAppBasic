@@ -90,7 +90,7 @@ extension NewsViewController: UITableViewDataSource{
         cell.configViewsNewsVc(news: news)
         cell.selectionStyle = .none
         if indexPath.item == (newsList?.count ?? 0) - 1{
-            cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: .greatestFiniteMagnitude)
+            cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: self.view.bounds.width)
         }
         return cell
     }

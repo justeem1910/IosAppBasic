@@ -26,7 +26,7 @@ class PhoneViewController: UIViewController {
         
         setView()
         
-        tfPhoneNumber.addTarget(self, action: #selector(tapOnTFPhone), for: .editingChanged)
+        
     
     }
     func setView(){
@@ -45,6 +45,7 @@ class PhoneViewController: UIViewController {
         btnContinue.backgroundColor = Constants.Color.green2
         btnContinue.layer.cornerRadius = 24
         btnContinue.isUserInteractionEnabled = false
+        tfPhoneNumber.addTarget(self, action: #selector(tapOnTFPhone), for: .editingChanged)
         
         
 
@@ -110,12 +111,6 @@ class PhoneViewController: UIViewController {
     @IBAction func btnBack(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
-//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        if tfPhoneNumber.text?.count == 0 {
-//            viewPhoneNumber.layer.borderColor = Constants.Color.gray5.cgColor
-//        }
-//        tfPhoneNumber.resignFirstResponder()
-//    }
 }
 extension PhoneViewController: UITextFieldDelegate{
     func textField(_ textField:UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -130,8 +125,9 @@ extension PhoneViewController: UITextFieldDelegate{
         viewPhoneNumber.layer.borderColor = Constants.Color.green.cgColor
     }
     func textFieldDidEndEditing(_ textField: UITextField) {
-        if tfPhoneNumber.text?.count == 0 {
-            tfPhoneNumber.layer.borderColor = Constants.Color.gray5.cgColor
+        if textField.text?.count == 0 {
+            viewPhoneNumber.layer.borderColor = Constants.Color.gray5.cgColor
+            
         }
     }
     

@@ -25,9 +25,9 @@ class HomeViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableViewHome.register(UINib(nibName: "NewsTableViewCell", bundle: nil), forCellReuseIdentifier: "NewsTableViewCell")
-        tableViewHome.register(UINib(nibName: "PromotionTableViewCell", bundle: nil), forCellReuseIdentifier: "PromotionTableViewCell")
-        tableViewHome.register(UINib(nibName: "DoctorTableViewCell" , bundle: nil), forCellReuseIdentifier: "DoctorTableViewCell")
+        viewBackGroundTableView.roundCorners(corners: [.topLeft, .topRight], radius: 16)
+        
+        tableViewHome.registerCells(NewsTableViewCell.self, DoctorTableViewCell.self)
         
         tableViewHome.delegate = self
         tableViewHome.dataSource = self
@@ -40,18 +40,9 @@ class HomeViewController: BaseViewController {
         imgAvatarUser.isUserInteractionEnabled = true
         imgAvatarUser.addGestureRecognizer(tapGestureRecognizer)
         
-        
-        
-        
-        
-        
         loadNewFeed()
     }
-    override func viewDidLayoutSubviews() {
-        viewBackGroundTableView.clipsToBounds = true
-        viewBackGroundTableView.roundCorners(corners: [.topLeft, .topRight], radius: 16)
-        
-    }
+    
     @objc func changeInfoUser(tapGestureRecognizer: UITapGestureRecognizer) {
 
         // Your action
@@ -78,21 +69,6 @@ class HomeViewController: BaseViewController {
             }
         }
     }
-    // MARK: ACTION BUTTON SEE ALL
-    @objc func btnSeeAllInCellAction(sender: UIButton){
-        if sender.tag == 0 {
-            let newsVC = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "NewsViewController") as? NewsViewController
-            self.navigationController?.pushViewController(newsVC!, animated: true)
-        }
-        if sender.tag == 1 {
-            let promotionVC = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "PromotionViewController") as? PromotionViewController
-            self.navigationController?.pushViewController(promotionVC!, animated: true)
-        }
-        if sender.tag == 2 {
-            let doctorVC = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "DoctorViewController") as? DoctorViewController
-            self.navigationController?.pushViewController(doctorVC!, animated: true)
-        }
-    }
 }
 
 //MARK: UITableViewDelegate
@@ -117,9 +93,8 @@ extension HomeViewController:UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.item == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "NewsTableViewCell", for: indexPath) as! NewsTableViewCell
+            let cell = tableView.dequeueReusableCell(NewsTableViewCell.self, indexPath: indexPath)
             cell.btnSeeAll.tag = indexPath.item
-            cell.btnSeeAll.addTarget(self, action: #selector(btnSeeAllInCellAction(sender:)), for: .touchUpInside)
             cell.configViewsArticle(articleList: newsModel?.articleList, pushVCHandler: {[weak self] vc in
                     guard let self = self else { return }
 
@@ -133,13 +108,13 @@ extension HomeViewController:UITableViewDataSource {
                 self.navigationController?.pushViewController(detailsVC!, animated: true)
 
             }
+            cell.delegate = self
             return cell
         }
         
         if indexPath.item == 1 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "NewsTableViewCell", for: indexPath) as! NewsTableViewCell
+            let cell = tableView.dequeueReusableCell(NewsTableViewCell.self, indexPath: indexPath)
             cell.btnSeeAll.tag = indexPath.item
-            cell.btnSeeAll.addTarget(self, action: #selector(btnSeeAllInCellAction(sender:)), for: .touchUpInside)
             cell.configViewsPromotion(promotionList: newsModel?.promotionList, pushVCHandler: { [weak self] vc in
                     guard let self = self else { return }
                     
@@ -153,23 +128,46 @@ extension HomeViewController:UITableViewDataSource {
                 self.navigationController?.pushViewController(detailsVC!, animated: true)
                 
             }
+            cell.delegate = self
             return cell
         }
         if indexPath.item == 2 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "DoctorTableViewCell", for: indexPath) as! DoctorTableViewCell
+            let cell = tableView.dequeueReusableCell(DoctorTableViewCell.self, indexPath: indexPath)
             
             cell.btnSeeAll.tag = indexPath.item
-            cell.btnSeeAll.addTarget(self, action: #selector(btnSeeAllInCellAction(sender:)), for: .touchUpInside)
-            
             cell.configViews(doctorList: newsModel?.doctorList) {
                 
             }
+            cell.delegate = self
             return cell
         }
         fatalError()
     }
-    
-    
-    
+}
+//MARK: HomeTableViewCellProtocol
+extension HomeViewController: HomeTableViewCellProtocol {
+    func didTapSeeAll(choose: ChooseScreen) {
+        switch choose {
+        case .newsScreen:
+            let newsVC = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "NewsViewController") as? NewsViewController
+
+            self.navigationController?.pushViewController(newsVC!, animated: true)
+        case .promotionScreen:
+            let promotionVC = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "PromotionViewController") as? PromotionViewController
+            self.navigationController?.pushViewController(promotionVC!, animated: true)
+        case.doctorScreen:
+            let doctorVC = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "DoctorViewController") as? DoctorViewController
+            self.navigationController?.pushViewController(doctorVC!, animated: true)
+        }
+    }
 }
 
+//if sender.tag == 0 {
+    
+//}
+//if sender.tag == 1 {
+   
+//}
+//if sender.tag == 2 {
+    
+//}

@@ -62,7 +62,7 @@ class PromotionViewController: BaseViewController {
         view.layer.shadowColor = Constants.Color.shadowColor.cgColor
         view.layer.shadowRadius = 30
         view.layer.shadowOpacity = 1
-        view.layer.shadowOffset = CGSize(width: 0, height: 0)
+        view.layer.shadowOffset = CGSize(width: 0, height: 4)
     }
     
 
@@ -90,7 +90,7 @@ extension PromotionViewController:UITableViewDataSource {
         cell.configViewsPromotionVc(promotion: promotion)
         
         if indexPath.item == (promotionList?.count ?? 0) - 1{
-            cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: .greatestFiniteMagnitude)
+            cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: self.view.bounds.width)
         }
         return cell
     }

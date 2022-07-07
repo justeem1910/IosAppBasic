@@ -13,6 +13,7 @@ class DoctorTableViewCell: UITableViewCell {
     
     var pushVCHandler: (() -> ())? = nil
     var doctorList     : [DoctorHomeModel]?
+    var delegate: HomeTableViewCellProtocol?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,8 +22,8 @@ class DoctorTableViewCell: UITableViewCell {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 16)
+        collectionView.registerCells(DoctorCollectionViewCell.self)
         
-        collectionView.register(UINib(nibName: "DoctorCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "DoctorCollectionViewCell")
     }
     
     func configViews(doctorList: [DoctorHomeModel]?, pushVCHandler: (() -> ())?) {
@@ -32,6 +33,9 @@ class DoctorTableViewCell: UITableViewCell {
         collectionView.reloadData()
     }
     
+    @IBAction func tapBtnSeeAll(_ sender: Any) {
+        delegate?.didTapSeeAll(choose: ChooseScreen.doctorScreen)
+    }
 }
 
 // MARK: DoctorCollectionviewDelegateFlowLayout
@@ -52,11 +56,10 @@ extension DoctorTableViewCell: UICollectionViewDataSource {
         return doctorList?.count ?? 0
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DoctorCollectionViewCell", for: indexPath) as! DoctorCollectionViewCell
+
+        let cell = collectionView.dequeueReusableCell(DoctorCollectionViewCell.self, indexPath: indexPath)
         let doctor = doctorList?[indexPath.item]
         cell.configViews(doctorInfo: doctor)
         return cell
-    }
-    
-    
+    }    
 }

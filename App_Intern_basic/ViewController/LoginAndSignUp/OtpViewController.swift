@@ -27,6 +27,7 @@ class OtpViewController: UIViewController {
     var stringNumber = "Vui lòng nhập mã gồm 6 chữ số đã được gửi đến bạn vào số điện thoại "
     var phoneNumber = ""
     var countTime = 60
+    var countTextField = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -193,14 +194,23 @@ extension OtpViewController: UITextFieldDelegate{
                 setTFOtpAnimation(textField: tfOtp5)
             }
             if textField == tfOtp5 {
-
                 setTFOtpAnimation(textField: tfOtp6)
             }
             textField.text = string
+            for tf in arrTextFieldOtp {
+                if tf.text?.count ?? 0 == 1{
+                    countTextField += 1
+                }
+            }
+            if countTextField == 6 {
+                btnContinue.backgroundColor = Constants.Color.green
+                btnContinue.isUserInteractionEnabled = true
+            }
             if textField == tfOtp6 {
                 btnContinue.backgroundColor = Constants.Color.green
                 btnContinue.isUserInteractionEnabled = true
             }
+            
             return false
 
         } else
@@ -215,30 +225,37 @@ extension OtpViewController: UITextFieldDelegate{
             return false
         }else if ((textField.text?.count ?? 0) > 0) && (string.count > 0){
             if textField == tfOtp1 {
-                tfOtp2.text = string
+                tfOtp1.text = string
                 setTFOtpAnimation(textField: tfOtp2)
             }
             if textField == tfOtp2 {
-                tfOtp3.text = string
+                tfOtp2.text = string
                 setTFOtpAnimation(textField: tfOtp3)
             }
             if textField == tfOtp3 {
-                tfOtp4.text = string
+                tfOtp3.text = string
                 setTFOtpAnimation(textField: tfOtp4)
             }
             if textField == tfOtp4 {
-                tfOtp5.text = string
+                tfOtp4.text = string
                 setTFOtpAnimation(textField: tfOtp5)
             }
             if textField == tfOtp5 {
-                tfOtp6.text = string
+                tfOtp5.text = string
                 setTFOtpAnimation(textField: tfOtp6)
             }
-            
+            if textField == tfOtp6 {
+                tfOtp6.text = string
+                btnContinue.backgroundColor = Constants.Color.green
+                btnContinue.isUserInteractionEnabled = true
+            }
+
+          
             return false
         }else if (textField.text?.count ?? 0) > 0 && textField == tfOtp6{
             textField.text = string
-            
+            btnContinue.backgroundColor = Constants.Color.green
+            btnContinue.isUserInteractionEnabled = true
             return false
         }
         
@@ -256,6 +273,8 @@ extension OtpViewController: UITextFieldDelegate{
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         textField.layer.borderWidth = 0
+        countTextField = 0
+        
     }
     
 }

@@ -79,6 +79,7 @@
 		DB8DC05F28752CB2007696B6 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8DC05E28752CB2007696B6 /* UserModel.swift */; };
 		DB8DC06528773D1E007696B6 /* UICollectionview+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8DC06428773D1E007696B6 /* UICollectionview+Extensions.swift */; };
 		DB8DC06728773D99007696B6 /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8DC06628773D99007696B6 /* UITableView+Extensions.swift */; };
+		DB8DC0692877CE35007696B6 /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8DC0682877CE35007696B6 /* LocationModel.swift */; };
 		DBB81AC2286C079B00D76125 /* PromotionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB81AC1286C079B00D76125 /* PromotionViewController.swift */; };
 		DBB81AC5286C497C00D76125 /* PromotionVCTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB81AC3286C497C00D76125 /* PromotionVCTableViewCell.swift */; };
 		DBB81AC6286C497C00D76125 /* PromotionVCTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBB81AC4286C497C00D76125 /* PromotionVCTableViewCell.xib */; };
@@ -160,6 +161,7 @@
 		DB8DC05E28752CB2007696B6 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		DB8DC06428773D1E007696B6 /* UICollectionview+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionview+Extensions.swift"; sourceTree = "<group>"; };
 		DB8DC06628773D99007696B6 /* UITableView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extensions.swift"; sourceTree = "<group>"; };
+		DB8DC0682877CE35007696B6 /* LocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
 		DBB81AC1286C079B00D76125 /* PromotionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionViewController.swift; sourceTree = "<group>"; };
 		DBB81AC3286C497C00D76125 /* PromotionVCTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionVCTableViewCell.swift; sourceTree = "<group>"; };
 		DBB81AC4286C497C00D76125 /* PromotionVCTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PromotionVCTableViewCell.xib; sourceTree = "<group>"; };
@@ -537,6 +539,7 @@
 			isa = PBXGroup;
 			children = (
 				DB8DC05E28752CB2007696B6 /* UserModel.swift */,
+				DB8DC0682877CE35007696B6 /* LocationModel.swift */,
 			);
 			path = UserInfoVCModel;
 			sourceTree = "<group>";
@@ -545,8 +548,6 @@
 			isa = PBXGroup;
 			children = (
 				DB787FD2286AE91900CA2879 /* NSMutableAttributedString.swift */,
-				DB8DC06428773D1E007696B6 /* UICollectionview+Extensions.swift */,
-				DB8DC06628773D99007696B6 /* UITableView+Extensions.swift */,
 			);
 			path = Cores;
 			sourceTree = "<group>";
@@ -554,6 +555,8 @@
 		DB8DC06128773115007696B6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DB8DC06428773D1E007696B6 /* UICollectionview+Extensions.swift */,
+				DB8DC06628773D99007696B6 /* UITableView+Extensions.swift */,
 				DB787FBF2866CDE000CA2879 /* View.swift */,
 			);
 			path = Views;
@@ -726,6 +729,7 @@
 				DB787FCC2869924300CA2879 /* DoctorHomeModel.swift in Sources */,
 				DB787FC02866CDE000CA2879 /* View.swift in Sources */,
 				DB8DC05A28743C0C007696B6 /* UserInfoViewController.swift in Sources */,
+				DB8DC0692877CE35007696B6 /* LocationModel.swift in Sources */,
 				DBB81AC2286C079B00D76125 /* PromotionViewController.swift in Sources */,
 				DB787FD9286B088100CA2879 /* BaseViewController.swift in Sources */,
 				DB787FD6286B080200CA2879 /* ProgressHUB.swift in Sources */,

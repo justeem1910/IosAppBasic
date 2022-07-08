@@ -60,8 +60,14 @@ final class APIUtilities {
         jsonResponseObject(tailStrURL: tailStrURL, method: .get, headers: [:], completionHandler: completionHandler)
     }
     
+    //MARK: GET API LOCATION
     
-    
+    static func requestUserLocation(provineCode:String, districtCode: String ,wardCode:String ,completionHandler: ((LocationModel?, APIError?) -> Void)?) {
+        
+        let tailStrURL = "/hdhuy179/7883b8f11ea4b25cf6d3822c67049606/raw/province_code=\(provineCode)&district_code=\(districtCode)&ward_code=\(wardCode)"
+        
+        jsonResponseObject(tailStrURL: tailStrURL, method: .get, headers: [:], completionHandler: completionHandler)
+    }
     
     
     //MARK: BASE

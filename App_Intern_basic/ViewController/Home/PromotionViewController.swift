@@ -97,7 +97,7 @@ extension PromotionViewController:UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailsVC = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "DetailsViewController") as? DetailsViewController
         
-        detailsVC?.stringURL = self.promotionList![indexPath.item].link ?? ""
+        detailsVC?.stringURL = self.promotionList?[indexPath.item].link ?? ""
         
         self.navigationController?.pushViewController(detailsVC!, animated: true)
     }

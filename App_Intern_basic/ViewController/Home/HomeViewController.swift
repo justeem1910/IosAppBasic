@@ -44,8 +44,8 @@ class HomeViewController: BaseViewController {
     }
     
     @objc func changeInfoUser(tapGestureRecognizer: UITapGestureRecognizer) {
-
-        // Your action
+        let userInfoVC = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "UserInfoViewController") as? UserInfoViewController
+        self.navigationController?.pushViewController(userInfoVC!, animated: true)
     }
     
     @objc func loadNewFeed() {
@@ -104,7 +104,7 @@ extension HomeViewController:UITableViewDataSource {
                 
                 let detailsVC = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "DetailsViewController") as? DetailsViewController
 
-                detailsVC?.stringURL = self.newsModel?.articleList![indexItem].link ?? ""
+                detailsVC?.stringURL = self.newsModel?.articleList?[indexItem].link ?? ""
                 self.navigationController?.pushViewController(detailsVC!, animated: true)
 
             }
@@ -124,7 +124,7 @@ extension HomeViewController:UITableViewDataSource {
                 
                 let detailsVC = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "DetailsViewController") as? DetailsViewController
                 
-                detailsVC?.stringURL = self.newsModel?.promotionList![indexItem].link ?? ""
+                detailsVC?.stringURL = self.newsModel?.promotionList?[indexItem].link ?? ""
                 self.navigationController?.pushViewController(detailsVC!, animated: true)
                 
             }
@@ -161,13 +161,3 @@ extension HomeViewController: HomeTableViewCellProtocol {
         }
     }
 }
-
-//if sender.tag == 0 {
-    
-//}
-//if sender.tag == 1 {
-   
-//}
-//if sender.tag == 2 {
-    
-//}

@@ -78,11 +78,11 @@ class OtpViewController: UIViewController {
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     func setView(){
-        let numberAttribute = [ NSAttributedString.Key.font:  Constants.Font.otpString]
+        let numberAttribute = [ NSAttributedString.Key.font:  UIFont(name: Constants.Font.nunitoRegular, size: 14)]
         
         let numberAttString = NSMutableAttributedString(string: stringNumber , attributes: numberAttribute as [NSAttributedString.Key : Any])
         
-        let phoneAttribute = [ NSAttributedString.Key.font:  Constants.Font.otpPhone]
+        let phoneAttribute = [ NSAttributedString.Key.font:  UIFont(name: Constants.Font.nunitoBold, size: 14)]
         
         let phoneAttString = NSAttributedString(string: phoneNumber, attributes: phoneAttribute as [NSAttributedString.Key : Any])
         numberAttString.append(phoneAttString)

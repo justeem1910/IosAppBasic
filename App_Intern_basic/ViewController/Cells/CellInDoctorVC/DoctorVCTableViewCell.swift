@@ -40,7 +40,7 @@ class DoctorVCTableViewCell: UITableViewCell {
         lblName.text = "Chuyên ngành: " + (name ?? " ")
         lblSpecial.text = major ?? " "
         
-        let font = Constants.Font.nunitoSansRegular12
+        let font = UIFont(name: Constants.Font.nunitoRegular, size: 12)
         let headColor = Constants.Color.gray1
         let tailColor = Constants.Color.gray3
         

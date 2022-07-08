@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+
 struct Constants {
     struct Color{
         static let purple1 = UIColor.init(red: 36/255 , green: 42/255 , blue: 97/255, alpha: 1.0)
@@ -27,13 +28,8 @@ struct Constants {
     }
     
     struct Font {
-        static let hotline = UIFont(name: "NunitoSans-Regular", size: 17)
-        static let hotlinePhone = UIFont(name: "NunitoSans-Bold", size: 17)
-        static let otpString = UIFont(name: "NunitoSans-Regular", size: 14)
-        static let otpPhone = UIFont(name: "NunitoSans-Bold", size: 14)
-        
-        static let nunitoSansRegular11 = UIFont(name: "NunitoSans-Regular", size: 11)
-        static let nunitoSansRegular12 = UIFont(name: "NunitoSans-Regular", size: 12)
+        static let nunitoRegular = "NunitoSans-Regular"
+        static let nunitoBold = "NunitoSans-Bold"
     }
     struct NewsVC{
         

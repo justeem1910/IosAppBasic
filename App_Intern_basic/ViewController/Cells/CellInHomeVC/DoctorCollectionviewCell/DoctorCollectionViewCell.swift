@@ -37,7 +37,7 @@ class DoctorCollectionViewCell: UICollectionViewCell {
         lblName.text = name ?? " "
         lblSpecial.text = major ?? " "
         
-        let font = Constants.Font.nunitoSansRegular11
+        let font = UIFont(name: Constants.Font.nunitoRegular, size: 11)
         let headColor = Constants.Color.gray1
         let tailColor = Constants.Color.gray3
         

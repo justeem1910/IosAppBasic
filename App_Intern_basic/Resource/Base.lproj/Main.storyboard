@@ -1766,6 +1766,7 @@
                         <outlet property="imgMale" destination="fit-vh-pgX" id="9aG-Yv-mJJ"/>
                         <outlet property="lblFemale" destination="Mck-DL-6NL" id="JFn-yh-YFk"/>
                         <outlet property="lblMale" destination="8GX-gO-VsP" id="FRa-Pr-Krl"/>
+                        <outlet property="scvUser" destination="d9s-HS-a9X" id="8Cd-CI-lGx"/>
                         <outlet property="sgmGender" destination="XAy-zW-6md" id="Iu4-51-sUx"/>
                         <outlet property="tfAddress" destination="9Pm-df-wPb" id="3Bt-tI-QWE"/>
                         <outlet property="tfBlood" destination="7Jn-b0-Qf1" id="Q9m-de-xQE"/>

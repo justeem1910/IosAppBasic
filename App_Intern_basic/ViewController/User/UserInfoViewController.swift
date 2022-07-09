@@ -13,6 +13,7 @@ class UserInfoViewController: BaseViewController {
     @IBOutlet weak var btnBack: UIButton!
     @IBOutlet weak var btnOK: UIButton!
     
+    @IBOutlet weak var scvUser: UIScrollView!
     @IBOutlet weak var tfLastName: UITextField!
     @IBOutlet weak var tfFirstName: UITextField!
     @IBOutlet weak var tfEmail: UITextField!
@@ -50,14 +51,14 @@ class UserInfoViewController: BaseViewController {
     
     func setView(){
         btnOK.layer.cornerRadius = 24
-        
+        scvUser.refreshControl = refreshControl
         tfFirstName.delegate = self
         tfLastName.delegate = self
         tfDate.delegate = self
         tfEmail.delegate = self
         tfPhone.delegate = self
         tfAddress.delegate = self
-        
+        self.refreshControl.addTarget(self, action: #selector(loadNewFeed), for: .valueChanged)
         loadNewFeed()
         createDatePicker()
     }

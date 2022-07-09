@@ -25,7 +25,6 @@ class HomeViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewBackGroundTableView.roundCorners(corners: [.topLeft, .topRight], radius: 16)
         
         tableViewHome.registerCells(NewsTableViewCell.self, DoctorTableViewCell.self)
         
@@ -41,6 +40,9 @@ class HomeViewController: BaseViewController {
         imgAvatarUser.addGestureRecognizer(tapGestureRecognizer)
         
         loadNewFeed()
+    }
+    override func viewDidLayoutSubviews() {
+        viewBackGroundTableView.roundCorners(corners: [.topLeft, .topRight], radius: 16)
     }
     
     @objc func changeInfoUser(tapGestureRecognizer: UITapGestureRecognizer) {

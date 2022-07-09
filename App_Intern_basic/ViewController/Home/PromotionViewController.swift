@@ -81,7 +81,8 @@ extension PromotionViewController: UITableViewDelegate {
 
 extension PromotionViewController:UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return promotionList?.count ?? 0
+        return promotionList?.count ?? 0 
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

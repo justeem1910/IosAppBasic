@@ -86,6 +86,7 @@ extension NewsViewController: UITableViewDataSource{
             return cell
         }
         let cell = tableView.dequeueReusableCell(withIdentifier: "PromotionVCTableViewCell", for: indexPath) as! PromotionVCTableViewCell
+        cell.separatorInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
         let news = newsList?[indexPath.item]
         cell.configViewsNewsVc(news: news)
         cell.selectionStyle = .none

@@ -50,6 +50,7 @@ class UserInfoViewController: BaseViewController {
     }
     
     func setView(){
+        IQKeyboardManager.shared.previousNextDisplayMode = .alwaysShow
         btnOK.layer.cornerRadius = 24
         scvUser.refreshControl = refreshControl
         tfFirstName.delegate = self

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import IQKeyboardManagerSwift
 
 class OtpViewController: UIViewController {
 
@@ -33,6 +34,7 @@ class OtpViewController: UIViewController {
         super.viewDidLoad()
         setView()
         
+        IQKeyboardManager.shared.previousNextDisplayMode = .alwaysHide
         tfOtp1.delegate = self
         tfOtp2.delegate = self
         tfOtp3.delegate = self

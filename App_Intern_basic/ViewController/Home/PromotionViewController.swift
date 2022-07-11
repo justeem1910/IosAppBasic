@@ -87,6 +87,7 @@ extension PromotionViewController:UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PromotionVCTableViewCell", for: indexPath) as! PromotionVCTableViewCell
+        cell.separatorInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
         let promotion = promotionList?[indexPath.item]
         cell.configViewsPromotionVc(promotion: promotion)
         
@@ -102,6 +103,4 @@ extension PromotionViewController:UITableViewDataSource {
         
         self.navigationController?.pushViewController(detailsVC!, animated: true)
     }
-    
-    
 }

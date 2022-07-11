@@ -33,23 +33,6 @@ class OtpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setView()
-        
-        tfOtp1.delegate = self
-        tfOtp2.delegate = self
-        tfOtp3.delegate = self
-        tfOtp4.delegate = self
-        tfOtp5.delegate = self
-        tfOtp6.delegate = self
-        
-
-        arrTextFieldOtp = [tfOtp1,tfOtp2,tfOtp3,tfOtp4,tfOtp5,tfOtp6]
-        for i in 1...5 {
-            arrTextFieldOtp[i].previousTextField = arrTextFieldOtp[i-1]
-        }
-        for textField in  arrTextFieldOtp {
-            textField.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: .allTouchEvents)
-        }
-        
     }
     
     @objc func textFieldDidChange(_ textField: UITextField) {
@@ -80,6 +63,22 @@ class OtpViewController: UIViewController {
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     func setView(){
+        tfOtp1.delegate = self
+        tfOtp2.delegate = self
+        tfOtp3.delegate = self
+        tfOtp4.delegate = self
+        tfOtp5.delegate = self
+        tfOtp6.delegate = self
+        
+
+        arrTextFieldOtp = [tfOtp1,tfOtp2,tfOtp3,tfOtp4,tfOtp5,tfOtp6]
+        for i in 1...5 {
+            arrTextFieldOtp[i].previousTextField = arrTextFieldOtp[i-1]
+        }
+        for textField in  arrTextFieldOtp {
+            textField.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: .allTouchEvents)
+        }
+        
         let numberAttribute = [ NSAttributedString.Key.font:  UIFont(name: Constants.Font.nunitoRegular, size: 14)]
         
         let numberAttString = NSMutableAttributedString(string: stringNumber , attributes: numberAttribute as [NSAttributedString.Key : Any])

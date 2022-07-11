@@ -23,11 +23,7 @@ class PhoneViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setView()
-        
-        
-    
     }
     func setView(){
         viewPhoneNumber.layer.cornerRadius = 28

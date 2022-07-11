@@ -24,10 +24,11 @@ class HomeViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+        setView()
+    }
+    
+    func setView(){
         tableViewHome.registerCells(NewsTableViewCell.self, DoctorTableViewCell.self)
-        
         tableViewHome.delegate = self
         tableViewHome.dataSource = self
         tableViewHome.refreshControl = refreshControl
@@ -105,10 +106,7 @@ extension HomeViewController:UITableViewDataSource {
             }) { [weak self] indexItem in
                 guard let self = self else { return }
                 
-                let detailsVC = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "DetailsViewController") as? DetailsViewController
-
-                detailsVC?.stringURL = self.newsModel?.articleList?[indexItem].link ?? ""
-                self.navigationController?.pushViewController(detailsVC!, animated: true)
+                self.pushLinkToDetailsVC(link: self.newsModel?.articleList?[indexItem].link ?? "")
 
             }
             cell.delegate = self
@@ -126,10 +124,7 @@ extension HomeViewController:UITableViewDataSource {
             ) { [weak self] indexItem in
                 //NOO: them weak self
                 guard let self = self else { return }
-                let detailsVC = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "DetailsViewController") as? DetailsViewController
-                
-                detailsVC?.stringURL = self.newsModel?.promotionList?[indexItem].link ?? ""
-                self.navigationController?.pushViewController(detailsVC!, animated: true)
+                self.pushLinkToDetailsVC(link: self.newsModel?.promotionList?[indexItem].link ?? "")
                 
             }
             cell.delegate = self
@@ -147,6 +142,13 @@ extension HomeViewController:UITableViewDataSource {
         }
         
         return UITableViewCell()
+    }
+    
+    func pushLinkToDetailsVC(link: String){
+        let detailsVC = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "DetailsViewController") as? DetailsViewController
+        
+        detailsVC?.stringURL = link
+        self.navigationController?.pushViewController(detailsVC!, animated: true)
     }
 }
 //MARK: HomeTableViewCellProtocol

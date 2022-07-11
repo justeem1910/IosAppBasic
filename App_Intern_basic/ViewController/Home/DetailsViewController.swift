@@ -17,14 +17,16 @@ class DetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configViewVC()
+        wkv.navigationDelegate = self
+    }
+    func configViewVC (){
         if let stringURL = stringURL {
             let url = URL(string: stringURL)
             if let url = url {
                 wkv.load(URLRequest(url: url))
             }
-
         }
-        wkv.navigationDelegate = self
     }
     
     
@@ -35,9 +37,10 @@ class DetailsViewController: UIViewController {
     }
     
     @IBAction func btnShareAction(_ sender: Any) {
-        if let stringURL = stringURL {
-            UIPasteboard.general.string = stringURL
-        }
+        UIPasteboard.general.string = stringURL
+//        if let stringURL = stringURL {
+//            UIPasteboard.general.string = stringURL
+//        }
     }
     
 }

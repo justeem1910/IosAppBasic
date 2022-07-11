@@ -46,5 +46,4 @@ class PromotionVCTableViewCell: UITableViewCell {
         lblTitle.text = title ?? " "
         lblTime.text = date ?? " "
     }
-    
 }

@@ -15,7 +15,7 @@ class IntroViewController: UIViewController {
     @IBOutlet weak var btnRegister: UIButton!
     @IBOutlet weak var viewBgIntro: UIView!
     
-    var listImageIntro:[String] = [String]()
+    var listImageIntro:[String] = ["bgcell1","bgcell2","bgcell3"]
     let gradient = CAGradientLayer()
     var startColor:CGColor = Constants.Color.gradientIntroStart.cgColor
     var endColor:CGColor = Constants.Color.gradientIntroEnd.cgColor
@@ -27,10 +27,10 @@ class IntroViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        self.navigationController?.isNavigationBarHidden = true
-    
+        setView()
         
+    }
+    func setView(){
         clvIntro.delegate = self
         clvIntro.dataSource = self
         
@@ -44,13 +44,9 @@ class IntroViewController: UIViewController {
         btnRegister.layer.borderColor = Constants.Color.purple1.cgColor
         btnRegister.layer.cornerRadius = 24
         
-        listImageIntro.append("bgcell1")
-        listImageIntro.append("bgcell2")
-        listImageIntro.append("bgcell3")
-        
-               
-        clvIntro.register(UINib(nibName: "IntroCell", bundle: nil), forCellWithReuseIdentifier: "IntroCell")
+        clvIntro.registerCells(IntroCell.self)
     }
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let visibleRect = CGRect(origin: self.clvIntro.contentOffset, size: self.clvIntro.bounds.size)
         let visiblePoint = CGPoint(x: visibleRect.midX, y: visibleRect.midY)

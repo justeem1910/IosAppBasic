@@ -49,12 +49,6 @@ class NewsTableViewCell: UITableViewCell {
         collectionView.reloadData()
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
     @IBAction func pressSeeAll(_ sender: Any) {
         if let articleList = articleList {
             delegate?.didTapSeeAll(choose: ChooseScreen.newsScreen)

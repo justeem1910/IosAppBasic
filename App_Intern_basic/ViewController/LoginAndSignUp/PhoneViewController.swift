@@ -89,23 +89,28 @@ class PhoneViewController: UIViewController {
         viewPhoneNumber.layer.borderColor = Constants.Color.green.cgColor
         phoneNumber = tfPhoneNumber.text ?? ""
         if phoneNumber.first == "0"{
+            
             if tfPhoneNumber.text?.count ?? 0 > 9 {
-                btnContinue.isUserInteractionEnabled = true
-                btnContinue.backgroundColor = Constants.Color.green
+                setBtnContinueOn()
             } else {
-                btnContinue.backgroundColor = Constants.Color.green2
-                btnContinue.isUserInteractionEnabled = false
+                setBtnContinueOff()
             }
         } else {
             if tfPhoneNumber.text?.count ?? 0 > 8 {
-                btnContinue.backgroundColor = Constants.Color.green
-                btnContinue.isUserInteractionEnabled = true
+               setBtnContinueOn()
             } else {
-                btnContinue.backgroundColor = Constants.Color.green2
-                btnContinue.isUserInteractionEnabled = false
+               setBtnContinueOff()
             }
         }
         
+    }
+    func setBtnContinueOn(){
+        btnContinue.isUserInteractionEnabled = true
+        btnContinue.backgroundColor = Constants.Color.green
+    }
+    func setBtnContinueOff(){
+        btnContinue.backgroundColor = Constants.Color.green2
+        btnContinue.isUserInteractionEnabled = false
     }
     
     @IBAction func btnBack(_ sender: Any) {
@@ -125,10 +130,7 @@ extension PhoneViewController: UITextFieldDelegate{
         viewPhoneNumber.layer.borderColor = Constants.Color.green.cgColor
     }
     func textFieldDidEndEditing(_ textField: UITextField) {
-        if textField.text?.count == 0 {
-            viewPhoneNumber.layer.borderColor = Constants.Color.gray5.cgColor
-            
-        }
+        viewPhoneNumber.layer.borderColor = Constants.Color.gray5.cgColor
     }
     
     

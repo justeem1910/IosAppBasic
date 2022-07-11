@@ -44,7 +44,7 @@ class HomeViewController: BaseViewController {
     override func viewDidLayoutSubviews() {
         viewBackGroundTableView.roundCorners(corners: [.topLeft, .topRight], radius: 16)
     }
-    
+   
     @objc func changeInfoUser(tapGestureRecognizer: UITapGestureRecognizer) {
         let userInfoVC = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "UserInfoViewController") as? UserInfoViewController
         self.navigationController?.pushViewController(userInfoVC!, animated: true)
@@ -102,7 +102,8 @@ extension HomeViewController:UITableViewDataSource {
 
                     self.show(vc, sender: nil)
 
-            }) { indexItem in
+            }) { [weak self] indexItem in
+                guard let self = self else { return }
                 
                 let detailsVC = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "DetailsViewController") as? DetailsViewController
 
@@ -122,8 +123,9 @@ extension HomeViewController:UITableViewDataSource {
                     
                     self.show(vc, sender: nil)
                 }
-            ) { indexItem in
-                
+            ) { [weak self] indexItem in
+                //NOO: them weak self
+                guard let self = self else { return }
                 let detailsVC = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "DetailsViewController") as? DetailsViewController
                 
                 detailsVC?.stringURL = self.newsModel?.promotionList?[indexItem].link ?? ""
@@ -143,7 +145,8 @@ extension HomeViewController:UITableViewDataSource {
             cell.delegate = self
             return cell
         }
-        fatalError()
+        
+        return UITableViewCell()
     }
 }
 //MARK: HomeTableViewCellProtocol

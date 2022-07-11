@@ -30,10 +30,4 @@ class NewsVCTableViewCell1: UITableViewCell {
         lblTitle.text = title ?? " "
         lblTime.text = date ?? " "
     }
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
 }

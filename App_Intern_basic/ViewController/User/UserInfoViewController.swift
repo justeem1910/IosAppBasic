@@ -49,8 +49,13 @@ class UserInfoViewController: BaseViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        IQKeyboardManager.shared.previousNextDisplayMode = .Default
+    }
+    
     func setView(){
-        IQKeyboardManager.shared.previousNextDisplayMode = .alwaysShow
         btnOK.layer.cornerRadius = 24
         scvUser.refreshControl = refreshControl
         tfFirstName.delegate = self
@@ -71,6 +76,8 @@ class UserInfoViewController: BaseViewController {
         }
 
         tfDate.inputView = datePicker
+        dateFomatter.dateFormat = "dd/MM/yyyy"
+        
     }
     
     @objc func loadNewFeed() {
@@ -83,11 +90,6 @@ class UserInfoViewController: BaseViewController {
                 return
             }
             self.userModel = userinfo
-            self.refreshControl.endRefreshing()
-            
-            DispatchQueue.main.async{ [weak self] in
-                guard let self = self else { return}
-            }
             self.loadLocationUser()
         }
     }
@@ -102,9 +104,6 @@ class UserInfoViewController: BaseViewController {
             self.refreshControl.endRefreshing()
             self.setTextFieldUser()
             
-            DispatchQueue.main.async{ [weak self] in
-                guard let self = self else { return}
-            }
         }
     }
     func setTextFieldUser (){
@@ -122,20 +121,28 @@ class UserInfoViewController: BaseViewController {
         
         if userModel?.sex == 1 {
             sgmGender.selectedSegmentIndex = 1
-            lblMale.textColor = Constants.Color.gray2
-            imgMale.tintColor = Constants.Color.gray2
+            setFemaleSegment()
             
-            lblFemale.textColor = Constants.Color.green
-            imgFemale.tintColor = Constants.Color.green
         } else {
-            lblMale.textColor = Constants.Color.green
-            imgMale.tintColor = Constants.Color.green
-            
-            lblFemale.textColor = Constants.Color.gray2
-            imgFemale.tintColor = Constants.Color.gray2
+            setMaleSegment()
         }
         
         btnOK.backgroundColor = Constants.Color.green
+    }
+    
+    func setFemaleSegment(){
+        lblMale.textColor = Constants.Color.gray2
+        imgMale.tintColor = Constants.Color.gray2
+        
+        lblFemale.textColor = Constants.Color.green
+        imgFemale.tintColor = Constants.Color.green
+    }
+    func setMaleSegment(){
+        lblMale.textColor = Constants.Color.green
+        imgMale.tintColor = Constants.Color.green
+        
+        lblFemale.textColor = Constants.Color.gray2
+        imgFemale.tintColor = Constants.Color.gray2
     }
 
     @IBAction func tapOnBtnBack(_ sender: Any) {
@@ -147,17 +154,9 @@ class UserInfoViewController: BaseViewController {
     
     @IBAction func chooseSegmentGender(_ sender: Any) {
         if sgmGender.selectedSegmentIndex == 0 {
-            lblMale.textColor = Constants.Color.green
-            imgMale.tintColor = Constants.Color.green
-            
-            lblFemale.textColor = Constants.Color.gray2
-            imgFemale.tintColor = Constants.Color.gray2
+            setMaleSegment()
         } else {
-            lblMale.textColor = Constants.Color.gray2
-            imgMale.tintColor = Constants.Color.gray2
-            
-            lblFemale.textColor = Constants.Color.green
-            imgFemale.tintColor = Constants.Color.green
+            setFemaleSegment()
         }
     }
 }
@@ -169,12 +168,6 @@ extension UserInfoViewController:UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         (textField.superview?.viewWithTag(1) as? UILabel)?.textColor = Constants.Color.gray3
         textField.superview?.viewWithTag(3)?.backgroundColor = Constants.Color.lineColor
-        
-        
-        if textField == tfDate {
-            dateFomatter.dateFormat = "dd/MM/yyyy"
-            tfDate.text = dateFomatter.string(from: datePicker.date)
-        }
-        
+        tfDate.text = dateFomatter.string(from: datePicker.date)
     }
 }

@@ -34,7 +34,6 @@ class OtpViewController: UIViewController {
         super.viewDidLoad()
         setView()
         
-        IQKeyboardManager.shared.previousNextDisplayMode = .alwaysHide
         tfOtp1.delegate = self
         tfOtp2.delegate = self
         tfOtp3.delegate = self
@@ -52,6 +51,7 @@ class OtpViewController: UIViewController {
         }
         
     }
+    
     @objc func textFieldDidChange(_ textField: UITextField) {
         for i in 0...5 {
             if arrTextFieldOtp[i].text?.count == 0 {
@@ -59,11 +59,11 @@ class OtpViewController: UIViewController {
                 break
             }
         }
-
     }
 
     override func viewWillAppear(_ animated: Bool) {
         registerObserver()
+        IQKeyboardManager.shared.previousNextDisplayMode = .alwaysHide
     }
     
     func registerObserver() {
@@ -158,6 +158,10 @@ class OtpViewController: UIViewController {
             self.btnContinue.transform = .identity
         }
     }
+    func setBtnContinueOn(){
+        btnContinue.backgroundColor = Constants.Color.green
+        btnContinue.isUserInteractionEnabled = true
+    }
     
     @IBAction func btnContinueAction(_ sender: Any) {
         let otpString = "\(tfOtp1.text!)\(tfOtp2.text!)\(tfOtp3.text!)\(tfOtp4.text!)\(tfOtp5.text!)\(tfOtp6.text!)"
@@ -247,16 +251,15 @@ extension OtpViewController: UITextFieldDelegate{
             }
             if textField == tfOtp6 {
                 tfOtp6.text = string
-                btnContinue.backgroundColor = Constants.Color.green
-                btnContinue.isUserInteractionEnabled = true
+                
+                setBtnContinueOn()
             }
 
           
             return false
         }else if (textField.text?.count ?? 0) > 0 && textField == tfOtp6{
             textField.text = string
-            btnContinue.backgroundColor = Constants.Color.green
-            btnContinue.isUserInteractionEnabled = true
+            setBtnContinueOn()
             return false
         }
         
@@ -277,5 +280,6 @@ extension OtpViewController: UITextFieldDelegate{
         countTextField = 0
         
     }
+    
     
 }

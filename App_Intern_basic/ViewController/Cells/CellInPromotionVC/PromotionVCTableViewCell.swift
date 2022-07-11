@@ -12,6 +12,7 @@ class PromotionVCTableViewCell: UITableViewCell {
     @IBOutlet weak var img: UIImageView!
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var lblTime: UILabel!
+    @IBOutlet weak var viewSeperator: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -40,11 +41,10 @@ class PromotionVCTableViewCell: UITableViewCell {
         configViews(imageURLStr: imageURL, title: title, date: time)
     }
     
-    
-    
     private func configViews(imageURLStr: String?, title: String?, date: String?) {
         Ultilities.loadImage(img, strURL: imageURLStr ?? "", placeHolder: UIImage(named: ""))
         lblTitle.text = title ?? " "
         lblTime.text = date ?? " "
-    }    
+    }
+    
 }

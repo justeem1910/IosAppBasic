@@ -87,12 +87,12 @@ extension PromotionViewController:UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PromotionVCTableViewCell", for: indexPath) as! PromotionVCTableViewCell
-        cell.separatorInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+        cell.viewSeperator.isHidden = false
         let promotion = promotionList?[indexPath.item]
         cell.configViewsPromotionVc(promotion: promotion)
         
         if indexPath.item == (promotionList?.count ?? 0) - 1{
-            cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: self.view.bounds.width)
+            cell.viewSeperator.isHidden = true
         }
         return cell
     }

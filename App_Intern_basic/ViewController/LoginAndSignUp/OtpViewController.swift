@@ -215,8 +215,7 @@ extension OtpViewController: UITextFieldDelegate{
             
             return false
 
-        } else
-        if  ((textField.text?.count ?? 0) > 0) && (string.count == 0){
+        } else if  ((textField.text?.count ?? 0) > 0) && (string.count == 0){
             textField.text = ""
             btnContinue.backgroundColor = Constants.Color.green2
             btnContinue.isUserInteractionEnabled = false
@@ -225,7 +224,7 @@ extension OtpViewController: UITextFieldDelegate{
                 btnResendOtp.transform = CGAffineTransform(translationX: 0, y: -stvOtp.frame.height + 32)
             }
             return false
-        }else if ((textField.text?.count ?? 0) > 0) && (string.count > 0){
+        } else if ((textField.text?.count ?? 0) > 0) && (string.count > 0){
             if textField == tfOtp1 {
                 tfOtp1.text = string
                 setTFOtpAnimation(textField: tfOtp2)

@@ -37,10 +37,9 @@ class DetailsViewController: UIViewController {
     }
     
     @IBAction func btnShareAction(_ sender: Any) {
-        UIPasteboard.general.string = stringURL
-//        if let stringURL = stringURL {
-//            UIPasteboard.general.string = stringURL
-//        }
+        if let stringURL = stringURL {
+            UIPasteboard.general.string = stringURL
+        }
     }
     
 }

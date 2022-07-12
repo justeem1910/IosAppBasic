@@ -16,7 +16,7 @@ class PromotionViewController: BaseViewController {
     @IBOutlet weak var tbvPromotion: UITableView!
     
     var promotionList     : [PromotionHomeModel]?
-    
+    var promotionList2: [PromotionModel]?
     lazy var refreshControl: UIRefreshControl = {
         let rfc = UIRefreshControl()
         
@@ -38,24 +38,45 @@ class PromotionViewController: BaseViewController {
         self.refreshControl.addTarget(self, action: #selector(loadNewFeed), for: .valueChanged)
         loadNewFeed()
     }
+//    @objc func loadNewFeed() {
+//        self.showLoaderView()
+//
+//        APIUtilities.requestPromotionVC { [weak self] promotionFeed, error in
+//            guard let self = self else { return}
+//            self.dismissLoaderView()
+//            self.refreshControl.endRefreshing()
+//
+//            guard let promotionFeed = promotionFeed, error == nil else {
+//                return
+//            }
+//            self.promotionList = promotionFeed.promotionList
+//
+//            DispatchQueue.main.async { [weak self] in
+//                guard let self = self else { return}
+//
+//                self.tbvPromotion.reloadData()
+//            }
+//        }
+//    }
+    
+    //MARK: GET LIST API (CACH 2)
     @objc func loadNewFeed() {
         self.showLoaderView()
-        
-        APIUtilities.requestPromotionVC { [weak self] promotionFeed, error in
+        APIUtilities.requestListPromotionVC{ [weak self] promotionListfeed, error in
             guard let self = self else { return}
             self.dismissLoaderView()
             self.refreshControl.endRefreshing()
-            
-            guard let promotionFeed = promotionFeed, error == nil else {
+            guard let promotionListfeed = promotionListfeed else {
                 return
             }
-            self.promotionList = promotionFeed.promotionList
-            
+            self.promotionList2 = promotionListfeed
             DispatchQueue.main.async { [weak self] in
                 guard let self = self else { return}
-
+            
                 self.tbvPromotion.reloadData()
             }
+            
+
         }
     }
     func layoutView(view: UIView){
@@ -81,26 +102,32 @@ extension PromotionViewController: UITableViewDelegate {
 
 extension PromotionViewController:UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return promotionList?.count ?? 0 
-        
+//        return promotionList?.count ?? 0
+        return promotionList2?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PromotionVCTableViewCell", for: indexPath) as! PromotionVCTableViewCell
         cell.viewSeperator.isHidden = false
-        let promotion = promotionList?[indexPath.item]
-        cell.configViewsPromotionVc(promotion: promotion)
-        
-        if indexPath.item == (promotionList?.count ?? 0) - 1{
+//        let promotion = promotionList?[indexPath.item]
+//        cell.configViewsPromotionVc(promotion: promotion)
+//
+//        if indexPath.item == (promotionList?.count ?? 0) - 1{
+//            cell.viewSeperator.isHidden = true
+//        }
+
+        let promotion = promotionList2?[indexPath.item]
+        cell.configViewPromotionListVc(promotion: promotion)
+        if indexPath.item == (promotionList2?.count ?? 0) - 1{
             cell.viewSeperator.isHidden = true
-        }
+            }
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailsVC = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "DetailsViewController") as? DetailsViewController
         
-        detailsVC?.stringURL = self.promotionList?[indexPath.item].link ?? ""
-        
+//        detailsVC?.stringURL = self.promotionList?[indexPath.item].link ?? ""
+        detailsVC?.stringURL = self.promotionList2?[indexPath.item].link ?? ""
         self.navigationController?.pushViewController(detailsVC!, animated: true)
     }
 }

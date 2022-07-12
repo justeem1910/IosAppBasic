@@ -122,7 +122,6 @@ extension HomeViewController:UITableViewDataSource {
                     self.show(vc, sender: nil)
                 }
             ) { [weak self] indexItem in
-                //NOO: them weak self
                 guard let self = self else { return }
                 self.pushLinkToDetailsVC(link: self.newsModel?.promotionList?[indexItem].link ?? "")
                 

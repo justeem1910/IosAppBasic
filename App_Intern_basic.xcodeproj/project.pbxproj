@@ -83,6 +83,9 @@
 		DBB81AC2286C079B00D76125 /* PromotionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB81AC1286C079B00D76125 /* PromotionViewController.swift */; };
 		DBB81AC5286C497C00D76125 /* PromotionVCTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB81AC3286C497C00D76125 /* PromotionVCTableViewCell.swift */; };
 		DBB81AC6286C497C00D76125 /* PromotionVCTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBB81AC4286C497C00D76125 /* PromotionVCTableViewCell.xib */; };
+		DBD15F81287D21EB00431B65 /* DoctorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD15F80287D21EB00431B65 /* DoctorModel.swift */; };
+		DBD15F83287D25AA00431B65 /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD15F82287D25AA00431B65 /* NewsModel.swift */; };
+		DBD15F85287D25F700431B65 /* PromotionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD15F84287D25F700431B65 /* PromotionModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -165,6 +168,9 @@
 		DBB81AC1286C079B00D76125 /* PromotionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionViewController.swift; sourceTree = "<group>"; };
 		DBB81AC3286C497C00D76125 /* PromotionVCTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionVCTableViewCell.swift; sourceTree = "<group>"; };
 		DBB81AC4286C497C00D76125 /* PromotionVCTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PromotionVCTableViewCell.xib; sourceTree = "<group>"; };
+		DBD15F80287D21EB00431B65 /* DoctorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorModel.swift; sourceTree = "<group>"; };
+		DBD15F82287D25AA00431B65 /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
+		DBD15F84287D25F700431B65 /* PromotionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionModel.swift; sourceTree = "<group>"; };
 		E376F86C8872926D31FCDB94 /* Pods_App_Intern_basic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_App_Intern_basic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -436,6 +442,7 @@
 		DB787FC628698FD500CA2879 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DBD15F7F287D21D100431B65 /* ModelGetList */,
 				DB8DC05B28752C70007696B6 /* UserInfoVCModel */,
 				DB8725BD2872F97D009C79AA /* DoctorVCModel */,
 				DB8725AD28728B4B009C79AA /* NewsVCModel */,
@@ -560,6 +567,16 @@
 				DB787FBF2866CDE000CA2879 /* View.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		DBD15F7F287D21D100431B65 /* ModelGetList */ = {
+			isa = PBXGroup;
+			children = (
+				DBD15F80287D21EB00431B65 /* DoctorModel.swift */,
+				DBD15F82287D25AA00431B65 /* NewsModel.swift */,
+				DBD15F84287D25F700431B65 /* PromotionModel.swift */,
+			);
+			path = ModelGetList;
 			sourceTree = "<group>";
 		};
 		DBD77651285AEAB600DB0C0D /* Frameworks */ = {
@@ -743,8 +760,11 @@
 				DB787FD1286995F200CA2879 /* Ultilities.swift in Sources */,
 				DB1A3FC52865B9470088E25C /* NewsTableViewCell.swift in Sources */,
 				DB8DC06528773D1E007696B6 /* UICollectionview+Extensions.swift in Sources */,
+				DBD15F83287D25AA00431B65 /* NewsModel.swift in Sources */,
 				DB020492284DA41400834240 /* IntroViewController.swift in Sources */,
 				DB8725BF2872F98F009C79AA /* DoctorVCModel.swift in Sources */,
+				DBD15F81287D21EB00431B65 /* DoctorModel.swift in Sources */,
+				DBD15F85287D25F700431B65 /* PromotionModel.swift in Sources */,
 				DB0204CA2851948E00834240 /* PhoneViewController.swift in Sources */,
 				DB1A3FB6285F927B0088E25C /* CustomTextField.swift in Sources */,
 				DB1A3FC92865B9580088E25C /* DoctorTableViewCell.swift in Sources */,

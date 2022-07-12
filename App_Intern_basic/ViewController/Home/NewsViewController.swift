@@ -12,7 +12,8 @@ class NewsViewController: BaseViewController {
     @IBOutlet weak var btnBack:UIButton!
     @IBOutlet weak var tbvNews: UITableView!
     var newsList: [ArticleHomeModel]?
-
+     
+    var newsList2: [NewsModel]?
     
     lazy var refreshControl: UIRefreshControl = {
         let rfc = UIRefreshControl()
@@ -37,25 +38,48 @@ class NewsViewController: BaseViewController {
         
         loadNewFeed()
     }
+//    @objc func loadNewFeed() {
+//        self.showLoaderView()
+//
+//        APIUtilities.requestNewsVC { [weak self] newsFeed, error in
+//            guard let self = self else { return}
+//            self.dismissLoaderView()
+//            self.refreshControl.endRefreshing()
+//
+//            guard let newsFeed = newsFeed, error == nil else {
+//                return
+//            }
+//            self.newsList = newsFeed.newsList
+//
+//            DispatchQueue.main.async { [weak self] in
+//                guard let self = self else { return}
+//
+//                self.tbvNews.reloadData()
+//            }
+//        }
+//    }
+    //MARK: GET LIST API (CACH 2)
     @objc func loadNewFeed() {
         self.showLoaderView()
-        
-        APIUtilities.requestNewsVC { [weak self] newsFeed, error in
+        APIUtilities.requestListNewsVC { [weak self] newListFeed, error in
             guard let self = self else { return}
             self.dismissLoaderView()
             self.refreshControl.endRefreshing()
             
-            guard let newsFeed = newsFeed, error == nil else {
+            guard let newListFeed = newListFeed else {
                 return
             }
-            self.newsList = newsFeed.newsList
+            self.newsList2 = newListFeed
             
             DispatchQueue.main.async { [weak self] in
-                guard let self = self else { return}
-
+                guard let self = self else {return}
+                
                 self.tbvNews.reloadData()
             }
+
+            
         }
+        
     }
     
     
@@ -74,23 +98,35 @@ extension NewsViewController: UITableViewDelegate{
 
 extension NewsViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return newsList?.count ?? 0
+//        return newsList?.count ?? 0
+        return newsList2?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.item == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "NewsVCTableViewCell1", for: indexPath) as! NewsVCTableViewCell1
             cell.selectionStyle = .none
-            let news = newsList?[indexPath.item]
-            cell.configViewsNewsVc(news: news)
+//            let news = newsList?[indexPath.item]
+//            cell.configViewsNewsVc(news: news)
+            
+            let news = newsList2?[indexPath.item]
+            cell.configViewsListNewsVc(news: news)
             return cell
         }
         let cell = tableView.dequeueReusableCell(withIdentifier: "PromotionVCTableViewCell", for: indexPath) as! PromotionVCTableViewCell
         cell.viewSeperator.isHidden = false
-        let news = newsList?[indexPath.item]
-        cell.configViewsNewsVc(news: news)
         cell.selectionStyle = .none
-        if indexPath.item == (newsList?.count ?? 0) - 1{
+//        let news = newsList?[indexPath.item]
+//        cell.configViewsNewsVc(news: news)
+//
+//        if indexPath.item == (newsList?.count ?? 0) - 1{
+//            cell.viewSeperator.isHidden = true
+//        }
+        
+        let news = newsList2?[indexPath.item]
+        cell.configViewsNewsListVc(news: news)
+        
+        if indexPath.item == (newsList2?.count ?? 0) - 1 {
             cell.viewSeperator.isHidden = true
         }
         return cell
@@ -99,7 +135,8 @@ extension NewsViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailsVC = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "DetailsViewController") as? DetailsViewController
         
-        detailsVC?.stringURL = self.newsList?[indexPath.item].link ?? ""
+//        detailsVC?.stringURL = self.newsList?[indexPath.item].link ?? ""
+        detailsVC?.stringURL = self.newsList2?[indexPath.item].link ?? ""
         
         self.navigationController?.pushViewController(detailsVC!, animated: true)
     }

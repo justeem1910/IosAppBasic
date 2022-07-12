@@ -25,6 +25,16 @@ class NewsVCTableViewCell1: UITableViewCell {
         let time = "\(dateArr?[0] ?? "" ) tháng \(dateArr?[1] ?? ""), \(dateArr?[2] ?? "")"
         configViews(imageURLStr: imageURL, title: title, date: time)
     }
+    
+    //MARK: CONFIGVIEW GET LIST NEWS(CACH 2)
+    func configViewsListNewsVc(news: NewsModel?) {
+        let imageURL = news?.picture
+        let title = news?.title
+        let date = news?.created_at
+        let dateArr = date?.components(separatedBy: "/")
+        let time = "\(dateArr?[0] ?? "" ) tháng \(dateArr?[1] ?? ""), \(dateArr?[2] ?? "")"
+        configViews(imageURLStr: imageURL, title: title, date: time)
+    }
     private func configViews(imageURLStr: String?, title: String?, date: String?) {
         Ultilities.loadImage(img, strURL: imageURLStr ?? "", placeHolder: UIImage(named: ""))
         lblTitle.text = title ?? " "

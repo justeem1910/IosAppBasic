@@ -13,7 +13,7 @@ class DoctorViewController: BaseViewController {
     @IBOutlet weak var btnBack: UIButton!
     
     var doctorList     : [DoctorHomeModel]?
-    
+    var doctorList2 :[DoctorModel]?
     lazy var refreshControl: UIRefreshControl = {
         let rfc = UIRefreshControl()
         
@@ -32,28 +32,49 @@ class DoctorViewController: BaseViewController {
         loadNewFeed()
     
     }
+    //MARK: GET THEO GET OBJECT
+//    @objc func loadNewFeed() {
+//        self.showLoaderView()
+//        APIUtilities.requestDoctorVC { [weak self] doctorFeed, error in
+//            guard let self = self else { return}
+//            self.dismissLoaderView()
+//            self.refreshControl.endRefreshing()
+//
+//            guard let doctorFeed = doctorFeed, error == nil else {
+//                return
+//            }
+//
+//            self.doctorList = doctorFeed.doctorList
+//
+//            DispatchQueue.main.async { [weak self] in
+//                guard let self = self else { return}
+//
+//                self.tbvDoctor.reloadData()
+//            }
+//        }
+//
+//    }
     
+    //MARK: GET THEO GET LIST OBJECT
     @objc func loadNewFeed() {
         self.showLoaderView()
-        APIUtilities.requestDoctorVC { [weak self] doctorFeed, error in
+        APIUtilities.requestListDoctorVC { [weak self] doctorList, error in
             guard let self = self else { return}
             self.dismissLoaderView()
             self.refreshControl.endRefreshing()
-
-            guard let doctorFeed = doctorFeed, error == nil else {
+            guard let doctorList = doctorList, error == nil else {
                 return
             }
+            self.doctorList2 = doctorList
             
-            self.doctorList = doctorFeed.doctorList
-
             DispatchQueue.main.async { [weak self] in
                 guard let self = self else { return}
-
+            
                 self.tbvDoctor.reloadData()
             }
         }
-        
     }
+    
     
     @IBAction func btnBackAction(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
@@ -70,7 +91,8 @@ extension DoctorViewController:UITableViewDelegate {
 
 extension DoctorViewController:UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return doctorList?.count ?? 0
+//        return doctorList?.count ?? 0
+        return doctorList2?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -79,9 +101,11 @@ extension DoctorViewController:UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DoctorVCTableViewCell", for: indexPath) as! DoctorVCTableViewCell
-        let doctor = doctorList?[indexPath.section]
-        
-        cell.configViewsDoctor(doctorInfo: doctor)
+//        let doctor = doctorList?[indexPath.section]
+//
+//        cell.configViewsDoctor(doctorInfo: doctor)
+        let doctor = doctorList2?[indexPath.section]
+        cell.configViewsDoctor2(doctorInfo: doctor)
         return cell
     }
     

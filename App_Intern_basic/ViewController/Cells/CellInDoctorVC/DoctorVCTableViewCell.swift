@@ -26,6 +26,15 @@ class DoctorVCTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
     }
+    func configViewsDoctor2 (doctorInfo: DoctorModel?){
+        let imageURL = doctorInfo?.avatar
+        let name = doctorInfo?.full_name
+        let major = doctorInfo?.majors_name
+        let star = doctorInfo?.ratio_star
+        let numberOfReviews = doctorInfo?.number_of_reviews
+        
+        configViews(imageURLStr: imageURL, name: name, major: major, star: star, numberOfReviews: numberOfReviews)
+    }
     func configViewsDoctor(doctorInfo: DoctorHomeModel?) {
         let imageURL = doctorInfo?.avatar
         let name = doctorInfo?.full_name

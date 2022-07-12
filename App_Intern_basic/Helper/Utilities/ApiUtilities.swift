@@ -15,6 +15,7 @@ protocol JsonInitObject: NSObject {
 final class APIUtilities {
     static let domain = "https://gist.githubusercontent.com"
     static let responseDataKey = "data"
+    static let responseDataItem = "items"
     static let responseCodeKey = "code"
     static let responseMessageKey = "message"
     
@@ -27,7 +28,7 @@ final class APIUtilities {
         jsonResponseObject(tailStrURL: tailStrURL, method: .get, headers: [:], completionHandler: completionHandler)
     }
     
-    //MARK: GET API HOMEVC
+    //MARK: GET API DOCTORVC
     static func requestDoctorVC(completionHandler: ((DoctorVCModel?, APIError?) -> Void)?) {
         
         let tailStrURL = "/hdhuy179/9ac0a89969b46fb67bc7d1a8b94d180e/raw"
@@ -99,6 +100,7 @@ final class APIUtilities {
         }
     }
     
+    
     static private func jsonResponse(tailStrURL: String,
                                      isPublicAPI: Bool,
                                      method: HTTPMethod,
@@ -126,6 +128,62 @@ final class APIUtilities {
        
     }
     
+    //MARK: BASE 2 GET LIST OBJECT (CACH 2)
+    static private func jsonResponseListObject<T: JsonInitObject>(tailStrURL: String, method: HTTPMethod, headers: HTTPHeaders, completionHandler: (([T]?, APIError?) -> Void)?) {
+        
+        jsonResponse(tailStrURL: tailStrURL, isPublicAPI: false, method: method, headers: headers) { response, serverCode, serverMessage in
+            
+            switch response.result {
+            case .success(let value):
+                guard serverCode == 200 else {
+                    completionHandler?(nil, .serverError(serverCode, serverMessage))
+                    return
+                }
+                
+                guard let responseDict = value as? [String: Any],
+                      let dataDict = responseDict[responseDataKey] as? [String: Any],
+                      let dataItem = dataDict[responseDataItem] as? [[String:Any]] else {
+                          completionHandler?(nil, .resposeFormatError)
+                          return
+                      }
+                
+                var objList = [T]()
+                for item in dataItem {
+                    let obj = T(json: item)
+                    objList.append(obj)
+                }
+                
+                completionHandler?(objList, nil)
+                
+            case .failure(let error):
+                completionHandler?(nil, .unowned(error))
+            }
+        }
+    }
+    //MARK: GET LIST API DOCTOR
+    static func requestListDoctorVC(completionHandler: (([DoctorModel]?, APIError?) -> Void)?) {
+        
+        let tailStrURL = "/hdhuy179/9ac0a89969b46fb67bc7d1a8b94d180e/raw"
+        
+        jsonResponseListObject(tailStrURL: tailStrURL, method: .get, headers: [:], completionHandler: completionHandler)
+    }
+    
+    //MARK: GET LIST API NEWS
+    static func requestListNewsVC(completionHandler: (([NewsModel]?, APIError?) -> Void)?) {
+        
+        let tailStrURL = "/hdhuy179/84d1dfe96f2c0ab1ddea701df352a7a6/raw"
+        
+        jsonResponseListObject(tailStrURL: tailStrURL, method: .get, headers: [:], completionHandler: completionHandler)
+    }
+    
+    //MARK: GET LIST API PROMOTION
+    
+    static func requestListPromotionVC(completionHandler: (([PromotionModel]?, APIError?) -> Void)?) {
+        
+        let tailStrURL = "/hdhuy179/ef03ed850ad56f0136fe3c5916b3280b/raw/Training_Intern_BasicApp_Promotion"
+        
+        jsonResponseListObject(tailStrURL: tailStrURL, method: .get, headers: [:], completionHandler: completionHandler)
+    }
 }
 
 extension APIUtilities {
